@@ -1,0 +1,48 @@
+
+$(document).ready(function () {
+    $('#btnLogout').click(function (e) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You want to Logout",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes,logout!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: base_url('Login/logout'),
+                success: (response) => {
+                    window.location.href = 'http://127.0.0.1/IMS_Proplus/Login/login';
+                }
+            })
+        }
+    })
+})
+
+// (function () {
+//     var lastMove = Date.now();
+
+//     document.onmousemove = function () {
+//         lastMove = Date.now();
+//     }
+
+//     setInterval(function () {
+//         var diff = Date.now() - lastMove;
+//         if (diff > 600000) {
+//             $.ajax({
+//                 url: base_url('Login/logout'),
+//                 success: (response) => {
+//                         window.location.href = 'http://localhost/pm/Login/login';
+//                 }
+//             })
+//         }
+//     }, 600000);
+// }());
+
+
+
+})
+
+
