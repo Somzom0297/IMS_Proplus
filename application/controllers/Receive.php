@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class ManagePermision extends CI_Controller {
+class Receive extends CI_Controller {
 
 
 	private $another_css;
@@ -45,7 +45,7 @@ class ManagePermision extends CI_Controller {
         $this->parser->parse('bar/pagecontent', $this->data);
     }
 	
-	public function mngStock()
+	public function mngReceive()
 	{
 		
 		$this->another_js = "<script src='" . base_url() . "assets/js/mngPermisstion.js'></script>";
