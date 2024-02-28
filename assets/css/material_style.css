@@ -295,7 +295,7 @@ div:where(.swal2-container).swal2-center>.swal2-popup {
 } */
 .modal-backdrop.show{
     opacity:.5;
-    /* display: none !important; */
+    display: none !important;
 }
 .card{
     max-width: 100% !important;

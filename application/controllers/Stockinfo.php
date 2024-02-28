@@ -48,8 +48,8 @@ class Stockinfo extends CI_Controller {
 	public function mngStockinfo()
 	{
 		
-		$this->another_js = "<script src='" . base_url() . "assets/js/mngPermisstion.js'></script>";
-        $this->render_view('main/view_permission');
+		$this->another_js = "<script src='" . base_url() . "assets/js/stockinfo.js'></script>";
+        $this->render_view('main/view_stockinfo');
         
 	}
 

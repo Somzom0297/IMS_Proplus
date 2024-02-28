@@ -242,9 +242,9 @@ $(() => {
                             <td><i></i>${data[i].sa_email}</td>
                             <td><button class="btnStatus rounded-3 fw-semibold badge bg-${data[i].sa_status_flg == 1 ? 'success' : 'danger'} me-1" id="flgStatus" data-sa-id="${data[i].sa_id}" value="${data[i].sa_status_flg}">${data[i].sa_status_flg == 1 ? 'Enable' : 'Disable'}</button></td>
                             <td class="" style="">
-                                <a href="" class="tblEditBtn btn btn-warning " data-bs-toggle="modal" data-bs-target="#mdlEdit" id="btnEdit" data-id="${data[i].sa_id}">
+                                <button type="button" class="tblEditBtn btn btn-warning" data-bs-toggle="modal" data-bs-target="#mdlEdit" id="btnEdit" data-id="${data[i].sa_id}">
                                     <i class="bx bxs-edit"><div class="fas fa-edit"></div></i>
-                                </a>
+                                </button>
                             </td>
                         </tr>`;
                    

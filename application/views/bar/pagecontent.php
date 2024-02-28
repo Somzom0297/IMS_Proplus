@@ -10,22 +10,31 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dashboard</title>
 
-  <link rel="stylesheet" href="path/to/combined-and-minified.css">
+<!-- <link rel="stylesheet" href="path/to/combined-and-minified.css"> -->
 
 <!-- Other External Stylesheets -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com" /> -->
+<!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- DataTables CSS -->
 <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
 
 <!-- Custom Styles -->
-<link rel="shortcut icon" type="image/png" href="{base_url}src/assets/images/logos/propluslg.png" />
-<link rel="stylesheet" href="{base_url}src/assets/css/styles.min.css" />
-<link rel="shortcut icon" href="{base_url}src/assets/images/logos/propluslg.png"" />
+<link rel="stylesheet" href="{base_url}src/assets/css/styles.min.css">
 <link href="{base_url}assets/css/themify-icons/themify-icons.css" rel="stylesheet">
+
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/png" href="{base_url}src/assets/images/logos/propluslg.png" />
+
+<!-- Another Favicon (if needed) -->
+<link rel="shortcut icon" href="{base_url}src/assets/images/logos/propluslg.png" />
 
   <style>
 		.red-text{
@@ -38,7 +47,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <!-- END HEAD -->
 
 <body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white white-sidebar-color logo-indigo">
+	
 	<div class="page-wrapper">
+		
 		{header}
 		{slide_bar}
 
@@ -183,39 +194,37 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	
 	
 	<!-- bootstrap -->
-	<script src="<?php echo base_url() ?>/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-	<script src="<?php echo base_url() ?>/assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-	<script src="<?php echo base_url() ?>/assets/plugins/sparkline/jquery.sparkline.js"></script>
-	<script src="<?php echo base_url() ?>/assets/js/pages/sparkline/sparkline-data.js"></script>
-	<!-- Common js-->
-	
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script> 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" ></script>
-    
-	<!-- <script src="https://code.jquery.com/jquery-3.7.0.js" ></script>
-	<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js" ></script> -->
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="{base_url}src/assets/libs/jquery/dist/jquery.min.js"></script>
 
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" ></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" ></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-	<script src="{base_url}src/assets/libs/jquery/dist/jquery.min.js"></script>
-	<script src="{base_url}src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="{base_url}src/assets/js/sidebarmenu.js"></script>
-	<script src="{base_url}src/assets/js/app.min.js"></script>
-	<script src="{base_url}src/assets/libs/apexcharts/dist/apexcharts.min.js"></script> 
-	<script src="{base_url}src/assets/libs/simplebar/dist/simplebar.js"></script>
-	<script src="{base_url}src/assets/js/dashboard.js"></script>
-	<script src="{base_url}src/assets/js/login.js"></script>
-	<script src="{base_url}src/assets/js/logout.js"></script>
-	<script src="{base_url}assets/js/submanu.js"></script>
+<!-- Additional Libraries/Plugins -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{base_url}src/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="{base_url}src/assets/libs/simplebar/dist/simplebar.js"></script>
+
+<!-- Your Custom Scripts -->
+<script src="{base_url}src/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="{base_url}assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script src="{base_url}assets/plugins/sparkline/jquery.sparkline.js"></script>
+<script src="{base_url}assets/js/pages/sparkline/sparkline-data.js"></script>
+<script src="{base_url}src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{base_url}src/assets/js/sidebarmenu.js"></script>
+<script src="{base_url}src/assets/js/app.min.js"></script>
+<script src="{base_url}src/assets/js/dashboard.js"></script>
+<script src="{base_url}src/assets/js/login.js"></script>
+<script src="{base_url}src/assets/js/logout.js"></script>
+<script src="{base_url}assets/js/submanu.js"></script>
+<!-- <script src="{base_url}assets/js/mngAccount.js"></script> -->
 	
 	<!-- end js include path -->
 	
-	<script src="https://code.jquery.com/jquery-3.7.0.js" ></script>
-	<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js" ></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.7.0.js" ></script>
+	<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js" ></script>-->
 
 
 	{another_js}

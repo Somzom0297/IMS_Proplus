@@ -1,4 +1,27 @@
 <div class="container-fluid">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Open Modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Example Modal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>This is the content of the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 	<!--  Row 1 -->
 	<div>
 		<div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-5">
@@ -75,7 +98,7 @@
 
 
 		<!-- Modal Add-->
-		<div class="modal fade show" id="mdlAdd" tabindex="-1" aria-hidden="true">
+		<div class="modal fade" id="mdlAdd" tabindex="-1" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -149,7 +172,7 @@
 
 
 		<!-- Modal Edit-->
-		<div class="modal fade show" id="mdlEdit" tabindex="-1" aria-hidden="true">
+		<div class="modal fade" id="mdlEdit" tabindex="-1" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
