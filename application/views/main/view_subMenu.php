@@ -112,7 +112,7 @@
 
                             <!--Edit Modal -->
                             <!-- Modal -->
-                            <div class="modal fade" id="mdlEdit" tabindex="-1" aria-hidden="true">
+                            <div class="modal fade show" id="mdlEdit" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
