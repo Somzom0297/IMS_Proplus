@@ -208,7 +208,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <script src="{base_url}src/assets/libs/simplebar/dist/simplebar.js"></script>
 
 <!-- Your Custom Scripts -->
-<script src="{base_url}src/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="{base_url}assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="{base_url}assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 <script src="{base_url}assets/plugins/sparkline/jquery.sparkline.js"></script>
 <script src="{base_url}assets/js/pages/sparkline/sparkline-data.js"></script>

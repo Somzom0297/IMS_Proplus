@@ -338,7 +338,7 @@ $(() => {
     }
 
     //-------------------------- add Account ----------------------------------
-
+  
     $(document).ready(function () {
     $('#btnSaveAdd').on('click', function () {
         var arrDataAdd = [];

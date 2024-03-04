@@ -5,13 +5,13 @@
             <div class="card-body px-5 py-3">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Manage Permission</h4>
+                        <h4 class="fw-semibold mb-8">Stock Info</h4>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a class="text-muted text-decoration-none" href="<?php echo base_url('Dashboard/dashboard'); ?>">Home</a>
                                 </li>
-                                <li class=" breadcrumb-item" aria-current="page">Permision Group
+                                <li class=" breadcrumb-item" aria-current="page">Inventory
                                 </li>
                             </ol>
                         </nav>
@@ -28,19 +28,23 @@
         <div class="card">
             <div class="card-body">
                 <!-- start page container -->
-                <div class="row py-2">
-                    <div class="col-1 text-nowrap ">
-                        Permission Group
-                    </div>
-                    <div class="col ms-5">
-                        <select class="form-control selGroup" id="selGroup">
-                            <option value="">Choose Permission Group</option>
-                        </select>
-                    </div>
-                    <div class="col">
-                        <button type="button" class="btn btn-circle btn-primary" id="btnSerchMain">Search</button>
-                    </div>
-                </div>
+                        <div class="table-responsive text-nowrap">
+                        <div class="card-datatable table-responsive pt-0">
+                            <table class="table card-table" id="tblStockinfo">
+                            <thead>
+                                <tr>    
+                                    <th class="text-center">NO.</th>
+                                    <th class="text-center">BRAND</th>
+                                    <th class="text-center">PRODUCT ID</th>
+                                    <th class="text-center">MODEL</th>
+                                    <th class="text-center">DESCRIPTION</th>
+                                    <th class="text-center">REMAIN</th>
+                                    <th class="text-center">RESERVE</th>
+                                </tr>
+                                <tbody class="table-border-bottom-0 text-center" id="tbody">
+                                </tbody>
+                            </table>
+                        </div>
             </div>
         </div>
 

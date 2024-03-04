@@ -72,7 +72,7 @@ class Stockinfo extends CI_Controller {
     
     public function callApiShowData()
     {
-        $result = $this->curPostRequest('Manage_permis_detail/show_group', array('data' => serialize($_POST),'session' => serialize($this->session->userdata('userName'))));
+        $result = $this->curPostRequest('Inv_stockinfo/showStockinfoTable', array('data' => serialize($_POST),'session' => serialize($this->session->userdata('userName'))));
         echo json_encode($result);
 
     }
