@@ -17,8 +17,8 @@ $(document).ready(function() {
                     <td>${item.mpc_name}</td>
                     <td>${item.mpc_model}</td>
                     <td>${item.description}</td>
-                    <td>${item.Qty}</td>
-                    <td>${item.iir_reserve_qty}</td>
+                    <td>${item.Qty-(item.Total == null ? 0 : item.Total)}</td>
+                    <td>${(item.Total == null ? 0 : item.Total)}</td> 
                 </tr>`;
                 $('tbody').append(row);
     });
