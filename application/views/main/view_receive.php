@@ -2,10 +2,10 @@
     <!--  Row 1 -->
     <div>
         <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-5">
-            <div class="card-body px-5 py-3">
+            <div class="card-body pb-0 pt-3">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Stock Info</h4>
+                        <h4 class="fw-semibold mb-8"><i class="ti-file"></i> Goods Receive</h4>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
@@ -16,32 +16,57 @@
                             </ol>
                         </nav>
                     </div>
-                    <div class="col-3">
-                        <div class="text-center mb-n5">
-                            <!-- <img src="../assets/images/breadcrumb/ChatBc.png" alt="" class="img-fluid mb-n4" /> -->
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
+        <div class="form-group row mb-3">
+            <div class="col-lg-12 mb-4">
+                <button type="button" class="btn btn-circle btn-success" style="background-color: #15CEA2!important;float:right" id="btnCreate"><i class="ti-plus"></i> <b>Create new</b></button>
+            </div>
 
-        <div class="card">
+
+            <div class="col-lg-3">
+                <button type="button" class="btn btn-circle btn-light " id="btnPrint"><i class="ti-printer"></i> Print</button>
+                <button type="button" class="btn btn-circle btn-danger" id="btnpdf"><i class="ti-file"></i> PDF</button>
+            </div>
+
+            <div class="col-lg-5">
+
+            </div>
+
+            <div class="col-lg-2">
+
+                <label for="" class="form-label">Select Year</label>
+                <select id="yearSelect" class="form-control" placeholder="Select Year">
+                </select>
+            </div>
+
+            <div class="col-lg-2">
+
+                <label for="" class="form-label">Select Month</label>
+                <select id="monthSelect" class="form-control" placeholder="Select Month">
+                </select>
+            </div>
+
+        </div>
+        <div class="card border">
             <div class="card-body">
                 <!-- start page container -->
                 <div class="table-responsive text-nowrap">
                     <div class="card-datatable table-responsive pt-0">
-                        <table class="table card-table border" id="tblStockinfo">
+                        <table class="table card-table border" style="width:100%" id="tblStockRecive">
                             <thead>
                                 <tr>
                                     <th class="text-center">NO.</th>
-                                    <th class="text-center">BRAND</th>
-                                    <th class="text-center">PRODUCT ID</th>
-                                    <th class="text-center">MODEL</th>
-                                    <th class="text-center">DESCRIPTION</th>
-                                    <th class="text-center">REMAIN</th>
-                                    <th class="text-center">RESERVE</th>
+                                    <th class="text-center">Doc No.</th>
+                                    <th class="text-center">DATE</th>
+                                    <th class="text-center">INV No.</th>
+                                    <th class="text-center">PO NO</th>
+                                    <th class="text-center">Total</th>
+                                    <th class="text-center">Action</th>
                                 </tr>
-                            <tbody class="table-border-bottom-0 text-center" id="tbody">
+                            <tbody class="table-border-bottom-0 text-center">
                             </tbody>
                         </table>
                     </div>
@@ -104,6 +129,7 @@
                                                             <th class="text-center">Update By</th>
                                                             <th class="text-center">Stasus</th>
                                                             <th class="text-center">Action</th>
+                                                            <th class="text-center">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody class="table-border-bottom-0 text-center" id="tbody">
@@ -157,6 +183,93 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl" style="width:1200px" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel1"><i class="ti-pencil-alt mr-3"></i> Receive Details</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row mb-2">
+                        <div class="col-lg-12">
+                           <button type="button" class="btn btn-circle btn-success float-end" id="btnDownload">Download</button>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <div class="col-lg-3">
+                            <label for="edtMainMenu" class="form-label">Document Number</label>
+                            <input type="text" id="edtMainMenu" class="form-control" placeholder="Enter Main Menu">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <div class="col-lg-3">
+                            <label for="edtMainIcon" class="form-label">Create Date</label>
+                            <input type="text" id="edtMainIcon" class="form-control" placeholder="Enter Main Menu Icon">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <div class="col-lg-3">
+                            <label for="edtOrderNo" class="form-label">Invoice Number</label>
+                            <input type="text" id="edtOrderNo" class="form-control" placeholder="Enter Order No.">
+                        </div>
+                        <div class="col-lg-3">
+                            <label for="edtOrderNo" class="form-label">PO Number</label>
+                            <input type="text" id="edtOrderNo" class="form-control" placeholder="Enter Order No.">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <div class="col-lg-3">
+                            <label for="edtOrderNo" class="form-label">Date</label>
+                            <input type="Date" id="edtOrderNo" class="form-control" placeholder="Enter Order No.">
+                        </div>
+                        <div class="col-lg-3">
+                            <label for="edtOrderNo" class="form-label">Date</label>
+                            <input type="Date" id="edtOrderNo" class="form-control" placeholder="Enter Order No.">
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <div class="col-lg-6">
+                            <label for="edtOrderNo" class="form-label">Supplier Name </label>
+                            <input type="text" id="edtOrderNo" class="form-control" placeholder="Enter Order No.">
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="form-group row mb-2">
+                        <div class="col-lg-12">
+                            <div class="table-responsive text-nowrap">
+                                <div class="card-datatable table-responsive pt-0">
+                                    <table class="table card-table border" style="width:100%" id="tblStockRecive">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">NO.</th>
+                                                <th class="text-center">BRAND</th>
+                                                <th class="text-center">PRODUCT</th>
+                                                <th class="text-center">MODEL</th>
+                                                <th class="text-center">DESCRIPTION</th>
+                                                <th class="text-center">QTY</th>
+                                                <th class="text-center">PRICE</th>
+                                                <th class="text-center">AMOUNT</th>
+                                                <th class="text-center">ACTION</th>
+                                            </tr>
+                                        <tbody class="table-border-bottom-0 text-center">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btnSaveEdit">Save changes</button>
                 </div>
             </div>
         </div>

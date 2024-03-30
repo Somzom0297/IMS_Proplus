@@ -219,6 +219,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <script src="{base_url}src/assets/js/login.js"></script>
 <script src="{base_url}src/assets/js/logout.js"></script>
 <script src="{base_url}assets/js/submanu.js"></script>
+
 <!-- <script src="{base_url}assets/js/mngAccount.js"></script> -->
 	
 	<!-- end js include path -->

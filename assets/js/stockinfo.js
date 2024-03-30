@@ -16,8 +16,8 @@ $(document).ready(function() {
                     <td>${item.mb_name}</td>
                     <td>${item.mpc_name}</td>
                     <td>${item.mpc_model}</td>
-                    <td>${item.description}</td>
-                    <td>${item.Qty-(item.Total == null ? 0 : item.Total)}</td>
+                    <td>${item.isd_description}</td>
+                    <td>${item.isd_qty-(item.Total == null ? 0 : item.Total)}</td>
                     <td>${(item.Total == null ? 0 : item.Total)}</td> 
                 </tr>`;
                 $('tbody').append(row);

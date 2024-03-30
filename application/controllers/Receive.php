@@ -48,8 +48,8 @@ class Receive extends CI_Controller {
 	public function mngReceive()
 	{
 		
-		$this->another_js = "<script src='" . base_url() . "assets/js/mngPermisstion.js'></script>";
-        $this->render_view('main/view_permission');
+		$this->another_js = "<script src='" . base_url() . "assets/js/receiveInfo.js'></script>";
+        $this->render_view('main/view_receive');
         
 	}
 
@@ -72,38 +72,12 @@ class Receive extends CI_Controller {
     
     public function callApiShowData()
     {
-        $result = $this->curPostRequest('Manage_permis_detail/show_group', array('data' => serialize($_POST),'session' => serialize($this->session->userdata('userName'))));
+        $result = $this->curPostRequest('Receive/getReceiveInfo', array('data' => serialize($_POST),'session' => serialize($this->session->userdata('userName'))));
         echo json_encode($result);
 
     }
 
-    public function callApiShowTable()
-    {
-        $result = $this->curPostRequest('Manage_permis_detail/show_tb', array('data' => serialize($_POST),'session' => serialize($this->session->userdata('userName'))));
-        echo json_encode($result);
 
-    }
-
-    public function callApiUpdateStatus()
-    {
-        $result = $this->curPostRequest('Manage_permis_detail/update_flg', array('data' => serialize($_POST) ,'session' =>serialize( $this->session->userdata('userName'))));
-        echo json_encode($result);
-
-    }
-    public function callApiShowdrop_main()
-    {
-        $result = $this->curPostRequest('Manage_permis_detail/drop_main', array('data' => serialize($_POST) ,'session' =>serialize( $this->session->userdata('userName'))));
-        echo json_encode($result);
-
-    }
-
-    public function callApiAddPermiss()
-    {
-        $result = $this->curPostRequest('Manage_permis_detail/insert_permiss', array('data' => serialize($_POST) ,'session' =>serialize( $this->session->userdata('userName'))));
-        echo json_encode($result);
-
-    }
-    
     
     function curPostRequest($enpoint, $param_data, $is_array = true, $associative = false){
         /* Endpoint */
