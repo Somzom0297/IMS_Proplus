@@ -4,21 +4,21 @@ $(document).ready(function() {
     function TableReceive() {
         var year = $('#yearSelect').val();
         var month = $('#monthSelect').val();
-        
+    
         $.ajax({
             url: API_URL + "Receive/getReceiveInfo",
             type: 'POST',
             dataType: 'json',
-            data:{
+            data: {
                 year: year,
                 month: month
             }
         })
         .done(function(data) {
             console.log(data); // Use console.log for better debugging
-            
+    
             // Clear existing table rows
-            $('tbody').empty();
+            $('#tblStockRecive tbody').empty();
     
             // Populate table with new data
             var table = $('#tblStockRecive').DataTable({
@@ -33,8 +33,8 @@ $(document).ready(function() {
                     { data: 'isd_inv_no' },
                     { data: 'isd_po_number' },
                     { data: 'total' },
-                    { data: 'isd_id', render: function(data) {
-                        return '<a href="#" class="btn btn-secondary float-center" data-id="' + data + '" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i> Details</a>';
+                    { data: 'isd_inv_no', render: function(data) {
+                        return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlReceiveDetail" data-id="' + data + '" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i> Details</a>';
                     }}
                 ],
                 scrollX: true
@@ -44,6 +44,52 @@ $(document).ready(function() {
             var errorMessage = `${status}: ${error}`;
             console.log('Error:', errorMessage);
         });
+    }
+    
+    // Event delegation for dynamically created elements
+    $('#tblStockRecive').on('click', '.mdlReceiveDetail', function () {
+        // var inv = $(this).data('id');
+        // Alert the value of 'inv'
+        alert(inv);
+        // Call the function 'showReceiveDetail' with 'inv' as an argument
+        // showReceiveDetail(inv);
+    });
+    function showReceiveDetail(inv) {
+        alert();
+        $.ajax({
+            url: API_URL + "Receive/getReceiveDetail",
+            type: 'POST',
+            dataType: 'json',
+            data:{
+                inv: inv
+            }
+        })
+        .done(function(data) {
+            console.log(data); // Use console.log for better debugging
+            
+            // Clear existing table rows
+            $('tbody').empty();
+            // Populate table with new data
+            var table = $('#tblReceiveDetail').DataTable({
+                data: data,
+                destroy: true,
+                columns: [
+                    { data: null, render: function(data, type, row, meta) {
+                        return meta.row + meta.settings._iDisplayStart + 1;
+                    }},
+                    { data: 'mb_name' },
+                    { data: 'mpc_name' },
+                    { data: 'mpc_model' },
+                    { data: 'isd_description' },
+                    { data: 'isd_qty' },
+                    { data: 'isd_price_unit' },
+                    { data: 'isd_inv_no', render: function(data) {
+                        return '<a href="#" class="btn btn-secondary float-center mdlReceiveDetail" data-id="' + data + '" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i> Details</a>';
+                    }}
+                ],
+                scrollX: true
+            })
+        })
     }
     function showYear() {
         var yearSelect = $("#yearSelect");

@@ -197,7 +197,7 @@
                 <div class="modal-body">
                     <div class="form-group row mb-2">
                         <div class="col-lg-12">
-                           <button type="button" class="btn btn-circle btn-success float-end" id="btnDownload">Download</button>
+                           <button type="button" class="btn btn-circle btn-secondary float-end" id="btnDownload">Download</button>
                         </div>
                     </div>
                     <div class="form-group row mb-2">
@@ -239,12 +239,21 @@
                         </div>
 
                     </div>
-                    <hr>
+                    <div class="form-group row mb-2">
+                        <div class="col-lg-2">
+                            <button type="button" class="btn btn-circle btn-success" id="btnDownload"><i class="ti-plus"></i>Add</button>
+                        </div>
+                        <div class="col-lg-10">
+                            <button type="button" class="btn btn-circle btn-danger float-end" id="btnDownload"><i class="ti-file"></i> PDF</button>
+                            <button type="button" class="btn btn-circle btn-light float-end me-2" id="btnDownload"><i class="ti-printer"></i> Print</button>
+                        </div>
+                      
+                    </div>
                     <div class="form-group row mb-2">
                         <div class="col-lg-12">
                             <div class="table-responsive text-nowrap">
                                 <div class="card-datatable table-responsive pt-0">
-                                    <table class="table card-table border" style="width:100%" id="tblStockRecive">
+                                    <table class="table card-table border" style="width:100%" id="tblStockReciveDetail">
                                         <thead>
                                             <tr>
                                                 <th class="text-center">NO.</th>
@@ -254,7 +263,6 @@
                                                 <th class="text-center">DESCRIPTION</th>
                                                 <th class="text-center">QTY</th>
                                                 <th class="text-center">PRICE</th>
-                                                <th class="text-center">AMOUNT</th>
                                                 <th class="text-center">ACTION</th>
                                             </tr>
                                         <tbody class="table-border-bottom-0 text-center">
