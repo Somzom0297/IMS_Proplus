@@ -46,50 +46,54 @@ $(document).ready(function() {
         });
     }
     
-    // Event delegation for dynamically created elements
+    // Event delegation for dynamically created elements$('#tblStockRecive').on('click', '.mdlReceiveDetail', function () {
+    // Retrieve the data-id attribute of the clicked element
     $('#tblStockRecive').on('click', '.mdlReceiveDetail', function () {
-        // var inv = $(this).data('id');
+        // Retrieve the data-id attribute of the clicked element
+        var inv = $(this).data('id');
         // Alert the value of 'inv'
-        alert(inv);
-        // Call the function 'showReceiveDetail' with 'inv' as an argument
-        // showReceiveDetail(inv);
+        showReceiveDetail(inv);
     });
-    function showReceiveDetail(inv) {
-        alert();
+    function showReceiveDetail(invoiceNumber) {
         $.ajax({
             url: API_URL + "Receive/getReceiveDetail",
             type: 'POST',
             dataType: 'json',
-            data:{
-                inv: inv
+            data: {
+                inv: invoiceNumber
             }
         })
         .done(function(data) {
-            console.log(data); // Use console.log for better debugging
-            
-            // Clear existing table rows
-            $('tbody').empty();
-            // Populate table with new data
-            var table = $('#tblReceiveDetail').DataTable({
+            console.log(data)
+            $('#docNumber').val(data[0].isd_doc_number);
+            $('#invDate').val(data[0].isd_inv_date);
+            $('#invNumber').val(data[0].isd_inv_no);
+            $('#poNumber').val(data[0].isd_po_number);
+
+            $('#tblReceiveDetail tbody').empty();
+            $('#tblReceiveDetail').DataTable({
                 data: data,
                 destroy: true,
                 columns: [
-                    { data: null, render: function(data, type, row, meta) {
-                        return meta.row + meta.settings._iDisplayStart + 1;
-                    }},
+                    { data: null, render: (data, type, row, meta) => meta.row + meta.settings._iDisplayStart + 1 },
                     { data: 'mb_name' },
                     { data: 'mpc_name' },
                     { data: 'mpc_model' },
                     { data: 'isd_description' },
                     { data: 'isd_qty' },
                     { data: 'isd_price_unit' },
-                    { data: 'isd_inv_no', render: function(data) {
-                        return '<a href="#" class="btn btn-secondary float-center mdlReceiveDetail" data-id="' + data + '" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i> Details</a>';
-                    }}
+                    {
+                        data: 'isd_inv_no',
+                        render: data =>
+                            `
+                                <a href="#" class="btn btn-secondary mdlReceiveDetail me-2" data-id="${data}" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i></a>
+                                <a href="#" class="btn btn-danger mdlOtherButton" data-id="${data}"><i class="ti-trash"></i></a>
+                            `
+                    }
                 ],
-                scrollX: true
-            })
-        })
+                // scrollX: true
+            });
+        });
     }
     function showYear() {
         var yearSelect = $("#yearSelect");

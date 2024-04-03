@@ -191,55 +191,54 @@
         <div class="modal-dialog modal-xl" style="width:1200px" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="exampleModalLabel1"><i class="ti-pencil-alt mr-3"></i> Receive Details</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h3 class="modal-title" style="padding: 0px 10px;margin: 10px 0px;font-weight: 600;"><i class="ti-pencil-alt mr-3"></i> Receive Details</h3>
+                    <button type="button" class="btn-close me-2 mb-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="form-group row mb-2">
-                        <div class="col-lg-12">
+                    <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
+                        <div class="col-lg-12 mb-3">
+                            <label class="col-form-label">
+                                <h5 style="font-weight: 600;"><i class="ti-file" style="padding-right: 7px;"></i>Form input location stock</h5>
+                            </label>
+                        
                            <button type="button" class="btn btn-circle btn-secondary float-end" id="btnDownload">Download</button>
                         </div>
-                    </div>
-                    <div class="form-group row mb-2">
+                        
                         <div class="col-lg-3">
                             <label for="edtMainMenu" class="form-label">Document Number</label>
-                            <input type="text" id="edtMainMenu" class="form-control" placeholder="Enter Main Menu">
+                            <input type="text" id="docNumber" class="form-control">
                         </div>
-                    </div>
-                    <div class="form-group row mb-2">
-                        <div class="col-lg-3">
-                            <label for="edtMainIcon" class="form-label">Create Date</label>
-                            <input type="text" id="edtMainIcon" class="form-control" placeholder="Enter Main Menu Icon">
-                        </div>
-                    </div>
-                    <div class="form-group row mb-2">
                         <div class="col-lg-3">
                             <label for="edtOrderNo" class="form-label">Invoice Number</label>
-                            <input type="text" id="edtOrderNo" class="form-control" placeholder="Enter Order No.">
-                        </div>
-                        <div class="col-lg-3">
-                            <label for="edtOrderNo" class="form-label">PO Number</label>
-                            <input type="text" id="edtOrderNo" class="form-control" placeholder="Enter Order No.">
-                        </div>
-                    </div>
-                    <div class="form-group row mb-2">
-                        <div class="col-lg-3">
-                            <label for="edtOrderNo" class="form-label">Date</label>
-                            <input type="Date" id="edtOrderNo" class="form-control" placeholder="Enter Order No.">
-                        </div>
-                        <div class="col-lg-3">
-                            <label for="edtOrderNo" class="form-label">Date</label>
-                            <input type="Date" id="edtOrderNo" class="form-control" placeholder="Enter Order No.">
-                        </div>
-                    </div>
-                    <div class="form-group row mb-2">
-                        <div class="col-lg-6">
-                            <label for="edtOrderNo" class="form-label">Supplier Name </label>
-                            <input type="text" id="edtOrderNo" class="form-control" placeholder="Enter Order No.">
+                            <input type="text" id="invNumber" class="form-control">
                         </div>
 
+                        <div class="col-lg-3">
+                            <label for="edtOrderNo" class="form-label">PO Number</label>
+                            <input type="text" id="poNumber" class="form-control">
+                        </div>
+                        <div class="col-lg-3">
+                            <label for="edtMainIcon" class="form-label">Create Date</label>
+                            <input type="text" id="invDate" class="form-control">
+                        </div>
                     </div>
-                    <div class="form-group row mb-2">
+                    
+                    <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
+                        <div class="col-lg-3">
+                            <label for="edtOrderNo" class="form-label">Date</label>
+                            <input type="Date" id="edtOrderNo" class="form-control">
+                        </div>
+                        <div class="col-lg-3">
+                            <label for="edtOrderNo" class="form-label">Date</label>
+                            <input type="Date" id="edtOrderNo" class="form-control">
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="edtOrderNo" class="form-label">Supplier Name </label>
+                            <input type="text" id="edtOrderNo" class="form-control">
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                         <div class="col-lg-2">
                             <button type="button" class="btn btn-circle btn-success" id="btnDownload"><i class="ti-plus"></i>Add</button>
                         </div>
@@ -247,13 +246,12 @@
                             <button type="button" class="btn btn-circle btn-danger float-end" id="btnDownload"><i class="ti-file"></i> PDF</button>
                             <button type="button" class="btn btn-circle btn-light float-end me-2" id="btnDownload"><i class="ti-printer"></i> Print</button>
                         </div>
-                      
+                        
                     </div>
-                    <div class="form-group row mb-2">
-                        <div class="col-lg-12">
-                            <div class="table-responsive text-nowrap">
+                        <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
+                        <div class="table-responsive text-nowrap">
                                 <div class="card-datatable table-responsive pt-0">
-                                    <table class="table card-table border" style="width:100%" id="tblStockReciveDetail">
+                                    <table class="table card-table border" style="width:100%" id="tblReceiveDetail">
                                         <thead>
                                             <tr>
                                                 <th class="text-center">NO.</th>
@@ -272,9 +270,7 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" id="btnSaveEdit">Save changes</button>
