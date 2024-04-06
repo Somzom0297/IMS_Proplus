@@ -52,6 +52,13 @@ class Receive extends CI_Controller {
         $this->render_view('main/view_receive');
         
 	}
+	public function createReceive()
+	{
+		
+		$this->another_js = "<script src='" . base_url() . "assets/js/createReceive.js'></script>";
+        $this->render_view('main/view_createReceive');
+        
+	}
 
 	
     public function callApi()

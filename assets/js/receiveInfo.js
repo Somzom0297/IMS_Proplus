@@ -16,10 +16,10 @@ $(document).ready(function() {
         })
         .done(function(data) {
             console.log(data); // Use console.log for better debugging
-    
+
             // Clear existing table rows
             $('#tblStockRecive tbody').empty();
-    
+
             // Populate table with new data
             var table = $('#tblStockRecive').DataTable({
                 data: data,
@@ -46,14 +46,11 @@ $(document).ready(function() {
         });
     }
     
-    // Event delegation for dynamically created elements$('#tblStockRecive').on('click', '.mdlReceiveDetail', function () {
-    // Retrieve the data-id attribute of the clicked element
     $('#tblStockRecive').on('click', '.mdlReceiveDetail', function () {
-        // Retrieve the data-id attribute of the clicked element
         var inv = $(this).data('id');
-        // Alert the value of 'inv'
         showReceiveDetail(inv);
     });
+
     function showReceiveDetail(invoiceNumber) {
         $.ajax({
             url: API_URL + "Receive/getReceiveDetail",
@@ -95,36 +92,57 @@ $(document).ready(function() {
             });
         });
     }
+
     function showYear() {
+
         var yearSelect = $("#yearSelect");
         var monthSelect = $("#monthSelect");
 
-        // Get the current year and month
         var currentYear = new Date().getFullYear();
-        var currentMonth = new Date().getMonth() + 1; // January is 0
+        // var currentMonth = new Date().getMonth() + 1;
 
-        // Populate years
         for (var year = currentYear; year >= 1900; year--) {
             yearSelect.append($("<option></option>").attr("value", year).text(year));
         }
 
-        // Populate months
+        var selectAllOption = $("<option></option>").attr("value", "all").text("All").prop("selected", true);
+        monthSelect.prepend(selectAllOption);
+
         for (var month = 1; month <= 12; month++) {
             var monthName = new Date(2000, month - 1, 1).toLocaleString('default', { month: 'long' });
             monthSelect.append($("<option></option>").attr("value", month).text(monthName));
         }
 
-        // Set current year and month as selected
         yearSelect.val(currentYear);
-        monthSelect.val(currentMonth);
+        // monthSelect.val(currentMonth);
 
-        
         $('#monthSelect, #yearSelect').on('change', function() {
             TableReceive();
         });
 
-        // Trigger change events
-
     }
 
+    $('#btnSaveReceive').on('click', function() {
+        // Serialize form data
+        var formData = new FormData($('#RegisterReceive')[0]);
+        console.log(formData);
+        // Perform AJAX request
+        $.ajax({
+            url: API_URL + "Receive/getReceiveInfo",
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                // Handle success response
+                alert("success")
+                // Optionally, do something with the response
+            },
+            error: function(xhr, status, error) {
+                // Handle error
+                console.log('Error:', error);
+                // Optionally, display error message to the user
+            }
+        });
+    });
   });
