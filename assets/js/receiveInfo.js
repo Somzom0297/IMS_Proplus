@@ -145,4 +145,19 @@ $(document).ready(function() {
             }
         });
     });
+
+    $('#btnAddProduct').on('click', function() {
+        $.ajax({
+            url: API_URL + "Receive/getReceiveEdit",
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                alert(response);
+            },
+            error: function(xhr, status, error) {
+                console.log('Error:', error);
+            }
+        });
+    });
   });
