@@ -17,6 +17,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <!-- Font Awesome CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -194,16 +195,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	
 	
 	<!-- bootstrap -->
-<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="{base_url}src/assets/libs/jquery/dist/jquery.min.js"></script>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- Select2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <!-- Additional Libraries/Plugins -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="{base_url}src/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 <script src="{base_url}src/assets/libs/simplebar/dist/simplebar.js"></script>
 
@@ -212,7 +215,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <script src="{base_url}assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 <script src="{base_url}assets/plugins/sparkline/jquery.sparkline.js"></script>
 <script src="{base_url}assets/js/pages/sparkline/sparkline-data.js"></script>
-<script src="{base_url}src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{base_url}src/assets/js/sidebarmenu.js"></script>
 <script src="{base_url}src/assets/js/app.min.js"></script>
 <script src="{base_url}src/assets/js/dashboard.js"></script>
