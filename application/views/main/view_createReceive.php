@@ -106,8 +106,14 @@
                                 </label>
                             </div>
                             <div class="col-lg-3">
-                                <label for="edtMainMenu" class="form-label">Product ID</label>
+                                <label for="edtMainMenu" class="form-label">Product Number</label>
                                 <Select id="selAddProductId" class="form-control">
+                                    <option value="">Select</option>
+                                </Select>
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtMainMenu" class="form-label">Index Number</label>
+                                <Select id="selAddIndexNo" class="form-control">
                                     <option value="">Select</option>
                                 </Select>
                             </div>
