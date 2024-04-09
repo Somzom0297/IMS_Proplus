@@ -1,49 +1,49 @@
 $(document).ready(function() {
+    // initializeDataTable();
+    function initializeDataTable() {
+        var doc_id = $('#inpAddDoc').val();
+        // var doc_id = 'doc';
+        $.ajax({
+            url: API_URL + "Receive/ListProductDetail",
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                doc_id: doc_id
+                
+            }
+        })
+        .done(function(data) {
+            console.log(data); // Use console.log for better debugging
 
+            // Clear existing table rows
+            // $('#tblStockRecive tbody').empty();
+
+            // Populate table with new data
+            var table = $('#tblProductDetail').DataTable({
+                data: data,
+                destroy: true,
+                columns: [
+                    { data: null, render: function(data, type, row, meta) {
+                        return meta.row + meta.settings._iDisplayStart + 1;
+                    }},
+                    { data: 'mb_name' },
+                    { data: 'mpc_name' },
+                    { data: 'mpc_model' },
+                    { data: 'mpc_discription' },
+                    { data: 'isd_qty' },
+                    { data: 'isd_price_unit' }
+
+                ],
+            });
+
+        })
+    }
     selProductCode();
     selIndexBox();
     selBrand();
 
-    $('#addRowBtn').click(function() {
-
-        var newRow = `
-            <tr>
-                <td>
-                    <select class="form-select" name="selProductCode">
-                        <option value="">- Product Code -</option>
-                    </select>
-                </td>
-                <td>
-                    <select class="form-select" name="selIndexBox">
-                        <option value="">- Index -</option>
-                    </select>
-                </td>
-                <td>
-                    <select class="form-select" name="selBrand">
-                        <option value="">- Brand -</option>
-                    </select>
-                </td>
-                <td><input type="text" class="form-control" name="inpModel" placeholder="Model"></td>
-                <td><input type="text" class="form-control" name="inpDiscription" placeholder="Description"></td>
-                <td><input type="text" class="form-control" name="inpQty" placeholder="Qty"></td>
-                <td><input type="text" class="form-control" name="inpPriceU" placeholder="Price/Unit"></td>
-                <td><input type="text" class="form-control" name="inpAmount" placeholder="Amount"></td>
-            </tr>
-        `;
-        $('#tableBody').append(newRow);
-        // Initialize Select2 for the newly added select elements
-        $('select.form-select').select2({
-            width: '100%', // Adjust the width as needed
-            placeholder: 'Select an option', // Placeholder text
-            allowClear: true // Enable to clear selection
-        });
-        selProductCode();
-        selIndexBox();
-        selBrand();
-    });
-
-    $('#selProductCode').on('change',function(){
-        var product_id = $('#selProductCode').val();
+    $('#selAddProductCode').on('change',function(){
+        var product_id = $('#selAddProductCode').val();
         // alert(product_id)
         $.ajax({
             url: API_URL + "Receive/getModelById",
@@ -55,25 +55,20 @@ $(document).ready(function() {
         })
         .done(function(data) {
         //    alert(data[0].mpc_model)
-           $('#inpModel').val(data[0].mpc_model)
-           $('#inpDiscription').val(data[0].mpc_discription)
+           $('#selAddModel').val(data[0].mpc_model)
+           $('#inpAddDiscription').val(data[0].mpc_discription)
            
         })
     })
 
-    $('#inpPriceU').keyup(function(){
-        var qty = parseFloat($('#inpQty').val());
-        var price = parseFloat($('#inpPriceU').val());
+    $('#inpAddPriceUnit').keyup(function(){
+        var qty = parseFloat($('#inpAddQaulity').val());
+        var price = parseFloat($('#inpAddPriceUnit').val());
         var amount = qty * price;
-        $('#inpAmount').val(amount.toFixed(2)); // Format to two decimal places
+        $('#inpAddAmount').val(amount.toFixed(2)); // Format to two decimal places
     })
 
     function selProductCode(){
-        $('#selProductCode').select2({
-            width: '100%', // Adjust the width as needed
-            allowClear: true // Enable to clear selection
-        });
-  
         $.ajax({
             url: API_URL + "Receive/getSelProductCode",
             type: 'POST',
@@ -82,16 +77,10 @@ $(document).ready(function() {
         .done(function(data) {
             console.log(data); // Use console.log for better debugging
             // Clear existing table rows
-            $('#selProductCode').empty();
-            $('#selProductCode').append($('<option>', {
-                value: 'select',
-                text: '- Product -',
-                disabled: true,
-                selected: true  
-            }));
+            $('#selAddProductCode').empty();
             // Append new options from data received
             $.each(data, function(index, item) {
-                $('#selProductCode').append($('<option>', {
+                $('#selAddProductCode').append($('<option>', {
                     value: item.mpc_id,
                     text: item.mpc_name
                 }));
@@ -104,10 +93,6 @@ $(document).ready(function() {
     }
 
     function selIndexBox(){
-        $('#selIndexBox').select2({
-            width: '100%', // Adjust the width as needed
-            allowClear: true // Enable to clear selection
-        });
 
         $.ajax({
             url: API_URL + "Receive/getSelIndexBox",
@@ -117,16 +102,10 @@ $(document).ready(function() {
         .done(function(data) {
             console.log(data); // Use console.log for better debugging
             // Clear existing table rows
-            $('#selIndexBox').empty();
-            $('#selIndexBox').append($('<option>', {
-                value: 'select',
-                text: '- Index -',
-                disabled: true,
-                selected: true  
-            }));
+            $('#selAddIndexNo').empty();
             // Append new options from data received
             $.each(data, function(index, item) {
-                $('#selIndexBox').append($('<option>', {
+                $('#selAddIndexNo').append($('<option>', {
                     value: item.mib_id,
                     text: item.mib_number+':'+item.mib_size
                 }));
@@ -139,11 +118,6 @@ $(document).ready(function() {
     }
 
     function selBrand(){
-        $('#selBrand').select2({
-            width: '100%', // Adjust the width as needed
-            allowClear: true // Enable to clear selection
-        });
-  
         $.ajax({
             url: API_URL + "Receive/getselBrand",
             type: 'POST',
@@ -152,16 +126,10 @@ $(document).ready(function() {
         .done(function(data) {
             console.log(data); // Use console.log for better debugging
             // Clear existing table rows
-            $('#selBrand').empty();
-            $('#selBrand').append($('<option>', {
-                value: 'select',
-                text: '- Brand -',
-                disabled: true,
-                selected: true  
-            }));
+            $('#selAddBrand').empty();
             // Append new options from data received
             $.each(data, function(index, item) {
-                $('#selBrand').append($('<option>', {
+                $('#selAddBrand').append($('<option>', {
                     value: item.mb_id,
                     text: item.mb_name
                 }));
@@ -173,9 +141,45 @@ $(document).ready(function() {
         });
     }
 
+    $('#btnSaveAdd').click(function() {
+        var formData = new FormData();
+        formData.append('doc_number', $('#inpAddDoc').val());
+        formData.append('doc_date', $('#inpAddDocDate').val());
+        formData.append('invoice_number', $('#inpAddInv').val());
+        formData.append('invoice_date', $('#inpAddInvDate').val());
+        formData.append('purchase_order', $('#inpAddPo').val());
+        formData.append('purchase_order_date', $('#inpAddPoDate').val());
+        formData.append('supplier_name', $('#inpAddSupplier').val());
+        formData.append('file_inventory', $('#inpAddFileInv')[0].files[0]);
+        formData.append('product_id', $('#selAddProductCode').val());
+        formData.append('model_id', $('#selAddModel').val());
+        formData.append('index_id', $('#selAddIndexNo').val());
+        formData.append('brand_id', $('#selAddBrand').val());
+        formData.append('qty', $('#inpAddQaulity').val());
+        formData.append('price', $('#inpAddPriceUnit').val());
+        formData.append('discription', $('#inpAddDiscription').val());
 
-
-        $('#btnSave').click(function() {
+        $.ajax({
+            url: API_URL + "Receive/insertReceive",
+            type: 'POST',
+            data: formData,
+            processData: false, // Prevent jQuery from automatically processing data
+            contentType: false, // Prevent jQuery from automatically setting contentType
+            success: function(response) {
+                // Handle success response
+                alert("success");
+                initializeDataTable();
+            },
+            error: function(xhr, status, error) {
+                // Handle error
+                console.error(xhr.responseText);
+            }
         });
     });
+
+    $('#mldAddProduct').on('shown.bs.modal', function() {
+        $('#selAddProductCode').trigger('change');
+    });
+
+});
 

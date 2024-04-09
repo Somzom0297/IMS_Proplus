@@ -231,6 +231,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
 	{another_js}
+
 </body>
 
 </html>
