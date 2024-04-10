@@ -57,6 +57,8 @@ $(document).ready(function() {
         //    alert(data[0].mpc_model)
            $('#selAddModel').val(data[0].mpc_model)
            $('#inpAddDiscription').val(data[0].mpc_discription)
+           $('#inpAddIndex').val(data[0].mib_number)
+           $('#inpAddSize').val(data[0].mib_size)
            
         })
     })
@@ -141,6 +143,18 @@ $(document).ready(function() {
         });
     }
 
+    function resetForm(){
+        $('#inpAddDoc').val('');
+        $('#inpAddDocDate').val('');
+        $('#inpAddInv').val('');
+        $('#inpAddInvDate').val('');
+        $('#inpAddPo').val('');
+        $('#inpAddPoDate').val('');
+        $('#inpAddSupplier').val('');
+        $('#inpAddFileInv').val('');
+        initializeDataTable();
+    }
+
     $('#btnSaveAdd').click(function() {
         var formData = new FormData();
         formData.append('doc_number', $('#inpAddDoc').val());
@@ -153,7 +167,6 @@ $(document).ready(function() {
         formData.append('file_inventory', $('#inpAddFileInv')[0].files[0]);
         formData.append('product_id', $('#selAddProductCode').val());
         formData.append('model_id', $('#selAddModel').val());
-        formData.append('index_id', $('#selAddIndexNo').val());
         formData.append('brand_id', $('#selAddBrand').val());
         formData.append('qty', $('#inpAddQaulity').val());
         formData.append('price', $('#inpAddPriceUnit').val());
@@ -167,7 +180,12 @@ $(document).ready(function() {
             contentType: false, // Prevent jQuery from automatically setting contentType
             success: function(response) {
                 // Handle success response
-                alert("success");
+                Swal.fire({
+                    title: "Success!",
+                    text: "tum kan add succefully",
+                    icon: "success"
+                  });
+                //   $('#mldAddProduct').modal('hide');
                 initializeDataTable();
             },
             error: function(xhr, status, error) {
@@ -175,6 +193,16 @@ $(document).ready(function() {
                 console.error(xhr.responseText);
             }
         });
+    });
+
+    $('#btnSubmit').click(function() {
+      
+                Swal.fire({
+                    title: "Success!",
+                    text: "tum kan add succefully",
+                    icon: "success"
+                  });
+                resetForm();
     });
 
     $('#mldAddProduct').on('shown.bs.modal', function() {

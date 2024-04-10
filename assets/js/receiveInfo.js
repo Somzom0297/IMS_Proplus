@@ -17,10 +17,6 @@ $(document).ready(function() {
         .done(function(data) {
             console.log(data); // Use console.log for better debugging
 
-            // Clear existing table rows
-            $('#tblStockRecive tbody').empty();
-
-            // Populate table with new data
             var table = $('#tblStockRecive').DataTable({
                 data: data,
                 destroy: true,
@@ -48,6 +44,7 @@ $(document).ready(function() {
     
     $('#tblStockRecive').on('click', '.mdlReceiveDetail', function () {
         var inv = $(this).data('id');
+        alert(inv)
         showReceiveDetail(inv);
     });
 
@@ -62,13 +59,9 @@ $(document).ready(function() {
         })
         .done(function(data) {
             console.log(data)
-            $('#docNumber').val(data[0].isd_doc_number);
-            $('#invDate').val(data[0].isd_inv_date);
-            $('#invNumber').val(data[0].isd_inv_no);
-            $('#poNumber').val(data[0].isd_po_number);
 
-            $('#tblReceiveDetail tbody').empty();
-            $('#tblReceiveDetail').DataTable({
+
+            var TableReceive = $('#tblReceiveDetail').DataTable({
                 data: data,
                 destroy: true,
                 columns: [
@@ -76,20 +69,23 @@ $(document).ready(function() {
                     { data: 'mb_name' },
                     { data: 'mpc_name' },
                     { data: 'mpc_model' },
-                    { data: 'isd_description' },
+                    { data: 'mpc_discription' },
                     { data: 'isd_qty' },
                     { data: 'isd_price_unit' },
                     {
-                        data: 'isd_inv_no',
-                        render: data =>
-                            `
+                        data: 'isd_inv_no',render: function(data) {
+                            return `
                                 <a href="#" class="btn btn-secondary mdlReceiveDetail me-2" data-id="${data}" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i></a>
                                 <a href="#" class="btn btn-danger mdlOtherButton" data-id="${data}"><i class="ti-trash"></i></a>
                             `
-                    }
+                    }}
                 ],
-                // scrollX: true
+                scrollX: true
             });
+            $('#docNumber').val(data[0].isd_doc_number);
+            $('#invDate').val(data[0].isd_inv_date);
+            $('#invNumber').val(data[0].isd_inv_no);
+            $('#poNumber').val(data[0].isd_po_number);
         });
     }
 
