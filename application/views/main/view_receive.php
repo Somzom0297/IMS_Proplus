@@ -22,7 +22,7 @@
         </div>
         <div class="form-group row mb-3">
             <div class="col-lg-12 mb-4">
-                <button type="button" class="btn btn-circle btn-success" style="background-color: #15CEA2!important;float:right" id="btnCreate" data-bs-toggle="modal" data-bs-target="#createModal"><i class="ti-plus"></i> <b>Create new</b></button>
+                <!-- <button type="button" class="btn btn-circle btn-success" style="background-color: #15CEA2!important;float:right" id="btnCreate" data-bs-toggle="modal" data-bs-target="#createModal"><i class="ti-plus"></i> <b>Create new</b></button> -->
             </div>
 
 
