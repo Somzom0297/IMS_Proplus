@@ -52,38 +52,7 @@
                 <label for="edtMainIcon" class="form-label">Document Date</label>
                 <input type="date" id="inpAddDocDate" class="form-control">
             </div>
-            <div class="col-lg-3">
-                <label for="edtOrderNo" class="form-label">Invoice Number</label>
-                <input type="text" id="inpAddInv" class="form-control" placeholder="Enter Invoice Number">
-            </div>
-            <div class="col-lg-3">
-                <label for="edtOrderNo" class="form-label">Invoice Date</label>
-                <input type="Date" id="inpAddInvDate" class="form-control">
-            </div>
-        </div>
-
-        <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
-            <div class="col-lg-3">
-                <label for="edtOrderNo" class="form-label">Purchase Order</label>
-                <input type="text" id="inpAddPo" class="form-control" placeholder="Enter PO Number">
-            </div>
-            <div class="col-lg-3">
-                <label for="edtOrderNo" class="form-label">Purchase Order Date</label>
-                <input type="Date" id="inpAddPoDate" class="form-control">
-            </div>
-            <div class="col-lg-6">
-                <label for="edtOrderNo" class="form-label">Supplier Name </label>
-                <input type="text" id="inpAddSupplier" class="form-control" placeholder="Enter Supplier Name">
-            </div>
-
-        </div>
-        <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
-            <div class="col-lg-3">
-
-                <label for="edtOrderNo" class="form-label">File invetory </label>
-                <input type="file" id="inpAddFileInv" class="form-control">
-            </div>
-        </div>
+          </div>
         </form>
     <h4 class="fw-semibold mb-8"><i class="ti-file"></i> List Product</h4>
     <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
@@ -94,8 +63,8 @@
                     <thead>
                         <tr>
                             <th class="text-center">No.</th>
-                            <th class="text-center">BRAND</th>
                             <th class="text-center">PRODUCT</th>
+                            <th class="text-center">BRAND</th>
                             <th class="text-center">MODEL</th>
                             <th class="text-center">DESCRIPTION</th>
                             <th class="text-center">QTY</th>

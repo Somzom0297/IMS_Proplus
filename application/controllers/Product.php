@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Issue extends CI_Controller {
+class Product extends CI_Controller {
 
 
 	private $another_css;
@@ -45,21 +45,13 @@ class Issue extends CI_Controller {
         $this->parser->parse('bar/pagecontent', $this->data);
     }
 	
-	public function mngIssue()
+	public function mngProduct()
 	{
 		
 		$this->another_js = "<script src='" . base_url() . "assets/js/receiveInfo.js'></script>";
-        $this->render_view('main/view_Issue');
+        $this->render_view('main/view_productdetail');
         
 	}
-	public function createIssue()
-	{
-		
-		$this->another_js = "<script src='" . base_url() . "assets/js/createReceive.js'></script>";
-        $this->render_view('main/view_createIssue');
-        
-	}
-
 	
     public function callApi()
     {
