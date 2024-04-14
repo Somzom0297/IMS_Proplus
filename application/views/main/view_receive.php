@@ -1,5 +1,4 @@
 <div class="container-fluid">
-    <!--  Row 1 -->
     <div>
         <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-5">
             <div class="card-body pb-0 pt-3">
@@ -90,7 +89,6 @@
                                                     <select class="form-control" id="selMenuGroupName">
                                                         <option value="">Choose main menu</option>
                                                     </select>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -98,7 +96,7 @@
                                     <div class="col-md-5 col-sm-2 col-5">
                                         <div class="row ">
                                             <div class="col-lg-5 p-t-20">
-                                                <span>Sub Menu controller</span><span class="red-text">*</span>
+                                                <span>Sub Menu Controller</span><span class="red-text">*</span>
                                             </div>
                                             <div class="col-lg">
                                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
@@ -129,10 +127,10 @@
                                                             <th class="text-center">Update By</th>
                                                             <th class="text-center">Stasus</th>
                                                             <th class="text-center">Action</th>
-                                                            <th class="text-center">Action</th>
+
                                                         </tr>
                                                     </thead>
-                                                    <tbody class="table-border-bottom-0 text-center" id="tbody">
+                                                    <tbody class="table-border-bottom-0 text-center">
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -141,11 +139,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--/ Bordered Table -->
 
-                                <!-- Button trigger modal -->
-
-                                <!-- Modal -->
                                 <div class="modal fade" id="mdlEdit" tabindex="-1" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -187,7 +181,8 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
+ 
+    <!-- <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl" style="width:1200px" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -267,6 +262,7 @@
                                             <th class="text-center">DESCRIPTION</th>
                                             <th class="text-center">QTY</th>
                                             <th class="text-center">PRICE</th>
+                                            
                                             <th class="text-center">ACTION</th>
                                         </tr>
                                     <tbody class="table-border-bottom-0 text-center">
@@ -282,7 +278,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl" style="width:1200px" role="document">
@@ -306,35 +302,37 @@
                             <input type="text" id="docNumber" class="form-control">
                         </div>
                         <div class="col-lg-3">
+                            <label for="edtMainIcon" class="form-label">Document Date</label>
+                            <input type="text" id="docDate" class="form-control">
+                        </div>
+                        <div class="col-lg-3">
                             <label for="edtOrderNo" class="form-label">Invoice Number</label>
                             <input type="text" id="invNumber" class="form-control">
                         </div>
 
                         <div class="col-lg-3">
-                            <label for="edtOrderNo" class="form-label">PO Number</label>
+                            <label for="edtOrderNo" class="form-label">Purchase Order</label>
                             <input type="text" id="poNumber" class="form-control">
                         </div>
-                        <div class="col-lg-3">
-                            <label for="edtMainIcon" class="form-label">Create Date</label>
-                            <input type="text" id="invDate" class="form-control">
-                        </div>
                     </div>
-
+                    
                     <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
-                        <div class="col-lg-3">
-                            <label for="edtOrderNo" class="form-label">Date</label>
-                            <input type="Date" id="edtOrderNo" class="form-control">
-                        </div>
-                        <div class="col-lg-3">
-                            <label for="edtOrderNo" class="form-label">Date</label>
-                            <input type="Date" id="edtOrderNo" class="form-control">
-                        </div>
-                        <div class="col-lg-6">
+                    <div class="col-lg-6">
                             <label for="edtOrderNo" class="form-label">Supplier Name </label>
-                            <input type="text" id="edtOrderNo" class="form-control">
+                            <input type="text" id="supplierName" class="form-control">
                         </div>
+                        <div class="col-lg-3">
+                            <label for="edtOrderNo" class="form-label">Invoice Date</label>
+                            <input type="Date" id="invDate" class="form-control">
+                        </div>
+                        <div class="col-lg-3">
+                            <label for="edtOrderNo" class="form-label">Purchase Order Date</label>
+                            <input type="Date" id="poDate" class="form-control">
+                        </div>
+
                     </div>
                     <hr>
+                    
                     <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                         <div class="col-lg-2">
                             <button type="button" class="btn btn-circle btn-success" id="btnDownload"><i class="ti-plus"></i>Add</button>
@@ -358,12 +356,14 @@
                                             <th class="text-center">DESCRIPTION</th>
                                             <th class="text-center">QTY</th>
                                             <th class="text-center">PRICE</th>
+                                            <th class="text-center">AMOUNT</th>
                                             <th class="text-center">ACTION</th>
                                         </tr>
-                                    <tbody class="table-border-bottom-0 text-center">
-
+                                    <tbody class="table-border-bottom-0 text-center" id="tbody">
+                                    
                                     </tbody>
                                 </table>
+                                <button id="downloadPDF">Download PDF</button>
                             </div>
                         </div>
                     </div>

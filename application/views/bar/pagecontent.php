@@ -10,40 +10,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dashboard</title>
 
-<!-- <link rel="stylesheet" href="path/to/combined-and-minified.css"> -->
-
-<!-- Other External Stylesheets -->
-<!-- <link rel="preconnect" href="https://fonts.googleapis.com" /> -->
-<!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<!-- Font Awesome CSS -->
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
-<!-- DataTables CSS -->
 <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
 
-<!-- Custom Styles -->
 <link rel="stylesheet" href="{base_url}src/assets/css/styles.min.css">
+
 <link href="{base_url}assets/css/themify-icons/themify-icons.css" rel="stylesheet">
 
+
+    <!-- Include jsPDF Autotable plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/png" href="{base_url}src/assets/images/logos/propluslg.png" />
-
 <!-- Another Favicon (if needed) -->
 <link rel="shortcut icon" href="{base_url}src/assets/images/logos/propluslg.png" />
-
   <style>
 		.red-text{
 			color: red;
 		}
 	</style>
-
-  
 </head>
 <!-- END HEAD -->
 
@@ -193,11 +185,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		{footer}
 	</div>
 	
-	
 	<!-- bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="{base_url}src/assets/libs/jquery/dist/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
