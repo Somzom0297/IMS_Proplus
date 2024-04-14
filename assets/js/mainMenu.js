@@ -5,7 +5,6 @@ $(() => {
         $(document).ready(function () {
         // URL of the API
         var apiUrl = 'http://127.0.0.1/api/Manage_mainmenu/show_main_menu';
-    
             // Perform Ajax request
             $.ajax({
                 url: apiUrl,

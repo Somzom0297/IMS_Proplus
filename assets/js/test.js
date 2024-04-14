@@ -32,16 +32,9 @@ function fetchDataAndPopulateTable() {
 						{ data: "mpc_model" },
 						{ data: "mpc_discription" },
 						{ data: "isd_qty" },
-						{
-							data: null,
-							render: function (data) {
-								return (
-									'<a href="javascript:void(0)" class="btn btn-secondary float-center mdlReceiveDetail" data-id="' +
-									data +
-									'" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i> Details</a>'
-								);
-							},
-						},
+						{ data: null, render: function(data) {
+							return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlReceiveDetail" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i> Details</a>';
+						}}
 					],
 				});
 			}
