@@ -111,7 +111,7 @@
                     </tbody>
                 </table>
                 <div class="text-center"> <!-- Add this container to center the button -->
-                    <button type="button" class="btn btn-secondary" id="btnSubmit">Cancel</button>
+                    <button type="button" class="btn btn-secondary" id="btnCancel">Cancel</button>
                     <button type="button" class="btn btn-success" id="btnSubmit">Submit</button>
                 </div>
             </div>
@@ -151,9 +151,7 @@
                         <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                             <div class="col-lg-3">
                                 <label for="edtMainIcon" class="form-label">Brand</label>
-                                <Select id="selAddBrand" class="form-control">
-                                    <option value="">Select</option>
-                                </Select>
+                                <input type="text" id="selAddBrand" class="form-control">
                             </div>
                             <div class="col-lg-3">
                                 <label for="edtOrderNo" class="form-label">Model</label>

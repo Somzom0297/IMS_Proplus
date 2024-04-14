@@ -1,4 +1,13 @@
 $(document).ready(function() {
+    $('#btnpdf').on('click', function() {
+        var doc = new jsPDF();
+
+        // Convert the table to a PDF table
+        doc.autoTable({ html: '#tblStockRecive' });
+
+        // Save the PDF
+        doc.save('table.pdf');
+    });
     showYear();
     const table = TableReceive();
     function TableReceive() {
@@ -43,24 +52,25 @@ $(document).ready(function() {
     }
     
     $('#tblStockRecive').on('click', '.mdlReceiveDetail', function () {
-        var inv = $(this).data('id');
-        alert(inv)
+        // var inv = $(this).data('id');
+        var inv = '12401001';
+        // alert(inv)
         showReceiveDetail(inv);
     });
 
     function showReceiveDetail(invoiceNumber) {
+
         $.ajax({
             url: API_URL + "Receive/getReceiveDetail",
-            type: 'POST',
+            type: 'GET',
             dataType: 'json',
             data: {
                 inv: invoiceNumber
             }
         })
+
         .done(function(data) {
             console.log(data)
-
-
             var TableReceive = $('#tblReceiveDetail').DataTable({
                 data: data,
                 destroy: true,

@@ -2,14 +2,12 @@ $(document).ready(function() {
     // initializeDataTable();
     function initializeDataTable() {
         var doc_id = $('#inpAddDoc').val();
-        // var doc_id = 'doc';
         $.ajax({
             url: API_URL + "Receive/ListProductDetail",
             type: 'POST',
             dataType: 'json',
             data: {
                 doc_id: doc_id
-                
             }
         })
         .done(function(data) {
@@ -38,6 +36,7 @@ $(document).ready(function() {
 
         })
     }
+
     selProductCode();
     selIndexBox();
     selBrand();
@@ -59,6 +58,7 @@ $(document).ready(function() {
            $('#inpAddDiscription').val(data[0].mpc_discription)
            $('#inpAddIndex').val(data[0].mib_number)
            $('#inpAddSize').val(data[0].mib_size)
+           $('#selAddBrand').val(data[0].mb_name)
            
         })
     })
@@ -196,6 +196,16 @@ $(document).ready(function() {
     });
 
     $('#btnSubmit').click(function() {
+      
+                Swal.fire({
+                    title: "Success!",
+                    text: "tum kan add succefully",
+                    icon: "success"
+                  });
+                resetForm();
+    });
+
+    $('#btnCancel').click(function() {
       
                 Swal.fire({
                     title: "Success!",

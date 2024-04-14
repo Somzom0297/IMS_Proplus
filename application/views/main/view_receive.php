@@ -1,5 +1,4 @@
 <div class="container-fluid">
-    <!--  Row 1 -->
     <div>
         <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-5">
             <div class="card-body pb-0 pt-3">
@@ -90,7 +89,6 @@
                                                     <select class="form-control" id="selMenuGroupName">
                                                         <option value="">Choose main menu</option>
                                                     </select>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -98,7 +96,7 @@
                                     <div class="col-md-5 col-sm-2 col-5">
                                         <div class="row ">
                                             <div class="col-lg-5 p-t-20">
-                                                <span>Sub Menu controller</span><span class="red-text">*</span>
+                                                <span>Sub Menu Controller</span><span class="red-text">*</span>
                                             </div>
                                             <div class="col-lg">
                                                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
@@ -141,11 +139,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--/ Bordered Table -->
 
-                                <!-- Button trigger modal -->
-
-                                <!-- Modal -->
                                 <div class="modal fade" id="mdlEdit" tabindex="-1" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -187,6 +181,7 @@
             </div>
         </div>
     </div>
+ 
     <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl" style="width:1200px" role="document">
             <div class="modal-content">
@@ -283,7 +278,6 @@
             </div>
         </div>
     </div>
-
     <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl" style="width:1200px" role="document">
             <div class="modal-content">
@@ -335,6 +329,7 @@
                         </div>
                     </div>
                     <hr>
+                    
                     <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                         <div class="col-lg-2">
                             <button type="button" class="btn btn-circle btn-success" id="btnDownload"><i class="ti-plus"></i>Add</button>
@@ -361,9 +356,10 @@
                                             <th class="text-center">ACTION</th>
                                         </tr>
                                     <tbody class="table-border-bottom-0 text-center">
-
+                                    
                                     </tbody>
                                 </table>
+                                <button id="downloadPDF">Download PDF</button>
                             </div>
                         </div>
                     </div>

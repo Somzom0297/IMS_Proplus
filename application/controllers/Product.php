@@ -48,7 +48,7 @@ class Product extends CI_Controller {
 	public function mngProduct()
 	{
 		
-		$this->another_js = "<script src='" . base_url() . "assets/js/receiveInfo.js'></script>";
+		$this->another_js = "<script src='" . base_url() . "assets/js/mngProduct.js'></script>";
         $this->render_view('main/view_productdetail');
         
 	}
