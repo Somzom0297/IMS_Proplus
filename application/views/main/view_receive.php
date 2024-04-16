@@ -71,118 +71,11 @@
                     </div>
                 </div>
             </div>
-
-            <div class="card" style="display: none;" id="content">
-                <div class="col-sm-12 mt-3">
-                    <div class="row ">
-                        <div class="col-md-12">
-                            <div class="card container">
-                                <div class="row py-2 mt-2">
-                                    <span class="fs-5 fw-bold text-primary-emphasis">Register Permission</span>
-                                    <div class="col-md-5 col-sm-10 col-5 mt-3">
-                                        <div class="row ">
-                                            <div class="col-lg-3 p-t-20">
-                                                <span>Sub Menu</span><span class="red-text">*</span>
-                                            </div>
-                                            <div class="col-lg">
-                                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                                    <select class="form-control" id="selMenuGroupName">
-                                                        <option value="">Choose main menu</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5 col-sm-2 col-5">
-                                        <div class="row ">
-                                            <div class="col-lg-5 p-t-20">
-                                                <span>Sub Menu Controller</span><span class="red-text">*</span>
-                                            </div>
-                                            <div class="col-lg">
-                                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
-                                                    <select class="form-control" id="selSubMenuName">
-                                                        <option value="">Choose main menu</option>
-                                                    </select>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md col-sm-2 col-2 p-t-20">
-                                        <button type="button" class="btn btn-circle btn-primary" id="btnSaveAddPer">Add</button>
-                                    </div>
-                                    <div class="col-12 col-sm-12 justify-content-start">
-                                        <div id="errMegadd" style="color: red; display: none;">Please enter in English only.</div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="table-responsive text-nowrap">
-                                            <div class="card-datatable table-responsive pt-0">
-                                                <table class="table card-table" id="tblPermis">
-                                                    <thead>
-                                                        <tr>
-                                                            <th class="text-center">No.</th>
-                                                            <th class="text-center">Main Menu</th>
-                                                            <th class="text-center">Sub Menu</th>
-                                                            <th class="text-center">Update Date</th>
-                                                            <th class="text-center">Update By</th>
-                                                            <th class="text-center">Stasus</th>
-                                                            <th class="text-center">Action</th>
-
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody class="table-border-bottom-0 text-center">
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div class="card-foot mt-2">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="modal fade" id="mdlEdit" tabindex="-1" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropEdit">Edit Menu </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="row">
-                                                    <div class="col mb-3">
-                                                        <label for="edtSubMenu" class="form-label">Main Menu</label>
-                                                        <input type="text" id="edtSubMenu" class="form-control" placeholder="Enter Main Menu">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col mb-3">
-                                                        <label for="edtController" class="form-label">Main Menu Icon</label>
-                                                        <input type="text" id="edtController" class="form-control" placeholder="Enter Main Menu Icon">
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col mb-3">
-                                                        <label for="edtOrderNo" class="form-label">Order No.</label>
-                                                        <input type="text" id="edtOrderNo" class="form-control" placeholder="Enter Order No.">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary" id="btnSaveEdit">Save changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
- 
-    <!-- <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
+ <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <div class="modal fade" id="mdlAddReceiveDetail" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl" style="width:1200px" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -190,96 +83,65 @@
                     <button type="button" class="btn-close me-2 mb-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="RegisterReceive" enctype="multipart/form-data">
+                    <form enctype="multipart/form-data">
                         <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                             <div class="col-lg-12 mb-3">
                                 <label class="col-form-label">
-                                    <h4 style="font-weight: 600;"><i class="ti-file" style="padding-right: 7px;"></i>Form input location stock</h4>
+                                    <h4 style="font-weight: 600;"><i class="ti-file" style="padding-right: 7px;"></i>Form input product</h4>
                                 </label>
                             </div>
                             <div class="col-lg-3">
-                                <label for="edtMainMenu" class="form-label">Document Number</label>
-                                <input type="text" id="inpAddDoc" class="form-control" placeholder="Enter Document Number">
+                                <label for="edtMainMenu" class="form-label">Product Number</label>
+                                <select name="selAddProductCode" id="selAddProductCode" class="form-control">
+                                    <option value="">- Product Code -</option>
+                                </select>
                             </div>
                             <div class="col-lg-3">
-                                <label for="edtMainIcon" class="form-label">Document Date</label>
-                                <input type="date" id="inpAddDocDate" class="form-control">
+                                <label for="edtMainMenu" class="form-label">Index Number</label>
+                                <input type="text" id="inpAddIndex" class="form-control">
+
                             </div>
                             <div class="col-lg-3">
-                                <label for="edtOrderNo" class="form-label">Invoice Number</label>
-                                <input type="text" id="inpAddInv" class="form-control" placeholder="Enter Invoice Number">
-                            </div>
-                            <div class="col-lg-3">
-                                <label for="edtOrderNo" class="form-label">Invoice Date</label>
-                                <input type="Date" id="inpAddInvDate" class="form-control">
+                                <label for="edtMainMenu" class="form-label">Size</label>
+                                <input type="text " id="inpAddSize" class="form-control">
                             </div>
                         </div>
-
                         <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                             <div class="col-lg-3">
-                                <label for="edtOrderNo" class="form-label">Purchase Order</label>
-                                <input type="text" id="inpAddPo" class="form-control" placeholder="Enter PO Number">
+                                <label for="edtMainIcon" class="form-label">Brand</label>
+                                <input type="text" id="selAddBrand" class="form-control">
                             </div>
                             <div class="col-lg-3">
-                                <label for="edtOrderNo" class="form-label">Purchase Order Date</label>
-                                <input type="Date" id="inpAddPoDate" class="form-control">
+                                <label for="edtOrderNo" class="form-label">Model</label>
+                                <input type="text" id="selAddModel" class="form-control">
                             </div>
+                            <div class="col-lg-3">
+                                <label for="edtOrderNo" class="form-label">Qaulity</label>
+                                <input type="text" id="inpAddQaulity" class="form-control" placeholder="Enter Qaulity">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtOrderNo" class="form-label">Price /Unit </label>
+                                <input type="text" id="inpAddPriceUnit" class="form-control" placeholder="Enter Price /Unit ">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                             <div class="col-lg-6">
-                                <label for="edtOrderNo" class="form-label">Supplier Name </label>
-                                <input type="text" id="inpAddSupplier" class="form-control" placeholder="Enter Supplier Name">
+                                <label for="edtOrderNo" class="form-label">Discription </label>
+                                <textarea name="" id="inpAddDiscription" cols="30" rows="5" class="form-control" placeholder="Enter Discription..."></textarea>
                             </div>
-
-                        </div>
-                        <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
-                            <div class="col-lg-3">
-
-                                <label for="edtOrderNo" class="form-label">File invetory </label>
-                                <input type="file" id="inpAddFileInv" class="form-control">
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
-                            <div class="col-lg-2">
-                                <button type="button" class="btn btn-circle btn-success" id="btnAddReceive"><i class="ti-plus"></i>Add</button>
-                            </div>
-                            <div class="col-lg-10">
-                                <button type="button" class="btn btn-circle btn-danger float-end" id="btnDownload"><i class="ti-file"></i> PDF</button>
-                                <button type="button" class="btn btn-circle btn-light float-end me-2" id="btnDownload"><i class="ti-printer"></i> Print</button>
-                            </div>
-
                         </div>
                     </form>
-                    <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
-                        <div class="table-responsive text-nowrap">
-                            <div class="card-datatable table-responsive pt-0">
-                                <table class="table card-table border" style="width:100%" id="tblReceiveDetail">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center">NO.</th>
-                                            <th class="text-center">BRAND</th>
-                                            <th class="text-center">PRODUCT</th>
-                                            <th class="text-center">MODEL</th>
-                                            <th class="text-center">DESCRIPTION</th>
-                                            <th class="text-center">QTY</th>
-                                            <th class="text-center">PRICE</th>
-                                            
-                                            <th class="text-center">ACTION</th>
-                                        </tr>
-                                    <tbody class="table-border-bottom-0 text-center">
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="CloseModal">Close</button>
                     <button type="button" class="btn btn-primary" id="btnSaveReceive">Save changes</button>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
     <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl" style="width:1200px" role="document">
             <div class="modal-content">
@@ -296,7 +158,6 @@
 
                             <button type="button" class="btn btn-circle btn-secondary float-end" id="btnDownload">Download</button>
                         </div>
-
                         <div class="col-lg-3">
                             <label for="edtMainMenu" class="form-label">Document Number</label>
                             <input type="text" id="docNumber" class="form-control">
@@ -335,7 +196,8 @@
                     
                     <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                         <div class="col-lg-2">
-                            <button type="button" class="btn btn-circle btn-success" id="btnDownload"><i class="ti-plus"></i>Add</button>
+                            <!-- <button type="button" class="btn btn-circle btn-success" id="btnAddReceiveDetail"><i class="ti-plus"></i>Add</button> -->
+                            <button type="button" class="btn btn-circle btn-success" style="background-color: #15CEA2!important" id="btnAddReceiveDetail"><i class="ti-plus"></i> <b>Add</b></button>
                         </div>
                         <div class="col-lg-10">
                             <button type="button" class="btn btn-circle btn-danger float-end" id="btnDownload"><i class="ti-file"></i> PDF</button>

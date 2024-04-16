@@ -57,8 +57,11 @@ $(document).ready(function() {
            $('#selAddModel').val(data[0].mpc_model)
            $('#inpAddDiscription').val(data[0].mpc_discription)
            $('#inpAddIndex').val(data[0].mib_number)
+           $('#inpIndexId').val(data[0].mib_id)
            $('#inpAddSize').val(data[0].mib_size)
            $('#selAddBrand').val(data[0].mb_name)
+           $('#selBrandId').val(data[0].mb_id)
+
            
         })
     })
