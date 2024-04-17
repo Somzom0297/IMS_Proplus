@@ -37,10 +37,10 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">NO.</th>
-                                    <th class="text-center">Doc No.</th>
-                                    <th class="text-center">DATE</th>
-                                    <th class="text-center">INV No.</th>
-                                    <th class="text-center">PO No.</th>
+                                    <th class="text-center">BRAND</th>
+                                    <th class="text-center">PRODUCT</th>
+                                    <th class="text-center">MODEL</th>
+                                    <th class="text-center">DISCRPTION</th>
                                     <th class="text-center">Total</th>
                                     <th class="text-center">Action</th>
                                 </tr>
@@ -178,18 +178,18 @@
                             <div class="col-lg-4">
                                 <div class="input-group">
                                   <span class="input-group-text" id="basic-addon3">Total</span>
-                                  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                                  <input type="text" class="form-control" id="inpTotal" aria-describedby="basic-addon3">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group row" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                             <div class="col-lg-2">
                             <label for="edtMainMenu" class="form-label">Index</label>
-                                  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                                  <input type="text" class="form-control" id="inpIndex" aria-describedby="basic-addon3">
                             </div>
                             <div class="col-lg-2">
                             <label for="edtMainMenu" class="form-label">Size</label>
-                                  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                                  <input type="text" class="form-control" id="inpSize" aria-describedby="basic-addon3">
                             </div>
                         </div>
 
@@ -206,7 +206,6 @@
                                                 <th class="text-center">DESCRIPTION</th>
                                                 <th class="text-center">QTY</th>
                                                 <th class="text-center">PRICE</th>
-                                                <th class="text-center">ACTION</th>
                                             </tr>
                                         <tbody class="table-border-bottom-0 text-center">
 

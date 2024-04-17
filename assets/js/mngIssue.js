@@ -38,8 +38,6 @@ $(document).ready(function() {
                     }},
                     { data: 'isd_doc_number' },
                     { data: 'isd_inv_date' },
-                    { data: 'isd_inv_no' },
-                    { data: 'isd_po_number' },
                     { data: 'total' },
                     { data: 'isd_inv_no', render: function(data) {
                         return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlReceiveDetail" data-id="' + data + '" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i> Details</a>';
