@@ -58,7 +58,7 @@
     <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
         <div class="table-responsive text-nowrap">
             <div class="card-datatable table-responsive pt-0">
-                <button type="button" class="btn btn-primary mb-3" style="float:right" id="btnAddProduct" data-bs-toggle="modal" data-bs-target="#mldAddProduct"><b><i class="ti-plus"></i> Add Product</b></button>
+                <button type="button" class="btn btn-primary mb-3" style="float:right" id="btnAddIssue" data-bs-toggle="modal" data-bs-target="#mldAddIssue"><b><i class="ti-plus"></i> Add Product</b></button>
                 <table id="tblProductDetail" class="table card-table border" style="width:100%" >
                     <thead>
                         <tr>
@@ -82,22 +82,23 @@
         </div>
     </div>
     
-    <div class="modal fade" id="mldAddProduct" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="mldAddIssue" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl" style="width:1200px" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title" style="padding: 0px 10px;margin: 10px 0px;font-weight: 600;"><i class="ti-pencil-alt mr-3"></i> Add Product</h3>
+                    <h3 class="modal-title" style="margin: 10px 0px;font-weight: 600;"><i class="ti-pencil-alt mr-3"></i> Add Product</h3>
                     <button type="button" class="btn-close me-2 mb-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                 <form enctype="multipart/form-data">
+                    <hr>
                         <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                             <div class="col-lg-12 mb-3">
                                 <label class="col-form-label">
-                                    <h4 style="font-weight: 600;"><i class="ti-file" style="padding-right: 7px;"></i>Form input product</h4>
+                                    <h4 style="font-weight: 600;"><i class="ti-package" style="padding-right: 7px;"></i>Form input product</h4>
                                 </label>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-6 mb-2">
                                 <label for="edtMainMenu" class="form-label">Product Number</label>
                                 <select name="selAddProductCode" id="selAddProductCode" class="form-control">
                                     <option value="">- Product Code -</option>
@@ -105,37 +106,65 @@
                             </div>
                             <div class="col-lg-3">
                                 <label for="edtMainMenu" class="form-label">Index Number</label>
-                                <Select id="selAddIndexNo" class="form-control">
-                                    <option value="">Select</option>
-                                </Select>
+                                <input type="text " id="inpAddIndex" class="form-control">
                             </div>
-                        </div>
-                        <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
+                            <div class="col-lg-3">
+                                <label for="edtMainMenu" class="form-label">Size</label>
+                                <input type="text " id="inpAddSize" class="form-control">
+                            </div>
                             <div class="col-lg-3">
                                 <label for="edtMainIcon" class="form-label">Brand</label>
-                                <Select id="selAddBrand" class="form-control">
-                                    <option value="">Select</option>
-                                </Select>
+                                <input type="text" id="selAddBrand" class="form-control">
                             </div>
                             <div class="col-lg-3">
                                 <label for="edtOrderNo" class="form-label">Model</label>
                                 <input type="text" id="selAddModel" class="form-control">
                             </div>
-                            <div class="col-lg-3">
-                                <label for="edtOrderNo" class="form-label">Qaulity</label>
-                                <input type="text" id="inpAddQaulity" class="form-control" placeholder="Enter Qaulity">
-                            </div>
-                            <div class="col-lg-3">
-                                <label for="edtOrderNo" class="form-label">Price /Unit </label>
-                                <input type="text" id="inpAddPriceUnit" class="form-control" placeholder="Enter Price /Unit ">
-                            </div>
                         </div>
-                        <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
+                        <hr>
+                        <div class="form-group row mb-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
+                            <div class="col-lg-12 mb-3">
+                                <label class="col-form-label">
+                                    <h4 style="font-weight: 600;"><i class="ti-file" style="padding-right: 7px;"></i>Form input document</h4>
+                                </label>
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtOrderNo" class="form-label">Invoice No.</label>
+                                <input type="text" id="invNumber" class="form-control" placeholder="Enter Invocie Number">
+                            </div>
+                            <div class="col-lg-3 mb-2">
+                                <label for="edtOrderNo" class="form-label">Invoice Date</label>
+                                <input type="Date" id="invDate" class="form-control" placeholder="Enter Invocie Date">
+                            </div>
                             <div class="col-lg-6">
-                                <label for="edtOrderNo" class="form-label">Discription </label>
-                                <textarea name="" id="inpAddDiscription" cols="30" rows="5" class="form-control" placeholder="Enter Discription..."></textarea>
+                                <label for="edtMainIcon" class="form-label">Purchase Order Customer</label>
+                                <input type="text" id="poNumber" class="form-control" placeholder="Enter Purchase Order">
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="edtMainIcon" class="form-label">Customer</label>
+                                <input type="text" id="poDate" class="form-control" placeholder="Enter Customer">
                             </div>
                         </div>
+                        
+                        <div class="form-group row mb-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
+                            <div class="col-lg-3">
+                                <label for="edtMainIcon" class="form-label">Qty</label>
+                                <input type="text" id="inpAddQaulity" class="form-control" placeholder="Enter Purchase Order">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtMainIcon" class="form-label">Unit</label>
+                                <input type="text" id="inpAddUnit" class="form-control" placeholder="Enter Customer">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtMainIcon" class="form-label">Price /Unit</label>
+                                <input type="text" id="inpAddPriceUnit" class="form-control" placeholder="Enter Purchase Order">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtMainIcon" class="form-label">Total</label>
+                                <input type="text" id="inpAddTotal" class="form-control" placeholder="Enter Customer">
+                            </div>
+                        </div>
+
                     </form>
                    
                 </div>
@@ -147,4 +176,3 @@
         </div>
     </div>
 </div>
- 

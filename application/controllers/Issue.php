@@ -55,7 +55,7 @@ class Issue extends CI_Controller {
 	public function createIssue()
 	{
 		
-		$this->another_js = "<script src='" . base_url() . "assets/js/createReceive.js'></script>";
+		$this->another_js = "<script src='" . base_url() . "assets/js/mngIssue.js'></script>";
         $this->render_view('main/view_createIssue');
         
 	}
