@@ -38,8 +38,6 @@ $(document).ready(function() {
                     }},
                     { data: 'isd_doc_number' },
                     { data: 'isd_inv_date' },
-                    { data: 'isd_inv_no' },
-                    { data: 'isd_po_number' },
                     { data: 'total' },
                     { data: 'isd_inv_no', render: function(data) {
                         return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlReceiveDetail" data-id="' + data + '" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i> Details</a>';
@@ -112,9 +110,9 @@ $(document).ready(function() {
         });
     });
     // $('#mdlAddReceiveDetail').on('shown.bs.modal', function() {
-    $('#btnAddReceiveDetail').on('click', function() {
-        $('#detailsModal').modal('hide');
-        $('#mdlAddReceiveDetail').modal('show');
+    $('#btnAddIssue').on('click', function() {
+        // $('#detailsModal').modal('hide');
+        // $('#mdlAddReceiveDetail').modal('show');
         selProductCode();
     });
 
@@ -256,7 +254,7 @@ $(document).ready(function() {
     
     function selProductCode(){
         $.ajax({
-            url: API_URL + "Receive/getSelProductCode",
+            url: API_URL + "Receive/getSelProductCodeIssue",
             type: 'POST',
             dataType: 'json',
         })
@@ -309,17 +307,17 @@ $(document).ready(function() {
 
     $('#btnSaveReceive').click(function() {
         var formData = new FormData();
-        formData.append('doc_number', $('#docNumber').val());
-        formData.append('doc_date', $('#docDate').val());
+        formData.append('doc_number', $('#inpAddDoc').val());
+        formData.append('doc_date', $('#inpAddDocDate').val());
         formData.append('invoice_number', $('#invNumber').val());
         formData.append('invoice_date', $('#invDate').val());
         formData.append('purchase_order', $('#poNumber').val());
         formData.append('purchase_order_date', $('#poDate').val());
-        formData.append('supplier_name', $('#supplierName').val());
         formData.append('product_id', $('#selAddProductCode').val());
         formData.append('qty', $('#inpAddQaulity').val());
+        formData.append('Unit', $('#inpAddUnit').val());
         formData.append('price', $('#inpAddPriceUnit').val());
-        formData.append('discription', $('#inpAddDiscription').val());
+
         var inv = $('#invNumber').val();
         $.ajax({
             url: API_URL + "Receive/insertReceive",
@@ -335,7 +333,7 @@ $(document).ready(function() {
                     icon: "success"
                   });
                   $('#mdlAddReceiveDetail').modal('hide');
-                showReceiveDetail(inv);
+                showIssueDetail(inv);
             },
             error: function(xhr, status, error) {
                 // Handle error
@@ -392,7 +390,7 @@ $(document).ready(function() {
         });
     });
 
-    $('#mdlAddReceiveDetail').on('shown.bs.modal', function() {
+    $('#mldAddIssue').on('shown.bs.modal', function() {
         $('#selAddProductCode').trigger('change');
     });
 

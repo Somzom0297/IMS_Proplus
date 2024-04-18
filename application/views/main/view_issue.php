@@ -61,8 +61,6 @@
                                     <th class="text-center">NO.</th>
                                     <th class="text-center">Doc No.</th>
                                     <th class="text-center">DATE</th>
-                                    <th class="text-center">INV No.</th>
-                                    <th class="text-center">PO No.</th>
                                     <th class="text-center">Total</th>
                                     <th class="text-center">Action</th>
                                 </tr>

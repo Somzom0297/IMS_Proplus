@@ -141,6 +141,75 @@
         </div>
     </div>
 
+ <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+    <div class="modal fade" id="mdlEditReceive" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl" style="width:1200px" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" style="padding: 0px 10px;margin: 10px 0px;font-weight: 600;"><i class="ti-pencil-alt mr-3"></i>Receive Details</h3>
+                    <button type="button" class="btn-close me-2 mb-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form enctype="multipart/form-data">
+                        <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
+                            <div class="col-lg-12 mb-3">
+                                <label class="col-form-label">
+                                    <h4 style="font-weight: 600;"><i class="ti-file" style="padding-right: 7px;"></i>Form input product</h4>
+                                </label>
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtMainMenu" class="form-label">Product Number</label>
+                                <select name="selEditProductCode" id="selEditProductCode" class="form-control">
+                                    <option value="">- Product Code -</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtMainMenu" class="form-label">Index Number</label>
+                                <input type="text" id="inpEditIndex" class="form-control">
+                                <input type="hidden" id="inpProductId" class="form-control">
+
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtMainMenu" class="form-label">Size</label>
+                                <input type="text " id="inpEditSize" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
+                            <div class="col-lg-3">
+                                <label for="edtMainIcon" class="form-label">Brand</label>
+                                <input type="text" id="selEditBrand" class="form-control">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtOrderNo" class="form-label">Model</label>
+                                <input type="text" id="selEditModel" class="form-control">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtOrderNo" class="form-label">Qaulity</label>
+                                <input type="text" id="inpEditQaulity" class="form-control" placeholder="Enter Qaulity">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtOrderNo" class="form-label">Price /Unit </label>
+                                <input type="text" id="inpEditPriceUnit" class="form-control" placeholder="Enter Price /Unit ">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
+                            <div class="col-lg-6">
+                                <label for="edtOrderNo" class="form-label">Discription </label>
+                                <textarea name="" id="inpEditDiscription" cols="30" rows="5" class="form-control" placeholder="Enter Discription..."></textarea>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="CloseModal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btnSaveEidtReceive">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
     <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl" style="width:1200px" role="document">
