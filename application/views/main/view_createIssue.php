@@ -59,7 +59,7 @@
         <div class="table-responsive text-nowrap">
             <div class="card-datatable table-responsive pt-0">
                 <button type="button" class="btn btn-primary mb-3" style="float:right" id="btnAddIssue" data-bs-toggle="modal" data-bs-target="#mldAddIssue"><b><i class="ti-plus"></i> Add Product</b></button>
-                <table id="tblProductDetail" class="table card-table border" style="width:100%" >
+                <table id="tblProductIssueDetail" class="table card-table border" style="width:100%" >
                     <thead>
                         <tr>
                             <th class="text-center">No.</th>
@@ -69,7 +69,7 @@
                             <th class="text-center">DESCRIPTION</th>
                             <th class="text-center">QTY</th>
                             <th class="text-center">PRICE/UNIT</th>
-                            <!-- <th class="text-center">AMOUNT</th> -->
+                            <th class="text-center">AMOUNT</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -136,13 +136,17 @@
                                 <label for="edtOrderNo" class="form-label">Invoice Date</label>
                                 <input type="Date" id="invDate" class="form-control" placeholder="Enter Invocie Date">
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-3">
                                 <label for="edtMainIcon" class="form-label">Purchase Order Customer</label>
                                 <input type="text" id="poNumber" class="form-control" placeholder="Enter Purchase Order">
                             </div>
+                            <div class="col-lg-3">
+                                <label for="edtMainIcon" class="form-label">Purchase Order Date</label>
+                                <input type="date" id="poDate" class="form-control" placeholder="Enter Purchase Order">
+                            </div>
                             <div class="col-lg-6">
                                 <label for="edtMainIcon" class="form-label">Customer</label>
-                                <input type="text" id="poDate" class="form-control" placeholder="Enter Customer">
+                                <input type="text" id="inpCustomer" class="form-control" placeholder="Enter Customer">
                             </div>
                         </div>
                         
@@ -153,15 +157,15 @@
                             </div>
                             <div class="col-lg-3">
                                 <label for="edtMainIcon" class="form-label">Unit</label>
-                                <input type="text" id="inpAddUnit" class="form-control" placeholder="Enter Customer">
+                                <input type="text" id="inpAddUnit" class="form-control" placeholder="Enter Unit">
                             </div>
                             <div class="col-lg-3">
                                 <label for="edtMainIcon" class="form-label">Price /Unit</label>
-                                <input type="text" id="inpAddPriceUnit" class="form-control" placeholder="Enter Purchase Order">
+                                <input type="text" id="inpAddPriceUnit" class="form-control" placeholder="Price /Unit">
                             </div>
                             <div class="col-lg-3">
                                 <label for="edtMainIcon" class="form-label">Total</label>
-                                <input type="text" id="inpAddTotal" class="form-control" placeholder="Enter Customer">
+                                <input type="text" id="inpAddTotal" class="form-control" placeholder="Enter Total">
                             </div>
                         </div>
 
@@ -170,7 +174,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="btnSaveAdd">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="btnAddSaveIssue">Save changes</button>
                 </div>
             </div>
         </div>
