@@ -25,7 +25,7 @@ class Login extends CI_Controller {
 	{
 		
         if ($this->session->userdata('userId')) {
-            redirect(base_url() . 'Dashboard/dashboard');
+            redirect(base_url() . 'Stockinfo/mngStockinfo');
 
         }
 

@@ -9,7 +9,7 @@
                                 <li class="breadcrumb-item">
                                     <a class="text-muted text-decoration-none" href="<?php echo base_url('Dashboard/dashboard'); ?>">Home</a>
                                 </li>
-                                <li class=" breadcrumb-item" aria-current="page">Inventory
+                                <li class=" breadcrumb-item" aria-current="page"> Goods Receive
                                 </li>
                             </ol>
                         </nav>
@@ -25,7 +25,8 @@
                 <button type="button" class="btn btn-circle btn-danger" id="btnpdf"><i class="ti-file"></i> PDF</button>
             </div>
 
-            <div class="col-lg-5">
+            <div class="col-lg-9">
+            <button type="button" class="btn btn-primary mb-3" style="float:right" id="btnAddProduct"></i> Add Product</b></button>
             </div>
         </div>
 
@@ -175,12 +176,27 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group row" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
+
                             <div class="col-lg-4">
+                            <label for="edtMainMenu" class="form-label">Total</label>
                                 <div class="input-group">
                                   <span class="input-group-text" id="basic-addon3">Total</span>
                                   <input type="text" class="form-control" id="inpTotal" aria-describedby="basic-addon3">
                                 </div>
                             </div>
+                            <div class="col-lg-4">
+                                
+                            <label for="edtMainMenu" class="form-label">Product</label>
+                                  <input type="text" class="form-control" id="inpProduct" aria-describedby="basic-addon3">
+                                
+                            </div>
+                            <div class="col-lg-4">
+                                
+                            <label for="edtMainMenu" class="form-label">Brand</label>
+                                  <input type="text" class="form-control" id="inpBrand" aria-describedby="basic-addon3">
+                                
+                            </div>
+
                         </div>
                         <div class="form-group row" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                             <div class="col-lg-2">
@@ -191,6 +207,14 @@
                             <label for="edtMainMenu" class="form-label">Size</label>
                                   <input type="text" class="form-control" id="inpSize" aria-describedby="basic-addon3">
                             </div>
+                            <div class="col-lg-4">
+                            <label for="edtMainMenu" class="form-label">MODEL</label>
+                                  <input type="text" class="form-control" id="inpModel" aria-describedby="basic-addon3">
+                            </div>
+                            <div class="col-lg-4">
+                            <label for="edtMainMenu" class="form-label">DISCRIPTION</label>
+                                  <input type="text" class="form-control" id="inpDis" aria-describedby="basic-addon3">
+                            </div>
                         </div>
 
                         <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
@@ -200,10 +224,8 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center">NO.</th>
-                                                <th class="text-center">BRAND</th>
-                                                <th class="text-center">PRODUCT</th>
-                                                <th class="text-center">MODEL</th>
-                                                <th class="text-center">DESCRIPTION</th>
+                                                <th class="text-center">Document Number</th>
+                                                <th class="text-center">Document Date</th>
                                                 <th class="text-center">QTY</th>
                                                 <th class="text-center">PRICE</th>
                                             </tr>
@@ -217,9 +239,70 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="btnSaveEdit">Save changes</button>
+                        <!-- <button type="button" class="btn btn-primary" id="btnSaveEdit">Save changes</button> -->
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="mldAddProduct" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl" style="width:1200px" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" style="margin: 10px 0px;font-weight: 600;"><i class="ti-pencil-alt mr-3"></i> Add Product</h3>
+                    <button type="button" class="btn-close me-2 mb-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <form enctype="multipart/form-data">
+                    <hr>
+                        <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
+                            <div class="col-lg-12 mb-3">
+                                <label class="col-form-label">
+                                    <h4 style="font-weight: 600;"><i class="ti-package" style="padding-right: 7px;"></i>Form input product</h4>
+                                </label>
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <label for="edtMainMenu" class="form-label">Brand</label>
+                                <select name="selAddBrand" id="selAddBrand" class="form-control">
+                                    <option value="">- Brand -</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtMainMenu" class="form-label">Index Number</label>
+                                <input type="text " id="inpAddIndex" class="form-control">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtMainMenu" class="form-label">Size</label>
+                                <select name="selAddSize" id="selAddSize" class="form-control">
+                                    <option value="">- Size -</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtMainIcon" class="form-label">Product</label>
+                                <input type="text" id="inpAddProduct" class="form-control" placeholder="Enter Product">
+                            </div>
+                            <div class="col-lg-3 mb-3">
+                                <label for="edtOrderNo" class="form-label">Model</label>
+                                <input type="text" id="selAddModel" class="form-control" placeholder="Enter Model">
+                            </div>
+                            <div class="col-lg-6">
+                            
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="edtOrderNo" class="form-label">Discription</label>
+                                <textarea name="" id="selAddDis" class="form-control" id="" cols="30" rows="5" placeholder="Enter Discription"></textarea>
+                            </div>
+                        </div>
+                        <hr>
+
+                    </form>
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btnAddSaveProduct">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>

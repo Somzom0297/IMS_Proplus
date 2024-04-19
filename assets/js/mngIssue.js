@@ -138,10 +138,24 @@ $(document).ready(function() {
     
     $('#selAddProductCode').on('change',function(){
         var product_id = $('#selAddProductCode').val();
+        // alert(product_id)
         var selectedOption = $(this).find('option:selected');
     
         // Get the value of the data-id attribute
         var dataId = selectedOption.data('id');
+        // alert(dataId)
+        if(dataId === undefined){
+            Swal.fire({
+                title: "Warning!",
+                text: "No have qty for this product",
+                icon: "warning"
+              });
+            $('#selAddModel').val('')
+            $('#inpAddDiscription').val('')
+            $('#inpAddIndex').val('')
+            $('#inpAddSize').val('')
+            $('#selAddBrand').val('')
+        }else{
         // alert(dataId)
         $.ajax({
             url: API_URL + "Receive/getModelById",
@@ -161,6 +175,7 @@ $(document).ready(function() {
            $('#selAddBrand').val(data[0].mb_name)
            
         })
+    }
     });
 
     $('#selEditProductCode').on('change',function(){
@@ -267,17 +282,19 @@ $(document).ready(function() {
             dataType: 'json',
         })
         .done(function(data) {
-            console.log(data); // Use console.log for better debugging
+            console.log(data.result2); // Use console.log for better debugging
             // Clear existing table rows
             
             $('#selAddProductCode').empty();
             // Append new options from data received
-            $.each(data, function(index, item) {
+            
+            $.each(data.result2, function(index, item) {
                 $('#selAddProductCode').append($('<option>', {
                     value: item.mpc_id,
                     text: item.mpc_name,
                     'data-id': item.isd_id
                 }));
+
             });
         })
         .fail(function(xhr, status, error) {

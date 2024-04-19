@@ -35,7 +35,7 @@
                             <li class="breadcrumb-item">
                                 <a class="text-muted text-decoration-none" href="<?php echo base_url('Dashboard/dashboard'); ?>">Home</a>
                             </li>
-                            <li class=" breadcrumb-item" aria-current="page">Inventory
+                            <li class=" breadcrumb-item" aria-current="page"> Goods Receive
                             </li>
                         </ol>
                     </nav>

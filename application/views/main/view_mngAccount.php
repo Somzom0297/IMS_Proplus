@@ -147,9 +147,9 @@
 
 							<div class="row">
 								<div class="col mb-3">
-									<label class="form-label">Plant</label><span class="red-text">*</span>
+									<label class="form-label">Position</label><span class="red-text">*</span>
 									<select id="selPlantAdd" class="selPlantAdd select2 form-select" data-allow-clear="true">
-										<option value="">Choose Plant</option>
+										<option value="">Choose Position</option>
 									</select>
 								</div>
 							</div>
