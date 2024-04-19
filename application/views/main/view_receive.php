@@ -74,7 +74,6 @@
         </div>
     </div>
  <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
     <div class="modal fade" id="mdlAddReceiveDetail" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl" style="width:1200px" role="document">
             <div class="modal-content">
@@ -99,7 +98,6 @@
                             <div class="col-lg-3">
                                 <label for="edtMainMenu" class="form-label">Index Number</label>
                                 <input type="text" id="inpAddIndex" class="form-control">
-
                             </div>
                             <div class="col-lg-3">
                                 <label for="edtMainMenu" class="form-label">Size</label>
@@ -131,7 +129,6 @@
                             </div>
                         </div>
                     </form>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="CloseModal">Close</button>
@@ -140,9 +137,7 @@
             </div>
         </div>
     </div>
-
  <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
-
     <div class="modal fade" id="mdlEditReceive" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl" style="width:1200px" role="document">
             <div class="modal-content">
@@ -200,7 +195,6 @@
                             </div>
                         </div>
                     </form>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="CloseModal">Close</button>
@@ -209,7 +203,6 @@
             </div>
         </div>
     </div>
-
 <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
     <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl" style="width:1200px" role="document">
@@ -224,7 +217,6 @@
                             <label class="col-form-label">
                                 <h5 style="font-weight: 600;"><i class="ti-file" style="padding-right: 7px;"></i>Form input location stock</h5>
                             </label>
-
                             <button type="button" class="btn btn-circle btn-secondary float-end" id="btnDownload">Download</button>
                         </div>
                         <div class="col-lg-3">
@@ -247,7 +239,7 @@
                     </div>
                     
                     <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
-                    <div class="col-lg-6">
+                        <div class="col-lg-6">
                             <label for="edtOrderNo" class="form-label">Supplier Name </label>
                             <input type="text" id="supplierName" class="form-control">
                         </div>
@@ -259,20 +251,17 @@
                             <label for="edtOrderNo" class="form-label">Purchase Order Date</label>
                             <input type="Date" id="poDate" class="form-control">
                         </div>
-
                     </div>
                     <hr>
-                    
+
                     <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                         <div class="col-lg-2">
-                            <!-- <button type="button" class="btn btn-circle btn-success" id="btnAddReceiveDetail"><i class="ti-plus"></i>Add</button> -->
                             <button type="button" class="btn btn-circle btn-success" style="background-color: #15CEA2!important" id="btnAddReceiveDetail"><i class="ti-plus"></i> <b>Add</b></button>
                         </div>
                         <div class="col-lg-10">
                             <button type="button" class="btn btn-circle btn-danger float-end" id="btnDownload"><i class="ti-file"></i> PDF</button>
                             <button type="button" class="btn btn-circle btn-light float-end me-2" id="btnDownload"><i class="ti-printer"></i> Print</button>
                         </div>
-
                     </div>
                     <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                         <div class="table-responsive text-nowrap">
@@ -291,7 +280,6 @@
                                             <th class="text-center">ACTION</th>
                                         </tr>
                                     <tbody class="table-border-bottom-0 text-center" id="tbody">
-                                    
                                     </tbody>
                                 </table>
                                 <button id="downloadPDF">Download PDF</button>

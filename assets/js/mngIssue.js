@@ -4,12 +4,22 @@ $(document).ready(function() {
 
         // Convert the table to a PDF table
         doc.autoTable({ html: '#tblStockRecive' });
-
         // Save the PDF
         doc.save('table.pdf');
     });
     showYear();
-
+    var id_doc = $('#inpAddDoc').val();
+    showIssueDetail(id_doc)
+    $('#inpAddPriceUnit').keyup(function(){
+        var qty = parseFloat($('#inpAddQaulity').val());
+        var price = parseFloat($('#inpAddPriceUnit').val());
+        var amount = qty * price;
+        if(amount < 0 && qty <0 && price < 0){
+            $('#inpAddTotal').val('0.00'); // Format to two decimal places
+        }else{
+            $('#inpAddTotal').val(amount.toFixed(2)); // Format to two decimal places
+        }
+    })
     const table = TableReceive();
     // This function clears the content of all modals
 
@@ -18,7 +28,7 @@ $(document).ready(function() {
         var month = $('#monthSelect').val();
     
         $.ajax({
-            url: API_URL + "Receive/getReceiveInfo",
+            url: API_URL + "Receive/getIssueInfo",
             type: 'POST',
             dataType: 'json',
             data: {
@@ -36,11 +46,11 @@ $(document).ready(function() {
                     { data: null, render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
                     }},
-                    { data: 'isd_doc_number' },
-                    { data: 'isd_inv_date' },
+                    { data: 'isi_document' },
+                    { data: 'isi_document_date' },
                     { data: 'total' },
-                    { data: 'isd_inv_no', render: function(data) {
-                        return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlReceiveDetail" data-id="' + data + '" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i> Details</a>';
+                    { data: 'isi_document', render: function(data) {
+                        return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlIssueDetail" data-id="' + data + '" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i> Details</a>';
                     }}
                 ],
                 scrollX: true
@@ -52,13 +62,13 @@ $(document).ready(function() {
         });
     }
     
-    $('#tblStockRecive').on('click', '.mdlReceiveDetail', function (ev) {
+    $('#tblStockRecive').on('click', '.mdlIssueDetail', function (ev) {
         $('#detailsModal').modal('show');
         ev.preventDefault();
         var inv = $(this).data('id');
         // var inv = '12401001';
         // alert(inv)
-        showReceiveDetail(inv);
+        showIssueDetail(inv);
     });
     
     $('#tblReceiveDetail').on('click', '.mdlEditReceive', function (ev) {
@@ -128,7 +138,11 @@ $(document).ready(function() {
     
     $('#selAddProductCode').on('change',function(){
         var product_id = $('#selAddProductCode').val();
-        // alert(product_id)
+        var selectedOption = $(this).find('option:selected');
+    
+        // Get the value of the data-id attribute
+        var dataId = selectedOption.data('id');
+        // alert(dataId)
         $.ajax({
             url: API_URL + "Receive/getModelById",
             type: 'POST',
@@ -139,6 +153,7 @@ $(document).ready(function() {
         })
         .done(function(data) {
         //    alert(data[0].mpc_model)
+
            $('#selAddModel').val(data[0].mpc_model)
            $('#inpAddDiscription').val(data[0].mpc_discription)
            $('#inpAddIndex').val(data[0].mib_number)
@@ -170,23 +185,20 @@ $(document).ready(function() {
         })
     });
 
-    function showReceiveDetail(invoiceNumber) {
-        var apiUrl = 'http://127.0.0.1/api/Receive/getReceiveDetail';
+    function showIssueDetail(invoiceNumber) {
+        // var invoiceNumber = 'IS2402001'
+        var apiUrl = 'http://127.0.0.1/api/Receive/getIssueDetail';
         $.ajax({
             url: apiUrl,
             type: 'GET',
             dataType: 'json',
-            data: { inv: invoiceNumber },
+            data: { doc_id: invoiceNumber },
             success: function(data) {
-                console.log(data);
+                // console.log(data[0].isi_document);
+
                 if (data.length > 0) {
-                    $('#docNumber').val(data[0].isd_doc_number);
-                    $('#docDate').val(data[0].isd_doc_date);
-                    $('#invNumber').val(data[0].isd_inv_no);
-                    $('#poNumber').val(data[0].isd_po_number);
-                    $('#supplierName').val(data[0].isd_customer);
-                    $('#invDate').val(data[0].isd_inv_date);
-                    $('#poDate').val(data[0].isd_po_date);
+                    $('#inpAddDoc').val(data[0].isi_document);
+                    $('#inpAddDocDate').val(data[0].isi_document_date);
                 }
                 var html = "";
                 for (var i = 0; i < data.length; i++) {
@@ -200,13 +212,9 @@ $(document).ready(function() {
                             <td>${data[i].isd_qty}</td>
                             <td>${data[i].isd_price_unit}</td>
                             <td>${data[i].isd_qty * data[i].isd_price_unit}</td>
-                            <td>
-                                <a href="#" class="btn btn-secondary mdlEditReceive" data-id="${data[i].isd_id}"><i class="ti-pencil"></i></a>
-                                <a href="#" class="btn btn-danger mdlDeleteReceive" data-id="${data[i].isd_id}"><i class="ti-trash"></i></a>
-                            </td>
                         </tr>`;
                 }
-                $('#tblReceiveDetail tbody').html(html);
+                $('#tblProductIssueDetail tbody').html(html);
 
                 // Initialize DataTables after updating the table content
                 // $('#tblReceiveDetail').DataTable({
@@ -261,12 +269,14 @@ $(document).ready(function() {
         .done(function(data) {
             console.log(data); // Use console.log for better debugging
             // Clear existing table rows
+            
             $('#selAddProductCode').empty();
             // Append new options from data received
             $.each(data, function(index, item) {
                 $('#selAddProductCode').append($('<option>', {
                     value: item.mpc_id,
-                    text: item.mpc_name
+                    text: item.mpc_name,
+                    'data-id': item.isd_id
                 }));
             });
         })
@@ -305,8 +315,13 @@ $(document).ready(function() {
 
     }
 
-    $('#btnSaveReceive').click(function() {
+    $('#btnAddSaveIssue').click(function() {
+        var selectedOption = $('#selAddProductCode').find('option:selected');
+    
+        // Get the value of the data-id attribute
+        var dataId = selectedOption.data('id');
         var formData = new FormData();
+        formData.append('isd_id', dataId);
         formData.append('doc_number', $('#inpAddDoc').val());
         formData.append('doc_date', $('#inpAddDocDate').val());
         formData.append('invoice_number', $('#invNumber').val());
@@ -314,13 +329,14 @@ $(document).ready(function() {
         formData.append('purchase_order', $('#poNumber').val());
         formData.append('purchase_order_date', $('#poDate').val());
         formData.append('product_id', $('#selAddProductCode').val());
+        formData.append('customer', $('#inpCustomer').val());
         formData.append('qty', $('#inpAddQaulity').val());
         formData.append('Unit', $('#inpAddUnit').val());
         formData.append('price', $('#inpAddPriceUnit').val());
 
-        var inv = $('#invNumber').val();
+        var inv = $('#inpAddDoc').val();
         $.ajax({
-            url: API_URL + "Receive/insertReceive",
+            url: API_URL + "Receive/insertIssue",
             type: 'POST',
             data: formData,
             processData: false, // Prevent jQuery from automatically processing data
