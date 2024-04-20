@@ -257,11 +257,11 @@
                             </div>
                             <div class="col-lg-3">
                                 <label for="edtMainMenu" class="form-label">Document Number</label>
-                                <input type="text" id="inpAddDoc" class="form-control" placeholder="Enter Document Number">
+                                <input type="text" id="inpAddDocDetail" class="form-control" placeholder="Enter Document Number">
                             </div>
                             <div class="col-lg-3">
                                 <label for="edtMainIcon" class="form-label">Document Date</label>
-                                <input type="date" id="inpAddDocDate" class="form-control">
+                                <input type="date" id="inpAddDocDateDetail" class="form-control">
                             </div>
                         </div>
                     </form>

@@ -27,7 +27,7 @@ $(document).ready(function() {
             }
         })
         .done(function(data) {
-            console.log(data); // Use console.log for better debugging
+            // console.log(data); // Use console.log for better debugging
 
             var table = $('#tblStockRecive').DataTable({
                 data: data,
@@ -76,7 +76,7 @@ $(document).ready(function() {
         ev.preventDefault();
         var isd_id = $(this).data('id');
         var inv = $('#invNumber').val();
-        alert(inv)
+
         Swal.fire({
             title: 'Are you sure?',
             text: 'You are about to delete this record!',
@@ -98,6 +98,8 @@ $(document).ready(function() {
                     }
                 }).done(function(data) {
                     // Handle success response
+                    // console.log("2222",data);
+
                     Swal.fire({
                         title: 'Deleted!',
                         text: 'The record has been deleted.',
@@ -180,7 +182,7 @@ $(document).ready(function() {
             dataType: 'json',
             data: { inv: invoiceNumber },
             success: function(data) {
-                console.log(data);
+                // console.log(data);
                 if (data.length > 0) {
                     $('#docNumber').val(data[0].isd_doc_number);
                     $('#docDate').val(data[0].isd_doc_date);
@@ -261,7 +263,7 @@ $(document).ready(function() {
             dataType: 'json',
         })
         .done(function(data) {
-            console.log(data); // Use console.log for better debugging
+            // console.log(data); // Use console.log for better debugging
             // Clear existing table rows
             $('#selAddProductCode').empty();
             // Append new options from data received

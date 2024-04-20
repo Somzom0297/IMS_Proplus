@@ -120,6 +120,10 @@
                                 <label for="edtOrderNo" class="form-label">Model</label>
                                 <input type="text" id="selAddModel" class="form-control">
                             </div>
+                            <div class="col-lg-3">
+                                <label for="edtOrderNo" class="form-label">QTY</label>
+                                <input type="text" id="inpQty" class="form-control">
+                            </div>
                         </div>
                         <hr>
                         <div class="form-group row mb-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">

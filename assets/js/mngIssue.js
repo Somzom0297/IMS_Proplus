@@ -168,6 +168,7 @@ $(document).ready(function() {
         .done(function(data) {
         //    alert(data[0].mpc_model)
 
+           $('#inpQty').val(data[0].total)
            $('#selAddModel').val(data[0].mpc_model)
            $('#inpAddDiscription').val(data[0].mpc_discription)
            $('#inpAddIndex').val(data[0].mib_number)
@@ -212,8 +213,8 @@ $(document).ready(function() {
                 // console.log(data[0].isi_document);
 
                 if (data.length > 0) {
-                    $('#inpAddDoc').val(data[0].isi_document);
-                    $('#inpAddDocDate').val(data[0].isi_document_date);
+                    $('#inpAddDocDetail').val(data[0].isi_document);
+                    $('#inpAddDocDateDetail').val(data[0].isi_document_date);
                 }
                 var html = "";
                 for (var i = 0; i < data.length; i++) {

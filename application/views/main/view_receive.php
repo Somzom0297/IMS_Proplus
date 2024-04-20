@@ -203,7 +203,9 @@
             </div>
         </div>
     </div>
+
 <!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
     <div class="modal fade" id="detailsModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-xl" style="width:1200px" role="document">
             <div class="modal-content">

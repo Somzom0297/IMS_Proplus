@@ -29,7 +29,7 @@
         <div class="card-body pb-0 pt-3">
             <div class="row align-items-center">
                 <div class="col-9">
-                    <h4 class="fw-semibold mb-8"><i class="ti-file"></i> Form input location stock</h4>
+                    <h4 class="fw-semibold mb-8"><i class="ti-file"></i> Form Register Goods Receive</h4>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">

@@ -34,6 +34,7 @@ $(document).ready(function(){
         // alert(product_code)
         showReceiveDetail(product_code);
     });
+
     function showReceiveDetail(product_code) {
         var apiUrl = 'http://127.0.0.1/api/Receive/getProductDetail';
         $.ajax({
@@ -42,7 +43,7 @@ $(document).ready(function(){
             dataType: 'json',
             data: { mpc_id: product_code },
             success: function(data) {
-                console.log(data);
+                // console.log(data);
                 if (data.length > 0) {
                     $('#inpTotal').val(data[0].total_qty);
                     $('#inpProduct').val(data[0].mpc_name);
@@ -53,18 +54,23 @@ $(document).ready(function(){
                     $('#inpSize').val(data[0].mib_size);
                    
                 }
-                var html = "";
-                for (var i = 0; i < data.length; i++) {
-                    html += `
-                        <tr>
-                            <td>${i+1}</td>
-                            <td>${data[i].isd_doc_number}</td>
-                            <td>${data[i].isd_doc_date}</td>
- 
-                            <td>${data[i].isd_qty}</td>
-                            <td>${data[i].isd_price_unit}</td>
-                        </tr>`;
+                if(data[0].isd_doc_number !== undefined){
+                    var html = "";
+                    for (var i = 0; i < data.length; i++) {
+                        html += `
+                            <tr>
+                                <td>${i+1}</td>
+                                <td>${data[i].isd_doc_number}</td>
+                                <td>${data[i].isd_doc_date}</td>
+     
+                                <td>${data[i].isd_qty}</td>
+                                <td>${data[i].isd_price_unit}</td>
+                            </tr>`;
+                    }
+                }else{
+
                 }
+
                 $('#tblReceiveDetail tbody').html(html);
 
                 // Initialize DataTables after updating the table content
@@ -114,12 +120,22 @@ $(document).ready(function(){
             }
         })
         .done(function(data) {
+            console.log("=>",data.success);
+            if(data.success == "true"){
             Swal.fire({
                 title: "Success!",
                 text: "tum kan add succefully",
                 icon: "success"
               });
               $('#mldAddProduct').modal('hide');
+            }else{
+                Swal.fire({
+                    title: "Error!",
+                    text: "This product code already exist",
+                    icon: "error"
+                  });
+                  $('#inpAddProduct').addClass('border-danger');
+            }
         })
     })
     
