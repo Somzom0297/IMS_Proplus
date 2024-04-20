@@ -1,24 +1,27 @@
 $(document).ready(function() {
-  var url = `${API_URL}Inv_stockinfo/showStockinfoTable`;
-
+  var apiUrl = 'http://127.0.0.1/api/Receive/getStockInfo';
   $.ajax({
-    url: `${base_url("Stockinfo/callApiShowData?url=")}${url}`,
+    url: apiUrl,
     type: 'POST',
     dataType: 'json'
   })
   .done(function(data) {
     console.log(data); // Use console.log for better debugging
-
-
     $.each(data, function(index, item) {
+      var qtyyy
+      if(item.isd_qty == null){
+          qtyyy = 0
+      }else{
+        qtyyy = item.isd_qty
+      }
       var row = `<tr>
                     <td>${index + 1}</td>
                     <td>${item.mb_name}</td>
                     <td>${item.mpc_name}</td>
                     <td>${item.mpc_model}</td>
-                    <td>${item.isd_description}</td>
-                    <td>${item.isd_qty-(item.Total == null ? 0 : item.Total)}</td>
-                    <td>${(item.Total == null ? 0 : item.Total)}</td> 
+                    <td>${item.mpc_discription}</td>
+                    <td>${(item.qtyy == null) ? qtyyy : item.qtyy}</td>
+
                 </tr>`;
                 $('tbody').append(row);
     });

@@ -39,7 +39,7 @@
                                     <th class="text-center">MODEL</th>
                                     <th class="text-center">DESCRIPTION</th>
                                     <th class="text-center">REMAIN</th>
-                                    <th class="text-center">RESERVE</th>
+
                                 </tr>
                             <tbody class="table-border-bottom-0 text-center" id="tbody">
                             </tbody>

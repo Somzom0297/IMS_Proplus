@@ -9,7 +9,6 @@ $(document).ready(function(){
         })
         .done(function(data) {
             console.log(data); // Use console.log for better debugging
-
             var table = $('#tblProductDetail').DataTable({
                 data: data,
                 destroy: true,
@@ -46,7 +45,11 @@ $(document).ready(function(){
                 console.log(data);
                 if (data.length > 0) {
                     $('#inpTotal').val(data[0].total_qty);
+                    $('#inpProduct').val(data[0].mpc_name);
+                    $('#inpModel').val(data[0].mpc_model);
                     $('#inpIndex').val(data[0].mib_number);
+                    $('#inpDis').val(data[0].mpc_discription);
+                    $('#inpBrand').val(data[0].mb_name);
                     $('#inpSize').val(data[0].mib_size);
                    
                 }
@@ -55,10 +58,9 @@ $(document).ready(function(){
                     html += `
                         <tr>
                             <td>${i+1}</td>
-                            <td>${data[i].mb_name}</td>
-                            <td>${data[i].mpc_name}</td>
-                            <td>${data[i].mpc_model}</td>
-                            <td>${data[i].mpc_discription}</td>
+                            <td>${data[i].isd_doc_number}</td>
+                            <td>${data[i].isd_doc_date}</td>
+ 
                             <td>${data[i].isd_qty}</td>
                             <td>${data[i].isd_price_unit}</td>
                         </tr>`;
@@ -76,4 +78,103 @@ $(document).ready(function(){
         });
     
     }
+
+    $('#detailProduct').on('hidden.bs.modal', function() {
+        $('#inpTotal').val('');
+        $('#inpIndex').val('');
+        $('#inpSize').val('');
+    });
+
+    $('#btnAddProduct').click(function() {
+        $('#mldAddProduct').modal('show');
+        showBrand();
+        showIndex();
+        showSize();
+    })
+
+    $('#btnAddSaveProduct').click(function() {
+        var brand = $('#selAddBrand').val();
+        var Product = $('#inpAddProduct').val();
+        var Model = $('#selAddModel').val();
+        var dis = $('#selAddDis').val();
+        var index = $('#inpAddIndex').val();
+        var size = $('#selAddSize').val();
+
+        $.ajax({
+            url: API_URL + "Receive/insertProduct",
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                brand: brand,
+                Product: Product,
+                Model: Model,
+                dis: dis,
+                index: index,
+                size: size
+            }
+        })
+        .done(function(data) {
+            Swal.fire({
+                title: "Success!",
+                text: "tum kan add succefully",
+                icon: "success"
+              });
+              $('#mldAddProduct').modal('hide');
+        })
+    })
+    
+    function showBrand() {
+        $.ajax({
+            url: API_URL + "Receive/getBrandAll",
+            type: 'POST',
+            dataType: 'json',
+        })
+        .done(function(data) {
+        //    alert(data[0].mpc_model)
+        $('#selAddBrand').empty();
+        // Append new options from data received
+        $.each(data, function(index, item) {
+            $('#selAddBrand').append($('<option>', {
+                value: item.mb_id,
+                text: item.mb_name
+            }));
+        });
+
+        })
+    }
+
+    function showIndex() {
+        $.ajax({
+            url: API_URL + "Receive/getIndexAll",
+            type: 'POST',
+            dataType: 'json',
+        })
+        .done(function(data) {
+        //    alert(data[0].mpc_model)
+        $('#inpAddIndex').val(data[0].mib_number);
+
+        })
+    }
+
+    function showSize() {
+        $.ajax({
+            url: API_URL + "Receive/getIndexSize",
+            type: 'POST',
+            dataType: 'json',
+        })
+        .done(function(data) {
+        //    alert(data[0].mpc_model)
+
+        $('#selAddSize').empty();
+        // Append new options from data received
+        $.each(data, function(index, item) {
+            $('#selAddSize').append($('<option>', {
+                value: item.mib_size,
+                text: item.mib_size
+            }));
+        });
+
+        })
+    }
+    
 });
