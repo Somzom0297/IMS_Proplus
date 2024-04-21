@@ -1,15 +1,17 @@
 $(document).ready(function() {
     $('#btnpdf').on('click', function() {
         var doc = new jsPDF();
-
         // Convert the table to a PDF table
         doc.autoTable({ html: '#tblStockRecive' });
         // Save the PDF
         doc.save('table.pdf');
     });
     showYear();
+
     var id_doc = $('#inpAddDoc').val();
-    showIssueDetail(id_doc)
+
+    showIssueDetail(id_doc);
+
     $('#inpAddPriceUnit').keyup(function(){
         var qty = parseFloat($('#inpAddQaulity').val());
         var price = parseFloat($('#inpAddPriceUnit').val());
@@ -119,10 +121,8 @@ $(document).ready(function() {
             }
         });
     });
-    // $('#mdlAddReceiveDetail').on('shown.bs.modal', function() {
+
     $('#btnAddIssue').on('click', function() {
-        // $('#detailsModal').modal('hide');
-        // $('#mdlAddReceiveDetail').modal('show');
         selProductCode();
     });
 
@@ -165,18 +165,18 @@ $(document).ready(function() {
                 id:product_id
             }
         })
-        .done(function(data) {
-        //    alert(data[0].mpc_model)
-
-           $('#inpQty').val(data[0].total)
-           $('#selAddModel').val(data[0].mpc_model)
-           $('#inpAddDiscription').val(data[0].mpc_discription)
-           $('#inpAddIndex').val(data[0].mib_number)
-           $('#inpAddSize').val(data[0].mib_size)
-           $('#selAddBrand').val(data[0].mb_name)
-           
-        })
-    }
+            .done(function(data) {
+            //    alert(data[0].mpc_model)
+            
+               $('#inpQty').val(data[0].total)
+               $('#selAddModel').val(data[0].mpc_model)
+               $('#inpAddDiscription').val(data[0].mpc_discription)
+               $('#inpAddIndex').val(data[0].mib_number)
+               $('#inpAddSize').val(data[0].mib_size)
+               $('#selAddBrand').val(data[0].mb_name)
+            
+            })
+        }
     });
 
     $('#selEditProductCode').on('change',function(){
@@ -225,9 +225,9 @@ $(document).ready(function() {
                             <td>${data[i].mpc_name}</td>
                             <td>${data[i].mpc_model}</td>
                             <td>${data[i].mpc_discription}</td>
-                            <td>${data[i].isd_qty}</td>
+                            <td>${data[i].isi_qty}</td>
                             <td>${data[i].isd_price_unit}</td>
-                            <td>${data[i].isd_qty * data[i].isd_price_unit}</td>
+                            <td>${data[i].isi_qty * data[i].isd_price_unit}</td>
                         </tr>`;
                 }
                 $('#tblProductIssueDetail tbody').html(html);
@@ -335,7 +335,17 @@ $(document).ready(function() {
 
     $('#btnAddSaveIssue').click(function() {
         var selectedOption = $('#selAddProductCode').find('option:selected');
-    
+        var qtyRemain = $('#inpQty').val();
+        var qty = $('#inpAddQaulity').val();
+
+        if(qty != '' && qtyRemain != '' && qty > qtyRemain){
+            Swal.fire({
+                title: "Warning!",
+                text: "Qty not enough",
+                icon: "warning"
+              });
+              return;
+        }
         // Get the value of the data-id attribute
         var dataId = selectedOption.data('id');
         var formData = new FormData();
@@ -432,4 +442,23 @@ $(document).ready(function() {
         $('#selEditProductCode').trigger('change');
     });
 
+    $('#btnSubmit').click(function() {
+      
+        Swal.fire({
+            title: "Success!",
+            text: "tum kan add succefully",
+            icon: "success"
+          });
+        resetForm();
+    });
+
+    $('#btnCancel').click(function() {
+
+            Swal.fire({
+                title: "Success!",
+                text: "tum kan add succefully",
+                icon: "success"
+              });
+            resetForm();
+    });
   });

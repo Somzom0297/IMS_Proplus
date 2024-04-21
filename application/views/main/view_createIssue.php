@@ -27,7 +27,7 @@
         <div class="card-body pb-0 pt-3">
             <div class="row align-items-center">
                 <div class="col-9">
-                    <h4 class="fw-semibold mb-8"><i class="ti-file"></i> Form input location stock</h4>
+                    <h4 class="fw-semibold mb-8"><i class="ti-file"></i> Form Register Goods Issue</h4>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
@@ -76,7 +76,10 @@
                        
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-success float-end" id="btnSave">Submit</button>
+                <div class="text-center"> <!-- Add this container to center the button -->
+                    <button type="button" class="btn btn-secondary" id="btnCancel">Cancel</button>
+                    <button type="button" class="btn btn-success" id="btnSubmit">Submit</button>
+                </div>
 
             </div>
         </div>
@@ -121,7 +124,7 @@
                                 <input type="text" id="selAddModel" class="form-control">
                             </div>
                             <div class="col-lg-3">
-                                <label for="edtOrderNo" class="form-label">QTY</label>
+                                <label for="edtOrderNo" class="form-label">QTY Remain</label>
                                 <input type="text" id="inpQty" class="form-control">
                             </div>
                         </div>
