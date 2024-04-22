@@ -252,7 +252,7 @@
                         <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                             <div class="col-lg-12 mb-3">
                                 <label class="col-form-label">
-                                    <h4 style="font-weight: 600;"><i class="ti-file" style="padding-right: 7px;"></i>Form input location stock</h4>
+                                    <h4 style="font-weight: 600;"><i class="ti-file" style="padding-right: 7px;"></i>List Goods Issue</h4>
                                 </label>
                             </div>
                             <div class="col-lg-3">
