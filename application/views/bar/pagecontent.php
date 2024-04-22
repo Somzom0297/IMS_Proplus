@@ -26,7 +26,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
     <!-- Include jsPDF Autotable plugin -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/png" href="{base_url}src/assets/images/logos/propluslg.png" />
 <!-- Another Favicon (if needed) -->
