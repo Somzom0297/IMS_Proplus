@@ -55,7 +55,7 @@
                 <!-- start page container -->
                 <div class="table-responsive text-nowrap">
                     <div class="card-datatable table-responsive pt-0">
-                        <table class="table card-table border" style="width:100%" id="tblStockRecive">
+                        <table class="table card-table border" style="width:100%" id="tblStockIssue">
                             <thead>
                                 <tr>
                                     <th class="text-center">NO.</th>
@@ -77,7 +77,7 @@
         <div class="modal-dialog modal-xl" style="width:1200px" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title" style="padding: 0px 10px;margin: 10px 0px;font-weight: 600;"><i class="ti-pencil-alt mr-3"></i>Receive Details</h3>
+                    <h3 class="modal-title" style="padding: 0px 10px;margin: 10px 0px;font-weight: 600;"><i class="ti-pencil-alt mr-3"></i>Issue Details</h3>
                     <button type="button" class="btn-close me-2 mb-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -132,7 +132,7 @@
         <div class="modal-dialog modal-xl" style="width:1200px" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title" style="padding: 0px 10px;margin: 10px 0px;font-weight: 600;"><i class="ti-pencil-alt mr-3"></i> Receive Details</h3>
+                    <h3 class="modal-title" style="padding: 0px 10px;margin: 10px 0px;font-weight: 600;"><i class="ti-pencil-alt mr-3"></i> Issue Details</h3>
                     <button type="button" class="btn-close me-2 mb-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -156,7 +156,7 @@
                     <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                         <div class="table-responsive text-nowrap">
                             <div class="card-datatable table-responsive pt-0">
-                                <table class="table card-table border" style="width:100%" id="tblProductIssueDetail">
+                                <table class="table card-table border" style="width:100%" id="tblProductIssueDetails">
                                     <thead>
                                         <tr>
                                             <th class="text-center">NO.</th>
@@ -166,7 +166,7 @@
                                             <th class="text-center">DESCRIPTION</th>
                                             <th class="text-center">QTY</th>
                                             <th class="text-center">PRICE</th>
-                                            <th class="text-center">ACTION</th>
+                                            <th class="text-center">AMOUNT</th>
                                         </tr>
                                     <tbody class="table-border-bottom-0 text-center" id="tbody">
                                     </tbody>

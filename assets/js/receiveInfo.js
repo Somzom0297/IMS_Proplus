@@ -14,6 +14,7 @@ $(document).ready(function() {
     // This function clears the content of all modals
 
     function TableReceive() {
+
         var year = $('#yearSelect').val();
         var month = $('#monthSelect').val();
     
@@ -27,8 +28,7 @@ $(document).ready(function() {
             }
         })
         .done(function(data) {
-            // console.log(data); // Use console.log for better debugging
-
+            // Initialize DataTable for #tblStockRecive
             var table = $('#tblStockRecive').DataTable({
                 data: data,
                 destroy: true,
@@ -36,16 +36,32 @@ $(document).ready(function() {
                     { data: null, render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
                     }},
-                    { data: 'isd_doc_number' },
-                    { data: 'isd_inv_date' },
-                    { data: 'isd_inv_no' },
-                    { data: 'isd_po_number' },
-                    { data: 'total' },
+                    { data: 'isd_doc_number', className: 'text-center' }, // Centering content of this column
+                    { data: 'isd_inv_date', className: 'text-center' }, // Centering content of this column
+                    { data: 'isd_inv_no', className: 'text-center' }, // Centering content of this column
+                    { data: 'isd_po_number', className: 'text-center' }, // Centering content of this column
+                    { data: 'total', className: 'text-center' }, // Centering content of this column
                     { data: 'isd_inv_no', render: function(data) {
                         return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlReceiveDetail" data-id="' + data + '" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i> Details</a>';
-                    }}
+                    }, className: 'text-center' } // Centering content of this column
                 ],
-                scrollX: true
+                dom: 'Bfrtip', // Buttons for export
+                searching: false,
+                buttons: [
+                    {
+                        
+                        extend: 'pdfHtml5',
+                        text: 'Download PDF',
+                        filename: 'stock_info_pdf',
+                        download: 'open',
+                        customize: function(doc) {
+                            // Customize the PDF document
+                            doc.content[1].table.widths = ['10%', '15%', '20%', '15%', '15%', '10%', '20%']; // Example: Set custom widths for each column
+                            // var signatureText = '(___________________________)                             (___________________________)                             (___________________________)\n\n.    Noraphat jirasetthasiri                                         Noraphat jirasetthasiri                                         Noraphat jirasetthasiri \n\n   date_____________________                                  date_____________________                                   date_____________________';
+                            // doc.content.push({ text: signatureText, margin: [0, 210, 0, 0] });
+                        }
+                    }
+                ]
             });
         })
         .fail(function(xhr, status, error) {

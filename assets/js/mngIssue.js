@@ -1,13 +1,5 @@
 $(document).ready(function() {
-   
-    $('#btnpdf').on('click', function() {
-        var doc = new jsPDF();
-        // Convert the table to a PDF table
-        doc.autoTable({ html: '#tblStockRecive' });
-        // Save the PDF
-        doc.save('table.pdf');
-    });
-
+    showYear();
     // var id_doc = $('#inpAddDoc').val();
 
     // showIssueDetail(id_doc);
@@ -22,9 +14,45 @@ $(document).ready(function() {
             $('#inpAddTotal').val(amount.toFixed(2)); // Format to two decimal places
         }
     })
+
     const table = TableProduct();
     // This function clears the content of all modals
+    const table1 = TableReceive();
 
+    function TableReceive() {
+        var year = $('#yearSelect').val();
+        var month = $('#monthSelect').val();
+        $.ajax({
+            url: API_URL + "Receive/getIssueInfo",
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                year: year,
+                month: month
+            }
+        })
+        .done(function(data) {
+            console.log(data); // Use console.log for better debugging
+
+            var table = $('#tblStockIssue').DataTable({
+                data: data,
+                destroy: true,
+                columns: [
+                    { data: null, render: function(data, type, row, meta) {
+                        return meta.row + meta.settings._iDisplayStart + 1;
+                    }},
+                    { data: 'isi_document' },
+                    { data: 'isi_document_date' },
+                    { data: 'total' },
+                    { data: 'isi_document', render: function(data) {
+                        return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlIssueDetails" data-id="' + data + '" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i> Details</a>';
+                    }}
+                ],
+                scrollX: true
+            });
+            });
+    }
+    
     function TableProduct() {
 
         $.ajax({
@@ -48,7 +76,8 @@ $(document).ready(function() {
                         data: 'mpc_img',
                         render: function(data, type, row) {
                             return '<img src="http://127.0.0.1/IMS_Proplus/assets/img/' + data + '" height="80px" alt="Product Image">';
-                        }
+                        },
+                        className:'text-center'
                     },
                     { data: 'mb_name' },
                     { data: 'mpc_name' },
@@ -76,6 +105,15 @@ $(document).ready(function() {
         });
     }
     
+    $('#tblStockIssue').on('click', '.mdlIssueDetails', function (ev) {
+        $('#detailsModal').modal('show');
+        ev.preventDefault();
+        var isd = $(this).data('id');
+        // var inv = '12401001';
+        // alert(isd)
+        showIssueDetail(isd);
+    });
+    
     $('#tblProductIssueDetail').on('click', '.mdlIssueDetail', function (ev) {
         $('#mldAddIssue').modal('show');
         ev.preventDefault();
@@ -84,7 +122,49 @@ $(document).ready(function() {
         // alert(isd)
         // showIssueDetail(inv);
     });
+
+    function showIssueDetail(invoiceNumber) {
+        // var invoiceNumber = 'IS2402001'
+        var apiUrl = 'http://127.0.0.1/api/Receive/getIssueDetail';
+        $.ajax({
+            url: apiUrl,
+            type: 'GET',
+            dataType: 'json',
+            data: { doc_id: invoiceNumber },
+            success: function(data) {
+                // console.log(data[0].isi_document);
+
+                if (data.length > 0) {
+                    $('#inpAddDocDetail').val(data[0].isi_document);
+                    $('#inpAddDocDateDetail').val(data[0].isi_document_date);
+                }
+                var html = "";
+                for (var i = 0; i < data.length; i++) {
+                    html += `
+                        <tr>
+                            <td>${i+1}</td>
+                            <td>${data[i].mb_name}</td>
+                            <td>${data[i].mpc_name}</td>
+                            <td>${data[i].mpc_model}</td>
+                            <td>${data[i].mpc_discription}</td>
+                            <td>${data[i].isi_qty}</td>
+                            <td>${data[i].isd_price_unit}</td>
+                            <td>${data[i].isi_qty * data[i].isd_price_unit}</td>
+                        </tr>`;
+                }
+                $('#tblProductIssueDetails tbody').html(html);
+
+                // Initialize DataTables after updating the table content
+                // $('#tblReceiveDetail').DataTable({
+                //     scrollX: true,
+                // });
+            },
+            error: function(xhr, status, error) {
+                console.error(status + ": " + error);
+            }
+        });
     
+    }
     $('#btnAddIssue').on('click', function() {
         selProductCode();
     });
@@ -191,8 +271,6 @@ $(document).ready(function() {
             console.log('Error:', errorMessage);
         });
     }
-
-
 
     $('#btnAddSaveIssue').click(function() {
         var selectedOption = $('#selAddProductCode').find('option:selected');
@@ -386,4 +464,34 @@ $(document).ready(function() {
               });
             resetForm();
     });
+
+    function showYear() {
+
+        var yearSelect = $("#yearSelect");
+        var monthSelect = $("#monthSelect");
+
+        var currentYear = new Date().getFullYear();
+        // var currentMonth = new Date().getMonth() + 1;
+
+        for (var year = currentYear; year >= 1900; year--) {
+            yearSelect.append($("<option></option>").attr("value", year).text(year));
+        }
+
+        var selectAllOption = $("<option></option>").attr("value", "all").text("All").prop("selected", true);
+        monthSelect.prepend(selectAllOption);
+
+        for (var month = 1; month <= 12; month++) {
+            var monthName = new Date(2000, month - 1, 1).toLocaleString('default', { month: 'long' });
+            monthSelect.append($("<option></option>").attr("value", month).text(monthName));
+        }
+
+        yearSelect.val(currentYear);
+        // monthSelect.val(currentMonth);
+
+        $('#monthSelect, #yearSelect').on('change', function() {
+            TableReceive();
+        });
+
+    }
+    
   });

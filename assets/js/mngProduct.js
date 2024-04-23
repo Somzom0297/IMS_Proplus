@@ -16,11 +16,17 @@ $(document).ready(function(){
                     { data: null, render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
                     }},
+                    {
+                        data: 'mpc_img',
+                        render: function(data, type, row) {
+                            return '<img src="http://127.0.0.1/IMS_Proplus/assets/img/' + data + '" height="80px" alt="Product Image">';
+                        }
+                    },
                     { data: 'mb_name' },
                     { data: 'mpc_name' },
                     { data: 'mpc_model' },
                     { data: 'mpc_discription' },
-                    { data: 'isd_qty' },
+                    { data: 'isd_qty',className:'text-center'  },
                     { data: 'mpc_id', render: function(data) {
                         return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlProductDetail" data-id="' + data + '" data-bs-toggle="modal" data-bs-target="#detailProduct"><i class="ti-search"></i> Details</a>';
                     }}
@@ -105,19 +111,12 @@ $(document).ready(function(){
         var dis = $('#selAddDis').val();
         var index = $('#inpAddIndex').val();
         var size = $('#selAddSize').val();
-
+        var formData = $('#formAddProduct').serialize();
         $.ajax({
             url: API_URL + "Receive/insertProduct",
             type: 'POST',
             dataType: 'json',
-            data: {
-                brand: brand,
-                Product: Product,
-                Model: Model,
-                dis: dis,
-                index: index,
-                size: size
-            }
+            data: formData
         })
         .done(function(data) {
             console.log("=>",data.success);
