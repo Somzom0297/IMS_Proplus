@@ -1,4 +1,5 @@
 $(document).ready(function() {
+   
     $('#btnpdf').on('click', function() {
         var doc = new jsPDF();
         // Convert the table to a PDF table
@@ -6,11 +7,10 @@ $(document).ready(function() {
         // Save the PDF
         doc.save('table.pdf');
     });
-    showYear();
 
-    var id_doc = $('#inpAddDoc').val();
+    // var id_doc = $('#inpAddDoc').val();
 
-    showIssueDetail(id_doc);
+    // showIssueDetail(id_doc);
 
     $('#inpAddPriceUnit').keyup(function(){
         var qty = parseFloat($('#inpAddQaulity').val());
@@ -22,37 +22,49 @@ $(document).ready(function() {
             $('#inpAddTotal').val(amount.toFixed(2)); // Format to two decimal places
         }
     })
-    const table = TableReceive();
+    const table = TableProduct();
     // This function clears the content of all modals
 
-    function TableReceive() {
-        var year = $('#yearSelect').val();
-        var month = $('#monthSelect').val();
-    
+    function TableProduct() {
+
         $.ajax({
-            url: API_URL + "Receive/getIssueInfo",
+            url: API_URL + "Receive/showProductIssue",
             type: 'POST',
-            dataType: 'json',
-            data: {
-                year: year,
-                month: month
-            }
+            dataType: 'json'
         })
         .done(function(data) {
             console.log(data); // Use console.log for better debugging
 
-            var table = $('#tblStockRecive').DataTable({
+            var table = $('#tblProductIssueDetail').DataTable({
                 data: data,
                 destroy: true,
                 columns: [
                     { data: null, render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
-                    }},
-                    { data: 'isi_document' },
-                    { data: 'isi_document_date' },
-                    { data: 'total' },
-                    { data: 'isi_document', render: function(data) {
-                        return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlIssueDetail" data-id="' + data + '" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i> Details</a>';
+                    },
+                    className: 'text-center'
+                },
+                    {
+                        data: 'mpc_img',
+                        render: function(data, type, row) {
+                            return '<img src="http://127.0.0.1/IMS_Proplus/assets/img/' + data + '" height="80px" alt="Product Image">';
+                        }
+                    },
+                    { data: 'mb_name' },
+                    { data: 'mpc_name' },
+                    { data: 'mpc_model' },
+                    { data: 'mpc_discription' },
+                    { 
+                        data: null, 
+                        render: function(data, type, row) {
+                            // Assuming 'isd_qty' and 'out_qty' are properties of the 'row' object
+                            var qty = row.qty || 0; // Default to 0 if 'isd_qty' is undefined
+                            var out_qty = row.out_qty || 0; // Default to 0 if 'out_qty' is undefined
+                            return '<div class="text-center">' + (qty - out_qty) + '</div>';
+                        }
+                    },
+                    { data: 'isd_id', render: function(data) {
+                        return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlIssueDetail" data-id="' + data + '"><i class="ti-shopping-cart"></i> Issue</a>';
                     }}
                 ],
                 scrollX: true
@@ -64,64 +76,15 @@ $(document).ready(function() {
         });
     }
     
-    $('#tblStockRecive').on('click', '.mdlIssueDetail', function (ev) {
-        $('#detailsModal').modal('show');
+    $('#tblProductIssueDetail').on('click', '.mdlIssueDetail', function (ev) {
+        $('#mldAddIssue').modal('show');
         ev.preventDefault();
-        var inv = $(this).data('id');
+        var isd = $(this).data('id');
         // var inv = '12401001';
-        // alert(inv)
-        showIssueDetail(inv);
+        // alert(isd)
+        // showIssueDetail(inv);
     });
     
-    $('#tblReceiveDetail').on('click', '.mdlEditReceive', function (ev) {
-        $('#mdlEditReceive').modal('show');
-        $('#detailsModal').modal('hide');
-        ev.preventDefault();
-        var isd_id = $(this).data('id');
-        
-        showEditReceiveDetail(isd_id);
-    });
-    
-    $('#tblReceiveDetail').on('click', '.mdlDeleteReceive', function (ev) {
-        ev.preventDefault();
-        var isd_id = $(this).data('id');
-        var inv = $('#invNumber').val();
-        alert(inv)
-        Swal.fire({
-            title: 'Are you sure?',
-            text: 'You are about to delete this record!',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            // If user confirms deletion
-            if (result.isConfirmed) {
-                // Send AJAX request to delete the record
-                $.ajax({
-                    url: API_URL + "Receive/deleteReceive",
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        id: isd_id
-                    }
-                }).done(function(data) {
-                    // Handle success response
-                    Swal.fire({
-                        title: 'Deleted!',
-                        text: 'The record has been deleted.',
-                        icon: 'success'
-                    }).then(() => {
-                        // Reload the receive detail
-                        showReceiveDetail(inv);
-                    });
-           
-                })
-            }
-        });
-    });
-
     $('#btnAddIssue').on('click', function() {
         selProductCode();
     });
@@ -200,82 +163,7 @@ $(document).ready(function() {
            
         })
     });
-
-    function showIssueDetail(invoiceNumber) {
-        // var invoiceNumber = 'IS2402001'
-        var apiUrl = 'http://127.0.0.1/api/Receive/getIssueDetail';
-        $.ajax({
-            url: apiUrl,
-            type: 'GET',
-            dataType: 'json',
-            data: { doc_id: invoiceNumber },
-            success: function(data) {
-                // console.log(data[0].isi_document);
-
-                if (data.length > 0) {
-                    $('#inpAddDocDetail').val(data[0].isi_document);
-                    $('#inpAddDocDateDetail').val(data[0].isi_document_date);
-                }
-                var html = "";
-                for (var i = 0; i < data.length; i++) {
-                    html += `
-                        <tr>
-                            <td>${i+1}</td>
-                            <td>${data[i].mb_name}</td>
-                            <td>${data[i].mpc_name}</td>
-                            <td>${data[i].mpc_model}</td>
-                            <td>${data[i].mpc_discription}</td>
-                            <td>${data[i].isi_qty}</td>
-                            <td>${data[i].isd_price_unit}</td>
-                            <td>${data[i].isi_qty * data[i].isd_price_unit}</td>
-                        </tr>`;
-                }
-                $('#tblProductIssueDetail tbody').html(html);
-
-                // Initialize DataTables after updating the table content
-                // $('#tblReceiveDetail').DataTable({
-                //     scrollX: true,
-                // });
-            },
-            error: function(xhr, status, error) {
-                console.error(status + ": " + error);
-            }
-        });
-    
-    }
-
-    function showEditReceiveDetail(isd_id) {
-        var apiUrl = 'http://127.0.0.1/api/Receive/getEditReceiveDetail';
-        $.ajax({
-            url: apiUrl,
-            type: 'GET',
-            dataType: 'json',
-            data: { isd_id: isd_id },
-            success: function(data) {
-                $('#inpEditQaulity').val(data.result1[0].isd_qty)
-                $('#inpEditPriceUnit').val(data.result1[0].isd_price_unit)
-                $('#inpProductId').val(data.result1[0].isd_id)
-                // console.log(data.result1[0].isd_qty);
-                $('#selEditProductCode').empty();
-                // Append new options from data received
-                $.each(data.result2, function(index, item) {
-                    var option = $('<option>', {
-                        value: item.mpc_id,
-                        text: item.mpc_name
-                    });
-
-                    if (data.result1 && data.result1.some(i => i.mpc_id === item.mpc_id)) {
-                        option.prop('selected', true);
-                    }
-                    $('#selEditProductCode').append(option);
-                });
-            },
-            error: function(xhr, status, error) {
-                console.error(status + ": " + error);
-            }
-        });
-    }
-    
+  
     function selProductCode(){
         $.ajax({
             url: API_URL + "Receive/getSelProductCodeIssue",
@@ -304,34 +192,7 @@ $(document).ready(function() {
         });
     }
 
-    function showYear() {
 
-        var yearSelect = $("#yearSelect");
-        var monthSelect = $("#monthSelect");
-
-        var currentYear = new Date().getFullYear();
-        // var currentMonth = new Date().getMonth() + 1;
-
-        for (var year = currentYear; year >= 1900; year--) {
-            yearSelect.append($("<option></option>").attr("value", year).text(year));
-        }
-
-        var selectAllOption = $("<option></option>").attr("value", "all").text("All").prop("selected", true);
-        monthSelect.prepend(selectAllOption);
-
-        for (var month = 1; month <= 12; month++) {
-            var monthName = new Date(2000, month - 1, 1).toLocaleString('default', { month: 'long' });
-            monthSelect.append($("<option></option>").attr("value", month).text(monthName));
-        }
-
-        yearSelect.val(currentYear);
-        // monthSelect.val(currentMonth);
-
-        $('#monthSelect, #yearSelect').on('change', function() {
-            TableReceive();
-        });
-
-    }
 
     $('#btnAddSaveIssue').click(function() {
         var selectedOption = $('#selAddProductCode').find('option:selected');
@@ -376,8 +237,8 @@ $(document).ready(function() {
                     text: "tum kan add succefully",
                     icon: "success"
                   });
-                  $('#mdlAddReceiveDetail').modal('hide');
-                showIssueDetail(inv);
+                  $('#mldAddIssue').modal('hide');
+                // showIssueDetail(inv);
             },
             error: function(xhr, status, error) {
                 // Handle error
@@ -434,12 +295,76 @@ $(document).ready(function() {
         });
     });
 
+    $('#btnConfirmIssue').click(function() {
+        $('#mldConfirmIssue').modal('show');
+        
+        var apiUrl = 'http://127.0.0.1/api/Receive/getConfirmProductDetail';
+        $.ajax({
+            url: apiUrl,
+            type: 'GET',
+            dataType: 'json',
+
+            success: function(data) {
+                // console.log(data);
+                var html = "";
+                for (var i = 0; i < data.length; i++) {
+                    html += `
+                        <tr>
+                            <td>${i+1}</td>
+                            <td><img src="http://127.0.0.1/IMS_Proplus/assets/img/${data[i].mpc_img}" height="80px" alt="Product Image"></td>
+                            <td>${data[i].mb_name}</td>
+                            <td>${data[i].mpc_name}</td>
+                            <td>${data[i].mpc_model}</td>
+                            <td>${data[i].mpc_discription}</td>
+                            <td>${data[i].isi_qty}</td>
+                            <td>
+                                <a href="#" class="btn btn-secondary mdlEditReceive" data-id="${data[i].isd_id}"><i class="ti-pencil"></i></a>
+                                <a href="#" class="btn btn-danger mdlDeleteReceive" data-id="${data[i].isd_id}"><i class="ti-trash"></i></a>
+                            </td>
+                        </tr>`;
+                }
+                $('#tblProductIssueConfirm tbody').html(html);
+
+                // Initialize DataTables after updating the table content
+                // $('#tblReceiveDetail').DataTable({
+                //     scrollX: true,
+                // });
+            },
+            error: function(xhr, status, error) {
+                console.error(status + ": " + error);
+            }
+        });
+    });
+
     $('#mldAddIssue').on('shown.bs.modal', function() {
+        selProductCode();
         $('#selAddProductCode').trigger('change');
     });
 
     $('#mdlEditReceive').on('shown.bs.modal', function() {
         $('#selEditProductCode').trigger('change');
+    });
+
+    $('#btnAddSaveIssueConfirm').click(function() {
+        $.ajax({
+            url: API_URL + "Receive/insertIssueConfirm",
+            type: 'GET',
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                Swal.fire({
+                    title: "Success!",
+                    text: "tum kan add succefully",
+                    icon: "success"
+                  });
+                  $('#mldConfirmIssue').modal('hide');
+                  TableProduct();
+            },
+            error: function(xhr, status, error) {
+                console.log('Error:', error);
+            }
+        });
+
     });
 
     $('#btnSubmit').click(function() {
