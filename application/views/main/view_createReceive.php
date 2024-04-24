@@ -93,7 +93,7 @@
     <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
         <div class="table-responsive text-nowrap">
             <div class="card-datatable table-responsive pt-0">
-                <button type="button" class="btn btn-primary mb-3" style="float:right" id="btnAddProduct" data-bs-toggle="modal" data-bs-target="#mldAddProduct"><b><i class="ti-plus"></i> Add Product</b></button>
+                <button type="button" class="btn btn-primary mb-3" style="float:right" id="btnAddProduct"><b><i class="ti-plus"></i> Add Product</b></button>
                 <table id="tblProductDetail" class="table card-table border" style="width:100%">
                     <thead>
                         <tr>

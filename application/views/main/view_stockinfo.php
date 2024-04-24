@@ -1,3 +1,8 @@
+<style>
+    .dataTables_filter input[type="search"] {
+    float: right;
+}
+</style>
 <div class="container-fluid">
     <!--  Row 1 -->
     <div>
@@ -28,9 +33,9 @@
         <div class="card">
             <div class="card-body">
                 <!-- start page container -->
-                <div class="table-responsive text-nowrap">
-                    <div class="card-datatable table-responsive pt-0">
-                        <table class="table card-table border" id="tblStockinfo">
+                <div class="table-responsive text-nowrap" >
+                    <div class="card-datatable table-responsive pt-0" >
+                        <table class="table card-table border " id="tblStockinfo" >
                             <thead>
                                 <tr>
                                     <th class="text-center">NO.</th>

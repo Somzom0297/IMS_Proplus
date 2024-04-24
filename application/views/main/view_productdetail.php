@@ -21,8 +21,8 @@
 
         <div class="form-group row mb-3">
             <div class="col-lg-3">
-                <button type="button" class="btn btn-circle btn-light " id="btnPrint"><i class="ti-printer"></i> Print</button>
-                <button type="button" class="btn btn-circle btn-danger" id="btnpdf"><i class="ti-file"></i> PDF</button>
+                <!-- <button type="button" class="btn btn-circle btn-light " id="btnPrint"><i class="ti-printer"></i> Print</button>
+                <button type="button" class="btn btn-circle btn-danger" id="btnpdf"><i class="ti-file"></i> PDF</button> -->
             </div>
 
             <div class="col-lg-9">
@@ -38,6 +38,7 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">NO.</th>
+                                    <th class="text-center">Pic</th>
                                     <th class="text-center">BRAND</th>
                                     <th class="text-center">PRODUCT CODE</th>
                                     <th class="text-center">MODEL</th>
@@ -141,7 +142,7 @@
                         <button type="button" class="btn-close me-2 mb-3" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form enctype="multipart/form-data">
+                        <form id="formAddProduct" enctype="multipart/form-data">
                             <hr>
                             <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                                 <div class="col-lg-12 mb-3">
@@ -151,9 +152,7 @@
                                 </div>
                                 <div class="col-lg-6 mb-3">
                                     <label for="edtMainMenu" class="form-label">Brand</label>
-                                    <select name="selAddBrand" id="selAddBrand" class="form-control">
-                                        <option value="">- Brand -</option>
-                                    </select>
+                                    <input type="text " id="inpAddBrand" class="form-control" placeholder="Enter Brand">
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="edtMainMenu" class="form-label">Index Number</label>
@@ -173,12 +172,21 @@
                                     <label for="edtOrderNo" class="form-label">Model</label>
                                     <input type="text" id="selAddModel" class="form-control" placeholder="Enter Model">
                                 </div>
-                                <div class="col-lg-6">
-
+                                <div class="col-lg-3">
+                                    <label for="edtOrderNo" class="form-label">Unit</label>
+                                    <input type="text" id="selAddModel" class="form-control" placeholder="Enter Unit">
+                                </div>
+                                <div class="col-lg-3">
+                                    <label for="edtOrderNo" class="form-label">Price of Unit</label>
+                                    <input type="text" id="selAddModel" class="form-control" placeholder="Enter Price of Unit">
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="edtOrderNo" class="form-label">Discription</label>
                                     <textarea name="" id="selAddDis" class="form-control" id="" cols="30" rows="5" placeholder="Enter Discription"></textarea>
+                                </div>
+                                <div class="col-lg-6">
+                                    <label for="edtOrderNo" class="form-label">Picture Product</label>
+                                    <input type="file" class="form-control" id="fileProduct">
                                 </div>
                             </div>
                             <hr>

@@ -18,7 +18,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
-<link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">
+<!-- <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet"> -->
+<link href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css" rel="stylesheet">
+<!-- https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css
+https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css -->
 
 <link rel="stylesheet" href="{base_url}src/assets/css/styles.min.css">
 
@@ -26,7 +30,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
     <!-- Include jsPDF Autotable plugin -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script> -->
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/png" href="{base_url}src/assets/images/logos/propluslg.png" />
 <!-- Another Favicon (if needed) -->
@@ -186,9 +190,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	</div>
 	
 	<!-- bootstrap -->
-	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -198,9 +201,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 <!-- Additional Libraries/Plugins -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
 <script src="{base_url}src/assets/libs/simplebar/dist/simplebar.js"></script>
-
+<!-- https://code.jquery.com/jquery-3.7.1.js
+https://cdn.datatables.net/2.0.5/js/dataTables.js
+https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js
+https://cdn.datatables.net/buttons/3.0.2/js/buttons.dataTables.js
+https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js
+https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js
+https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js -->
 <!-- Your Custom Scripts -->
 <script src="{base_url}assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="{base_url}assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>

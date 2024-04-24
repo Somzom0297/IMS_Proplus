@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   var apiUrl = 'http://127.0.0.1/api/Receive/getStockInfo';
   $.ajax({
     url: apiUrl,
@@ -20,7 +21,7 @@ $(document).ready(function() {
                     <td>${item.mpc_name}</td>
                     <td>${item.mpc_model}</td>
                     <td>${item.mpc_discription}</td>
-                    <td>${(item.qtyy == null) ? qtyyy : item.qtyy}</td>
+                    <td class="text-center">${(item.qtyy == null) ? qtyyy : item.qtyy}</td>
 
                 </tr>`;
                 $('tbody').append(row);
@@ -28,13 +29,24 @@ $(document).ready(function() {
 
     // Initialize DataTables
     // $('#tblStockinfo tbody').html(row)
-    $('#tblStockinfo').DataTable()
-        .promise()
-        .done(() => {
-            $("#tblStockinfo").DataTable({
-                scrollX: true,
-            });
-        });
+$('#tblStockinfo').DataTable({
+      // scrollX: true,
+      searching: false,
+      dom: 'Bfrtip', // Buttons for export
+      buttons: [
+        {
+          extend: 'pdfHtml5',
+          text: 'Download PDF',
+          filename: 'stock_info_pdf',
+          download: 'open',
+          customize: function(doc) {
+            // Add signature
+            var signatureText = '(___________________________)                             (___________________________)                             (___________________________)\n\n.    Noraphat jirasetthasiri                                         Noraphat jirasetthasiri                                         Noraphat jirasetthasiri \n\n   date_____________________                                  date_____________________                                   date_____________________';
+            doc.content.push({ text: signatureText, margin: [0, 210, 0, 0] });
+          }
+        }
+      ]
+    });
   })
   .fail(function(xhr, status, error) {
     var errorMessage = `${status}: ${error}`;

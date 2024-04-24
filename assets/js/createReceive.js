@@ -183,12 +183,13 @@ $(document).ready(function() {
             contentType: false, // Prevent jQuery from automatically setting contentType
             success: function(response) {
                 // Handle success response
+                $('#mldAddProduct').modal('hide');
                 Swal.fire({
                     title: "Success!",
                     text: "tum kan add succefully",
                     icon: "success"
                   });
-                //   $('#mldAddProduct').modal('hide');
+                  
                 initializeDataTable();
             },
             error: function(xhr, status, error) {
@@ -199,13 +200,13 @@ $(document).ready(function() {
     });
 
     $('#btnSubmit').click(function() {
-      
-                Swal.fire({
-                    title: "Success!",
-                    text: "tum kan add succefully",
-                    icon: "success"
-                  });
-                resetForm();
+        Swal.fire({
+            title: "Success!",
+            text: "Item has been added successfully",
+            icon: "success"
+        }).then(function() {
+            window.location.href = "http://127.0.0.1/IMS_Proplus/Product/mngProduct";
+        });
     });
 
     $('#btnCancel').click(function() {
@@ -218,6 +219,9 @@ $(document).ready(function() {
                 resetForm();
     });
 
+    $('#btnAddProduct').click(function(){
+        $('#mldAddProduct').modal('show')
+    })
     $('#mldAddProduct').on('shown.bs.modal', function() {
         $('#selAddProductCode').trigger('change');
     });
