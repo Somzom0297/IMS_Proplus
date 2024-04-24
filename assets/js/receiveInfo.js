@@ -42,7 +42,7 @@ $(document).ready(function() {
                     { data: 'isd_po_number', className: 'text-center' }, // Centering content of this column
                     { data: 'total', className: 'text-center' }, // Centering content of this column
                     { data: 'isd_inv_no', render: function(data) {
-                        return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlReceiveDetail" data-id="' + data + '" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i> Details</a>';
+                        return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlReceiveDetail" data-id="' + data + '" "><i class="ti-search"></i> Details</a>';
                     }, className: 'text-center' } // Centering content of this column
                 ],
                 dom: 'Bfrtip', // Buttons for export
@@ -213,6 +213,7 @@ $(document).ready(function() {
                     html += `
                         <tr>
                             <td>${i+1}</td>
+                            <td><img src="http://127.0.0.1/IMS_Proplus/assets/img/${data[i].mpc_img}" height="80px" alt="Product Image"></td>
                             <td>${data[i].mb_name}</td>
                             <td>${data[i].mpc_name}</td>
                             <td>${data[i].mpc_model}</td>
@@ -393,6 +394,17 @@ $(document).ready(function() {
                 console.error(xhr.responseText);
             }
         });
+    });
+
+    $('#btnSaveEdit').on('click', function() {
+        Swal.fire({
+            title: "Success!",
+            text: "Item has been added successfully",
+            icon: "success"
+        }).then(function() {
+            $('#detailsModal').modal('hide');
+        });
+        $('#detailsModal').modal('hide');
     });
 
     $('#btnAddProduct').on('click', function() {

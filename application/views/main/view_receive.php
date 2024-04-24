@@ -90,7 +90,7 @@
                                 </label>
                             </div>
                             <div class="col-lg-3">
-                                <label for="edtMainMenu" class="form-label">Product Number</label>
+                                <label for="edtMainMenu" class="form-label">Product Code</label>
                                 <select name="selAddProductCode" id="selAddProductCode" class="form-control">
                                     <option value="">- Product Code -</option>
                                 </select>
@@ -219,7 +219,6 @@
                             <label class="col-form-label">
                                 <h5 style="font-weight: 600;"><i class="ti-file" style="padding-right: 7px;"></i>Form input location stock</h5>
                             </label>
-                            <button type="button" class="btn btn-circle btn-secondary float-end" id="btnDownload">Download</button>
                         </div>
                         <div class="col-lg-3">
                             <label for="edtMainMenu" class="form-label">Document Number</label>
@@ -261,8 +260,8 @@
                             <button type="button" class="btn btn-circle btn-success" style="background-color: #15CEA2!important" id="btnAddReceiveDetail"><i class="ti-plus"></i> <b>Add</b></button>
                         </div>
                         <div class="col-lg-10">
-                            <button type="button" class="btn btn-circle btn-danger float-end" id="btnDownload"><i class="ti-file"></i> PDF</button>
-                            <button type="button" class="btn btn-circle btn-light float-end me-2" id="btnDownload"><i class="ti-printer"></i> Print</button>
+                            <!-- <button type="button" class="btn btn-circle btn-danger float-end" id="btnDownload"><i class="ti-file"></i> PDF</button>
+                            <button type="button" class="btn btn-circle btn-light float-end me-2" id="btnDownload"><i class="ti-printer"></i> Print</button> -->
                         </div>
                     </div>
                     <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
@@ -272,6 +271,7 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center">NO.</th>
+                                            <th class="text-center">PIC</th>
                                             <th class="text-center">BRAND</th>
                                             <th class="text-center">PRODUCT</th>
                                             <th class="text-center">MODEL</th>
@@ -284,7 +284,6 @@
                                     <tbody class="table-border-bottom-0 text-center" id="tbody">
                                     </tbody>
                                 </table>
-                                <button id="downloadPDF">Download PDF</button>
                             </div>
                         </div>
                     </div>
