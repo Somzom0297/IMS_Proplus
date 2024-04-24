@@ -99,7 +99,7 @@
                         <tr>
                             <th class="text-center">No.</th>
                             <th class="text-center">BRAND</th>
-                            <th class="text-center">PRODUCT</th>
+                            <th class="text-center">PRODUCT ID</th>
                             <th class="text-center">MODEL</th>
                             <th class="text-center">DESCRIPTION</th>
                             <th class="text-center">QTY</th>
