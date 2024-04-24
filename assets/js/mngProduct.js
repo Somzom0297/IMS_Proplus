@@ -20,7 +20,7 @@ $(document).ready(function(){
                     {
                         data: 'mpc_img',
                         render: function(data, type, row) {
-                            return '<img src="http://127.0.0.1/IMS_Proplus/assets/img/' + data + '" height="80px" alt="Product Image">';
+                            return '<img src="http://127.0.0.1/IMS_Proplus/assets/img/stock_img/' + data + '" height="80px" alt="Product Image">';
                         }
                     },
                     { data: 'mb_name' },
@@ -104,41 +104,78 @@ $(document).ready(function(){
         showIndex();
         showSize();
     })
-
     $('#btnAddSaveProduct').click(function() {
-        var brand = $('#selAddBrand').val();
-        var Product = $('#inpAddProduct').val();
-        var Model = $('#selAddModel').val();
-        var dis = $('#selAddDis').val();
-        var index = $('#inpAddIndex').val();
-        var size = $('#selAddSize').val();
-        var formData = $('#formAddProduct').serialize();
+        var formData = new FormData();
+        formData.append('brand',$('#inpAddBrand').val());
+        formData.append('product',$('#inpAddProduct').val());
+        formData.append('model',$('#inpAddModel').val());
+        formData.append('dis',$('#inpAddDis').val());
+        formData.append('index',$('#inpAddIndex').val());
+        formData.append('size',$('#selAddSize').val());
+        formData.append('unit',$('#inpAddUnit').val());
+        formData.append('unitprice',$('#inpAddUnitPrice').val());
+        formData.append('file_product', $('#fileProduct')[0].files[0]);
+        
         $.ajax({
             url: API_URL + "Receive/insertProduct",
             type: 'POST',
             dataType: 'json',
-            data: formData
+            data: formData,
+            processData: false,  // Important for FormData
+            contentType: false,  // Important for FormData
         })
         .done(function(data) {
             console.log("=>",data.success);
             if(data.success == "true"){
-            Swal.fire({
-                title: "Success!",
-                text: "tum kan add succefully",
-                icon: "success"
-              });
-              $('#mldAddProduct').modal('hide');
-            }else{
+                Swal.fire({
+                    title: "Success!",
+                    text: "tum kan add succefully",
+                    icon: "success"
+                });
+                resetFrom();
+                $('#mldAddProduct').modal('hide');
+            
+            } else if(data.success == "false") {
                 Swal.fire({
                     title: "Error!",
-                    text: "This product code already exist",
+                    text: "This product code already exists",
                     icon: "error"
-                  });
-                  $('#inpAddProduct').addClass('border-danger');
+                });
+                $('#inpAddProduct').addClass('border-danger');
+            }else if(data.success == "falseBrand"){
+                Swal.fire({
+                    title: "Error!",
+                    text: "This brand already exists",
+                    icon: "error"
+                });
+                $('#inpAddBrand').addClass('border-danger');
             }
         })
-    })
+        .fail(function(xhr, status, error) {
+            console.error(xhr.responseText);
+            // Handle the error here
+            Swal.fire({
+                title: "Error!",
+                text: "An error occurred while processing your request",
+                icon: "error"
+            });
+        });
+    });
     
+    function resetFrom(){
+        $('#inpAddBrand').val('');
+        $('#inpAddProduct').val('');
+        $('#inpAddModel').val('');
+        $('#inpAddDis').val('');
+        $('#inpAddIndex').val('');
+        $('#selAddSize').val('');
+        $('#inpAddUnit').val('');
+        $('#inpAddUnitPrice').val('');
+        $('#fileProduct').val('');
+    }
+    $('#mldAddProduct').on('hidden.bs.modal', function() {
+        resetFrom();
+    });
     function showBrand() {
         $.ajax({
             url: API_URL + "Receive/getBrandAll",
