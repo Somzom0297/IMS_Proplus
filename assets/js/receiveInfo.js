@@ -214,6 +214,8 @@ $(document).ready(function() {
                         <tr>
                             <td>${i+1}</td>
                             <td>${data[i].mb_name}</td>
+                            <td><img src="http://127.0.0.1/IMS_Proplus/assets/img/stock_img/${data[i].mpc_img}" height="80px" alt="Product Image"></td>
+                            <td>${data[i].mpc_name}</td>
                             <td>${data[i].mpc_name}</td>
                             <td>${data[i].mpc_model}</td>
                             <td>${data[i].mpc_discription}</td>

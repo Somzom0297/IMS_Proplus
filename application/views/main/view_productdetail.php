@@ -170,19 +170,19 @@
                                 </div>
                                 <div class="col-lg-3 mb-3">
                                     <label for="edtOrderNo" class="form-label">Model</label>
-                                    <input type="text" id="selAddModel" class="form-control" placeholder="Enter Model">
+                                    <input type="text" id="inpAddModel" class="form-control" placeholder="Enter Model">
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="edtOrderNo" class="form-label">Unit</label>
-                                    <input type="text" id="selAddModel" class="form-control" placeholder="Enter Unit">
+                                    <input type="text" id="inpAddUnit" class="form-control" placeholder="Enter Unit">
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="edtOrderNo" class="form-label">Price of Unit</label>
-                                    <input type="text" id="selAddModel" class="form-control" placeholder="Enter Price of Unit">
+                                    <input type="text" id="inpAddUnitPrice" class="form-control" placeholder="Enter Price of Unit">
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="edtOrderNo" class="form-label">Discription</label>
-                                    <textarea name="" id="selAddDis" class="form-control" id="" cols="30" rows="5" placeholder="Enter Discription"></textarea>
+                                    <textarea name="" id="inpAddDis" class="form-control" id="" cols="30" rows="5" placeholder="Enter Discription"></textarea>
                                 </div>
                                 <div class="col-lg-6">
                                     <label for="edtOrderNo" class="form-label">Picture Product</label>
