@@ -61,6 +61,7 @@ $(document).ready(function() {
            $('#inpAddSize').val(data[0].mib_size)
            $('#selAddBrand').val(data[0].mb_name)
            $('#selBrandId').val(data[0].mb_id)
+           $('#inpAddUnit').val(data[0].mpc_unit)
 
            
         })

@@ -138,17 +138,18 @@ $(document).ready(function(){
             } else if(data.success == "false") {
                 Swal.fire({
                     title: "Error!",
-                    text: "This product code already exists",
+                    text: "This product ID already exists",
                     icon: "error"
                 });
                 $('#inpAddProduct').addClass('border-danger');
-            }else if(data.success == "falseBrand"){
+            
+            } else if(data.success == "falseModel") {
                 Swal.fire({
                     title: "Error!",
-                    text: "This brand already exists",
+                    text: "This model already exists",
                     icon: "error"
                 });
-                $('#inpAddBrand').addClass('border-danger');
+                $('#inpAddModel').addClass('border-danger');
             }
         })
         .fail(function(xhr, status, error) {
