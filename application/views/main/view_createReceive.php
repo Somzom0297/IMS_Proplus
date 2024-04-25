@@ -135,7 +135,7 @@
                                 </label>
                             </div>
                             <div class="col-lg-3">
-                                <label for="edtMainMenu" class="form-label">Product Number</label>
+                                <label for="edtMainMenu" class="form-label">Product ID</label>
                                 <select name="selAddProductCode" id="selAddProductCode" class="form-control">
                                     <option value="">- Product Code -</option>
                                 </select>
@@ -145,8 +145,12 @@
                                 <input type="text " id="inpAddIndex" class="form-control">
                             </div>
                             <div class="col-lg-3">
-                                <label for="edtMainMenu" class="form-label">Size</label>
+                                <label for="edtMainMenu" class="form-label">Size Box/Location</label>
                                 <input type="text " id="inpAddSize" class="form-control">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtMainMenu" class="form-label">Unit</label>
+                                <input type="text " id="inpAddUnit" class="form-control" placeholder="Enter Unit">
                             </div>
                         </div>
                         <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
