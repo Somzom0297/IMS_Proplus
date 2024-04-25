@@ -45,7 +45,7 @@ $(document).ready(function() {
                     { data: 'isi_document_date' },
                     { data: 'total' },
                     { data: 'isi_document', render: function(data) {
-                        return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlIssueDetails" data-id="' + data + '" data-bs-toggle="modal" data-bs-target="#detailsModal"><i class="ti-search"></i> Details</a>';
+                        return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlIssueDetails" data-id="' + data + '" ><i class="ti-search"></i> Details</a>';
                     }}
                 ],
                 scrollX: true
@@ -92,7 +92,7 @@ $(document).ready(function() {
                             return '<div class="text-center">' + (qty - out_qty) + '</div>';
                         }
                     },
-                    { data: 'isd_id', render: function(data) {
+                    { data: 'mpc_name', render: function(data) {
                         return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlIssueDetail" data-id="' + data + '"><i class="ti-shopping-cart"></i> Issue</a>';
                     }}
                 ],
@@ -117,9 +117,11 @@ $(document).ready(function() {
     $('#tblProductIssueDetail').on('click', '.mdlIssueDetail', function (ev) {
         $('#mldAddIssue').modal('show');
         ev.preventDefault();
-        var isd = $(this).data('id');
+        var product = $(this).data('id');
         // var inv = '12401001';
-        // alert(isd)
+        $('#selAddProductCode').val(product);
+        // alert(product)
+        showProductDetail();
         // showIssueDetail(inv);
     });
 
@@ -143,6 +145,7 @@ $(document).ready(function() {
                     html += `
                         <tr>
                             <td>${i+1}</td>
+                            <td><img src="http://127.0.0.1/IMS_Proplus/assets/img/${data[i].mpc_img}" height="80px" alt="Product Image"></td>
                             <td>${data[i].mb_name}</td>
                             <td>${data[i].mpc_name}</td>
                             <td>${data[i].mpc_model}</td>
@@ -179,29 +182,13 @@ $(document).ready(function() {
         $('#mdlEditReceive').modal('hide');
     });
     
-    $('#selAddProductCode').on('change',function(){
+    function showProductDetail(){
         var product_id = $('#selAddProductCode').val();
         // alert(product_id)
-        var selectedOption = $(this).find('option:selected');
-    
-        // Get the value of the data-id attribute
-        var dataId = selectedOption.data('id');
-        // alert(dataId)
-        if(dataId === undefined){
-            Swal.fire({
-                title: "Warning!",
-                text: "No have qty for this product",
-                icon: "warning"
-              });
-            $('#selAddModel').val('')
-            $('#inpAddDiscription').val('')
-            $('#inpAddIndex').val('')
-            $('#inpAddSize').val('')
-            $('#selAddBrand').val('')
-        }else{
+
         // alert(dataId)
         $.ajax({
-            url: API_URL + "Receive/getModelById",
+            url: API_URL + "Receive/getModelByIdPname",
             type: 'POST',
             dataType: 'json',
             data:{
@@ -211,16 +198,18 @@ $(document).ready(function() {
             .done(function(data) {
             //    alert(data[0].mpc_model)
             
-               $('#inpQty').val(data[0].total)
+               $('#inpQty').val((data[0].total != null) ? data[0].total : 0)
                $('#selAddModel').val(data[0].mpc_model)
                $('#inpAddDiscription').val(data[0].mpc_discription)
                $('#inpAddIndex').val(data[0].mib_number)
                $('#inpAddSize').val(data[0].mib_size)
                $('#selAddBrand').val(data[0].mb_name)
+               $('#costPrice').val(data[0].mpc_cost_price)
+               $('#isdID').val(data[0].isd_id)
             
             })
-        }
-    });
+        
+    }
 
     $('#selEditProductCode').on('change',function(){
         var product_id = $('#selEditProductCode').val();
@@ -273,20 +262,30 @@ $(document).ready(function() {
     }
 
     $('#btnAddSaveIssue').click(function() {
-        var selectedOption = $('#selAddProductCode').find('option:selected');
-        var qtyRemain = $('#inpQty').val();
-        var qty = $('#inpAddQaulity').val();
-
-        if(qty != '' && qtyRemain != '' && qty > qtyRemain){
+        var qtyRemain = parseInt($('#inpQty').val());
+        var qty = parseInt($('#inpAddQaulity').val());
+        
+        if (qtyRemain < qty) {
             Swal.fire({
                 title: "Warning!",
                 text: "Qty not enough",
                 icon: "warning"
+            });
+            return;
+        }
+        var costP = $('#costPrice').val();
+        var priceU = $('#inpAddPriceUnit').val();
+        if(priceU < costP){
+            Swal.fire({
+                title: "Warning!",
+                text: "Price should not be less than " + costP,
+                icon: "warning"
               });
               return;
         }
+
         // Get the value of the data-id attribute
-        var dataId = selectedOption.data('id');
+        var dataId = $('#isdID').val();
         var formData = new FormData();
         formData.append('isd_id', dataId);
         formData.append('doc_number', $('#inpAddDoc').val());
@@ -414,13 +413,17 @@ $(document).ready(function() {
         });
     });
 
-    $('#mldAddIssue').on('shown.bs.modal', function() {
-        selProductCode();
-        $('#selAddProductCode').trigger('change');
-    });
+    // $('#mldAddIssue').on('shown.bs.modal', function() {
+    //     selProductCode();
+    //     $('#selAddProductCode').trigger('change');
+    // });
 
     $('#mdlEditReceive').on('shown.bs.modal', function() {
         $('#selEditProductCode').trigger('change');
+    });
+
+    $('#mldAddIssue').on('hidden.bs.modal', function() {
+        resetForm();
     });
 
     $('#btnAddSaveIssueConfirm').click(function() {
@@ -494,4 +497,11 @@ $(document).ready(function() {
 
     }
     
+    function resetForm() {
+        $('#inpAddQaulity').val('');
+        $('#inpAddPriceUnit').val('');
+        $('#inpAddTotal').val('');
+
+
+    }
   });

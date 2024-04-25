@@ -130,10 +130,9 @@
                                 </label>
                             </div>
                             <div class="col-lg-6 mb-2">
-                                <label for="edtMainMenu" class="form-label">Product Number</label>
-                                <select name="selAddProductCode" id="selAddProductCode" class="form-control">
-                                    <option value="">- Product Code -</option>
-                                </select>
+                                <label for="edtMainMenu" class="form-label">Product Code</label>
+                                <input type="text " id="selAddProductCode" class="form-control">
+
                             </div>
                             <div class="col-lg-3">
                                 <label for="edtMainMenu" class="form-label">Index Number</label>
@@ -154,6 +153,8 @@
                             <div class="col-lg-3">
                                 <label for="edtOrderNo" class="form-label">Remain</label>
                                 <input type="text" id="inpQty" class="form-control">
+                                <input type="hidden" id="costPrice" class="form-control">
+                                <input type="hidden" id="isdID" class="form-control">
                             </div>
                         </div>
                         <hr>
