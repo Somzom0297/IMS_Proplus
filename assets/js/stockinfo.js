@@ -17,6 +17,7 @@ $(document).ready(function() {
       }
       var row = `<tr>
                     <td>${index + 1}</td>
+                    <td class="text-center"><img src="http://127.0.0.1/IMS_Proplus/assets/img/stock_img/${item.mpc_img}" height="80px" alt="Product Image"></td>
                     <td>${item.mb_name}</td>
                     <td>${item.mpc_name}</td>
                     <td>${item.mpc_model}</td>
