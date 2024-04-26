@@ -98,13 +98,14 @@
                     <thead>
                         <tr>
                             <th class="text-center">No.</th>
+                            <th class="text-center">PICTURE</th>
                             <th class="text-center">BRAND</th>
                             <th class="text-center">PRODUCT ID</th>
                             <th class="text-center">MODEL</th>
                             <th class="text-center">DESCRIPTION</th>
                             <th class="text-center">QTY</th>
                             <th class="text-center">PRICE/UNIT</th>
-                            <!-- <th class="text-center">AMOUNT</th> -->
+ 
                         </tr>
                     </thead>
                     <tbody>
@@ -179,6 +180,46 @@
                         </div>
                     </form>
 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="btnSaveAdd">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mldSelectProduct" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl" style="width:1200px" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" style="padding: 0px 10px;margin: 10px 0px;font-weight: 600;"><i class="ti-pencil-alt mr-3"></i> Add Product</h3>
+                    <button type="button" class="btn-close me-2 mb-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                        <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
+                            <div class="col-lg-12 mb-3">
+                                <label class="col-form-label">
+                                    <h4 style="font-weight: 600;"><i class="ti-file" style="padding-right: 7px;"></i>List product</h4>
+                                </label>
+                            </div>
+                          <table id="tblListproduct" class="table card-table border" style="width:100%">
+                            <thead>
+                                <tr>
+                                  <th>No.</th>
+                                  <th>PICTURE</th>
+                                  <th>BRAND</th>
+                                  <th>PRODUCT ID</th>
+                                  <th>MODEL</th>
+                                  <th>DESCRIPTION</th>
+                                  <th>ACTION</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            
+                            </tbody>
+                          </table>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

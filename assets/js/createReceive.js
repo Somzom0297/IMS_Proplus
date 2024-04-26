@@ -23,13 +23,20 @@ $(document).ready(function() {
                 columns: [
                     { data: null, render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
-                    }},
-                    { data: 'mb_name' },
-                    { data: 'mpc_name' },
-                    { data: 'mpc_model' },
-                    { data: 'mpc_discription' },
-                    { data: 'isd_qty' },
-                    { data: 'isd_price_unit' }
+                    },className:'text-center'},
+                    {
+                        data: 'mpc_img',
+                        render: function(data, type, row) {
+                            return '<img src="http://127.0.0.1/IMS_Proplus/assets/img/stock_img/' + data + '" height="80px" alt="Product Image">';
+                        },
+                        className:'text-center'
+                    },
+                    { data: 'mb_name',className:'text-center' },
+                    { data: 'mpc_name',className:'text-center' },
+                    { data: 'mpc_model',className:'text-center' },
+                    { data: 'mpc_discription',className:'text-center' },
+                    { data: 'isd_qty',className:'text-center' },
+                    { data: 'isd_price_unit',className:'text-center' },
 
                 ],
             });
@@ -37,13 +44,12 @@ $(document).ready(function() {
         })
     }
 
-    selProductCode();
+
     selIndexBox();
     selBrand();
 
-    $('#selAddProductCode').on('change',function(){
-        var product_id = $('#selAddProductCode').val();
-        // alert(product_id)
+    function showProductDetail(product_id){
+
         $.ajax({
             url: API_URL + "Receive/getModelById",
             type: 'POST',
@@ -62,10 +68,11 @@ $(document).ready(function() {
            $('#selAddBrand').val(data[0].mb_name)
            $('#selBrandId').val(data[0].mb_id)
            $('#inpAddUnit').val(data[0].mpc_unit)
+           $('#inpAddPriceUnit').val(data[0].mpc_cost_price)
 
            
         })
-    })
+    }
 
     $('#inpAddPriceUnit').keyup(function(){
         var qty = parseFloat($('#inpAddQaulity').val());
@@ -74,11 +81,14 @@ $(document).ready(function() {
         $('#inpAddAmount').val(amount.toFixed(2)); // Format to two decimal places
     })
 
-    function selProductCode(){
+    function selProductCode(productid){
         $.ajax({
-            url: API_URL + "Receive/getSelProductCode",
+            url: API_URL + "Receive/getSelProductCodebyID",
             type: 'POST',
             dataType: 'json',
+            data:{
+                id:productid
+            }
         })
         .done(function(data) {
             console.log(data); // Use console.log for better debugging
@@ -159,6 +169,43 @@ $(document).ready(function() {
         initializeDataTable();
     }
 
+    function showListProduct() {
+        // var invoiceNumber = 'IS2402001'
+        var apiUrl = 'http://127.0.0.1/api/Receive/showListProduct';
+        $.ajax({
+            url: apiUrl,
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                // console.log(data[0].isi_document);
+                var html = "";
+                for (var i = 0; i < data.length; i++) {
+                    html += `
+                        <tr>
+                            <td>${i+1}</td>
+                            <td><img src="http://127.0.0.1/IMS_Proplus/assets/img/stock_img/${data[i].mpc_img}" height="80px" alt="Product Image"></td>
+                            <td>${data[i].mb_name}</td>
+                            <td>${data[i].mpc_name}</td>
+                            <td>${data[i].mpc_model}</td>
+                            <td>${data[i].mpc_discription}</td>
+                            <td><a href="#" class="btn btn-secondary btnAddListProduct" data-id="${data[i].mpc_id}"><i class="ti-plus"></i></a></td>
+
+                        </tr>`;
+                }
+                $('#tblListproduct tbody').html(html);
+
+                // Initialize DataTables after updating the table content
+                // $('#tblReceiveDetail').DataTable({
+                //     scrollX: true,
+                // });
+            },
+            error: function(xhr, status, error) {
+                console.error(status + ": " + error);
+            }
+        });
+    
+    }
+
     $('#btnSaveAdd').click(function() {
         var formData = new FormData();
         formData.append('doc_number', $('#inpAddDoc').val());
@@ -221,11 +268,21 @@ $(document).ready(function() {
     });
 
     $('#btnAddProduct').click(function(){
-        $('#mldAddProduct').modal('show')
+        $('#mldSelectProduct').modal('show')
+        showListProduct();
+        
     })
-    $('#mldAddProduct').on('shown.bs.modal', function() {
-        $('#selAddProductCode').trigger('change');
+
+    $('#tblListproduct').on('click', '.btnAddListProduct', function (ev) {
+        $('#mldAddProduct').modal('show');
+        $('#mldSelectProduct').modal('hide');
+        var productid = $(this).data('id');
+        // alert(productid);
+        selProductCode(productid);
+        showProductDetail(productid);
     });
+
+
 
 });
 

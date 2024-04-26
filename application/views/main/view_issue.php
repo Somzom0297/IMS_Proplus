@@ -151,6 +151,10 @@
                                 <label for="edtMainIcon" class="form-label">Document Date</label>
                                 <input type="date" id="inpAddDocDateDetail" class="form-control">
                             </div>
+                            <div class="col-lg-3">
+                                <label for="edtMainIcon" class="form-label">Customer</label>
+                                <input type="text" id="inpAddCustomer" class="form-control">
+                            </div>
                         </div>
                     </form>
                     <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">

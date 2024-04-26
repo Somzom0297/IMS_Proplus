@@ -139,6 +139,7 @@ $(document).ready(function() {
                 if (data.length > 0) {
                     $('#inpAddDocDetail').val(data[0].isi_document);
                     $('#inpAddDocDateDetail').val(data[0].isi_document_date);
+                    $('#inpAddCustomer').val(data[0].isi_customer);
                 }
                 var html = "";
                 for (var i = 0; i < data.length; i++) {

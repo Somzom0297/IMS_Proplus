@@ -42,7 +42,7 @@ $('#tblStockinfo').DataTable({
           download: 'open',
           customize: function(doc) {
             // Add signature
-            var signatureText = '(___________________________)                             (___________________________)                             (___________________________)\n\n.    Noraphat jirasetthasiri                                         Noraphat jirasetthasiri                                         Noraphat jirasetthasiri \n\n   date_____________________                                  date_____________________                                   date_____________________';
+            var signatureText = '(___________________________)                             (___________________________)                             (___________________________)\n\n.    Ratchanun Kundara                                         Pitiphan Jeawpat                                         Woranit Sakunpana \n\n   date_____________________                                  date_____________________                                   date_____________________';
             doc.content.push({ text: signatureText, margin: [0, 210, 0, 0] });
           }
         }

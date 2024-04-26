@@ -213,19 +213,14 @@ $(document).ready(function() {
                     html += `
                         <tr>
                             <td>${i+1}</td>
-                            <td><img src="http://127.0.0.1/IMS_Proplus/assets/img/${data[i].mpc_img}" height="80px" alt="Product Image"></td>
+                            <td><img src="http://127.0.0.1/IMS_Proplus/assets/img/stock_img/${data[i].mpc_img}" height="80px" alt="Product Image"></td>
                             <td>${data[i].mb_name}</td>
-                            <td>${data[i].mpc_name}</td>
                             <td>${data[i].mpc_name}</td>
                             <td>${data[i].mpc_model}</td>
                             <td>${data[i].mpc_discription}</td>
                             <td>${data[i].isd_qty}</td>
                             <td>${data[i].isd_price_unit}</td>
                             <td>${data[i].isd_qty * data[i].isd_price_unit}</td>
-                            <td>
-                                <a href="#" class="btn btn-secondary mdlEditReceive" data-id="${data[i].isd_id}"><i class="ti-pencil"></i></a>
-                                <a href="#" class="btn btn-danger mdlDeleteReceive" data-id="${data[i].isd_id}"><i class="ti-trash"></i></a>
-                            </td>
                         </tr>`;
                 }
                 $('#tblReceiveDetail tbody').html(html);

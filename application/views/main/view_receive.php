@@ -257,7 +257,7 @@
 
                     <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                         <div class="col-lg-2">
-                            <button type="button" class="btn btn-circle btn-success" style="background-color: #15CEA2!important" id="btnAddReceiveDetail"><i class="ti-plus"></i> <b>Add</b></button>
+                            <!-- <button type="button" class="btn btn-circle btn-success" style="background-color: #15CEA2!important" id="btnAddReceiveDetail"><i class="ti-plus"></i> <b>Add</b></button> -->
                         </div>
                         <div class="col-lg-10">
                             <!-- <button type="button" class="btn btn-circle btn-danger float-end" id="btnDownload"><i class="ti-file"></i> PDF</button>
@@ -273,13 +273,13 @@
                                             <th class="text-center">NO.</th>
                                             <th class="text-center">PICTURE</th>
                                             <th class="text-center">BRAND</th>
-                                            <th class="text-center">PRODUCT</th>
+                                            <th class="text-center">PRODUCT ID</th>
                                             <th class="text-center">MODEL</th>
                                             <th class="text-center">DESCRIPTION</th>
                                             <th class="text-center">QTY</th>
                                             <th class="text-center">PRICE</th>
                                             <th class="text-center">AMOUNT</th>
-                                            <th class="text-center">ACTION</th>
+
                                         </tr>
                                     <tbody class="table-border-bottom-0 text-center" id="tbody">
                                     </tbody>
