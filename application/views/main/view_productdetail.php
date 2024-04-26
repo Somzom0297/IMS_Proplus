@@ -38,9 +38,9 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">NO.</th>
-                                    <th class="text-center">Pic</th>
+                                    <th class="text-center">PICTURE</th>
                                     <th class="text-center">BRAND</th>
-                                    <th class="text-center">PRODUCT CODE</th>
+                                    <th class="text-center">PRODUCT ID</th>
                                     <th class="text-center">MODEL</th>
                                     <th class="text-center">DISCRPTION</th>
                                     <th class="text-center">Total</th>
