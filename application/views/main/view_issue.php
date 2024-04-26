@@ -27,8 +27,8 @@
 
 
             <div class="col-lg-3">
-                <button type="button" class="btn btn-circle btn-light " id="btnPrint"><i class="ti-printer"></i> Print</button>
-                <button type="button" class="btn btn-circle btn-danger" id="btnpdf"><i class="ti-file"></i> PDF</button>
+                <!-- <button type="button" class="btn btn-circle btn-light " id="btnPrint"><i class="ti-printer"></i> Print</button>
+                <button type="button" class="btn btn-circle btn-danger" id="btnpdf"><i class="ti-file"></i> PDF</button> -->
             </div>
 
             <div class="col-lg-5">
@@ -152,6 +152,10 @@
                                 <input type="date" id="inpAddDocDateDetail" class="form-control">
                             </div>
                             <div class="col-lg-3">
+                                <label for="edtMainIcon" class="form-label">Invoice Number</label>
+                                <input type="text" id="inpAddInv" class="form-control">
+                            </div>
+                            <div class="col-lg-3">
                                 <label for="edtMainIcon" class="form-label">Customer</label>
                                 <input type="text" id="inpAddCustomer" class="form-control">
                             </div>
@@ -182,7 +186,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="btnSaveEdit">Save changes</button>
+                    <!-- <button type="button" class="btn btn-primary" id="btnSaveEdit">Save changes</button> -->
                 </div>
             </div>
         </div>

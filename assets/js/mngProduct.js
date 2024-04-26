@@ -15,22 +15,22 @@ $(document).ready(function(){
                 columns: [
                     { data: null, render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
-                        }
+                        },className:'text-center'
                     },
                     {
                         data: 'mpc_img',
                         render: function(data, type, row) {
                             return '<img src="http://127.0.0.1/IMS_Proplus/assets/img/stock_img/' + data + '" height="80px" alt="Product Image">';
-                        }
+                        },className:'text-center'
                     },
-                    { data: 'mb_name' },
-                    { data: 'mpc_name' },
-                    { data: 'mpc_model' },
-                    { data: 'mpc_discription' },
+                    { data: 'mb_name',className:'text-center' },
+                    { data: 'mpc_name',className:'text-center' },
+                    { data: 'mpc_model',className:'text-center' },
+                    { data: 'mpc_discription',className:'text-center' },
                     { data: 'isd_qty',className:'text-center'  },
                     { data: 'mpc_id', render: function(data) {
                         return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlProductDetail" data-id="' + data + '" data-bs-toggle="modal" data-bs-target="#detailProduct"><i class="ti-search"></i> Details</a>';
-                    }}
+                    },className:'text-center'}
                 ],
             });
         })
@@ -151,6 +151,7 @@ $(document).ready(function(){
                 });
                 $('#inpAddModel').addClass('border-danger');
             }
+            initializeDataTable();
         })
         .fail(function(xhr, status, error) {
             console.error(xhr.responseText);

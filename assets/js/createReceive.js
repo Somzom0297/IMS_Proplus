@@ -170,41 +170,51 @@ $(document).ready(function() {
     }
 
     function showListProduct() {
-        // var invoiceNumber = 'IS2402001'
         var apiUrl = 'http://127.0.0.1/api/Receive/showListProduct';
         $.ajax({
             url: apiUrl,
             type: 'GET',
             dataType: 'json',
             success: function(data) {
-                // console.log(data[0].isi_document);
                 var html = "";
                 for (var i = 0; i < data.length; i++) {
                     html += `
                         <tr>
-                            <td>${i+1}</td>
-                            <td><img src="http://127.0.0.1/IMS_Proplus/assets/img/stock_img/${data[i].mpc_img}" height="80px" alt="Product Image"></td>
-                            <td>${data[i].mb_name}</td>
-                            <td>${data[i].mpc_name}</td>
-                            <td>${data[i].mpc_model}</td>
-                            <td>${data[i].mpc_discription}</td>
-                            <td><a href="#" class="btn btn-secondary btnAddListProduct" data-id="${data[i].mpc_id}"><i class="ti-plus"></i></a></td>
-
+                            <td class="text-center">${i + 1}</td>
+                            <td class="text-center"><img src="http://127.0.0.1/IMS_Proplus/assets/img/stock_img/${data[i].mpc_img}" height="80px" alt="Product Image"></td>
+                            <td class="text-center">${data[i].mb_name}</td>
+                            <td class="text-center">${data[i].mpc_name}</td>
+                            <td class="text-center">${data[i].mpc_model}</td>
+                            <td class="text-center">${data[i].mpc_discription}</td>
+                            <td class="text-center"><a href="#" class="btn btn-secondary btnAddListProduct" data-id="${data[i].mpc_id}"><i class="ti-plus"></i></a></td>
                         </tr>`;
                 }
                 $('#tblListproduct tbody').html(html);
-
+    
                 // Initialize DataTables after updating the table content
-                // $('#tblReceiveDetail').DataTable({
-                //     scrollX: true,
-                // });
+                // $('#tblListproduct').DataTable(); // Initialize DataTable with default settings
             },
             error: function(xhr, status, error) {
                 console.error(status + ": " + error);
             }
         });
-    
     }
+    
+    // Function to handle search input
+    $(document).on('keyup', '#searchInput', function() {
+        var searchText = $(this).val().toLowerCase();
+        $('#tblListproduct tbody tr').each(function() {
+            var rowData = $(this).text().toLowerCase();
+            if (rowData.indexOf(searchText) === -1) {
+                $(this).hide();
+            } else {
+                $(this).show();
+            }
+        });
+    });
+    
+    // Call the function to show the list of products
+    showListProduct();
 
     $('#btnSaveAdd').click(function() {
         var formData = new FormData();

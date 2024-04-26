@@ -40,15 +40,34 @@ $(document).ready(function() {
                 columns: [
                     { data: null, render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
-                    }},
-                    { data: 'isi_document' },
-                    { data: 'isi_document_date' },
-                    { data: 'total' },
+                    },className:'text-center'},
+                    { data: 'isi_document',className:'text-center' },
+                    { data: 'isi_document_date',className:'text-center' },
+                    { data: 'total',className:'text-center' },
                     { data: 'isi_document', render: function(data) {
                         return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlIssueDetails" data-id="' + data + '" ><i class="ti-search"></i> Details</a>';
-                    }}
+                    },className:'text-center'}
                 ],
-                scrollX: true
+                dom: 'Bfrtip', // Buttons for export
+                searching: false,
+                buttons: [
+                    {
+                        
+                        extend: 'pdfHtml5',
+                        text: 'Download PDF',
+                        filename: 'stock_info_pdf',
+                        download: 'open',
+                        customize: function(doc) {
+                            // Customize the PDF document
+                            doc.content[1].table.widths = ['25%', '25%', '25%', '25%']; // Example: Set custom widths for each column
+                            doc.content[1].table.body.forEach(row => {
+                                row.splice(-1, 1); // Remove the last cell from each row (corresponding to the fifth column)
+                            });
+                            // var signatureText = '(___________________________)                             (___________________________)                             (___________________________)\n\n.    Noraphat jirasetthasiri                                         Noraphat jirasetthasiri                                         Noraphat jirasetthasiri \n\n   date_____________________                                  date_____________________                                   date_____________________';
+                            // doc.content.push({ text: signatureText, margin: [0, 210, 0, 0] });
+                        }
+                    }
+                ]
             });
             });
     }
@@ -139,21 +158,22 @@ $(document).ready(function() {
                 if (data.length > 0) {
                     $('#inpAddDocDetail').val(data[0].isi_document);
                     $('#inpAddDocDateDetail').val(data[0].isi_document_date);
+                    $('#inpAddInv').val(data[0].isi_invoice);
                     $('#inpAddCustomer').val(data[0].isi_customer);
                 }
                 var html = "";
                 for (var i = 0; i < data.length; i++) {
                     html += `
                         <tr>
-                            <td>${i+1}</td>
-                            <td><img src="http://127.0.0.1/IMS_Proplus/assets/img/stock_img/${data[i].mpc_img}" height="80px" alt="Product Image"></td>
-                            <td>${data[i].mb_name}</td>
-                            <td>${data[i].mpc_name}</td>
-                            <td>${data[i].mpc_model}</td>
-                            <td>${data[i].mpc_discription}</td>
-                            <td>${data[i].isi_qty}</td>
-                            <td>${data[i].isd_price_unit}</td>
-                            <td>${data[i].isi_qty * data[i].isd_price_unit}</td>
+                            <td class="text-center">${i+1}</td>
+                            <td class="text-center"><img src="http://127.0.0.1/IMS_Proplus/assets/img/stock_img/${data[i].mpc_img}" height="80px" alt="Product Image"></td>
+                            <td class="text-center">${data[i].mb_name}</td>
+                            <td class="text-center">${data[i].mpc_name}</td>
+                            <td class="text-center">${data[i].mpc_model}</td>
+                            <td class="text-center">${data[i].mpc_discription}</td>
+                            <td class="text-center">${data[i].isi_qty}</td>
+                            <td class="text-center">${data[i].isi_priceofunit}</td>
+                            <td class="text-center">${data[i].isi_qty * data[i].isi_priceofunit}</td>
                         </tr>`;
                 }
                 $('#tblProductIssueDetails tbody').html(html);
@@ -375,7 +395,9 @@ $(document).ready(function() {
 
     $('#btnConfirmIssue').click(function() {
         $('#mldConfirmIssue').modal('show');
-        
+        showIssueConfirm();
+    });
+        function showIssueConfirm(){
         var apiUrl = 'http://127.0.0.1/api/Receive/getConfirmProductDetail';
         $.ajax({
             url: apiUrl,
@@ -388,16 +410,15 @@ $(document).ready(function() {
                 for (var i = 0; i < data.length; i++) {
                     html += `
                         <tr>
-                            <td>${i+1}</td>
-                            <td><img src="http://127.0.0.1/IMS_Proplus/assets/img/stock_img/${data[i].mpc_img}" height="80px" alt="Product Image"></td>
-                            <td>${data[i].mb_name}</td>
-                            <td>${data[i].mpc_name}</td>
-                            <td>${data[i].mpc_model}</td>
-                            <td>${data[i].mpc_discription}</td>
-                            <td>${data[i].isi_qty}</td>
-                            <td>
-                                <a href="#" class="btn btn-secondary mdlEditReceive" data-id="${data[i].isd_id}"><i class="ti-pencil"></i></a>
-                                <a href="#" class="btn btn-danger mdlDeleteReceive" data-id="${data[i].isd_id}"><i class="ti-trash"></i></a>
+                            <td class="text-center">${i+1}</td>
+                            <td class="text-center"><img src="http://127.0.0.1/IMS_Proplus/assets/img/stock_img/${data[i].mpc_img}" height="80px" alt="Product Image"></td>
+                            <td class="text-center">${data[i].mb_name}</td>
+                            <td class="text-center">${data[i].mpc_name}</td>
+                            <td class="text-center">${data[i].mpc_model}</td>
+                            <td class="text-center">${data[i].mpc_discription}</td>
+                            <td class="text-center">${data[i].isi_qty}</td>
+                            <td class="text-center">
+                                <a href="#" class="btn btn-danger mdlDeleteIssue" data-id="${data[i].lsi_id}"><i class="ti-trash"></i></a>
                             </td>
                         </tr>`;
                 }
@@ -412,12 +433,37 @@ $(document).ready(function() {
                 console.error(status + ": " + error);
             }
         });
-    });
+    }
 
     // $('#mldAddIssue').on('shown.bs.modal', function() {
     //     selProductCode();
     //     $('#selAddProductCode').trigger('change');
     // });
+
+    $('#tblProductIssueConfirm').on('click', '.mdlDeleteIssue', function (ev) {
+        ev.preventDefault();
+        var id = $(this).data('id');
+        $.ajax({
+            url: API_URL + "Receive/deleteIssueConfirm",
+            type: 'GET',
+            data: {
+                id: id
+            },
+            success: function(response) {
+                // Handle success response
+                Swal.fire({
+                    title: "Success!",
+                    text: "Delete succefully",
+                    icon: "success"
+                  });
+                  showIssueConfirm();
+            },
+            error: function(xhr, status, error) {
+                // Handle error
+                console.error(xhr.responseText);
+            }
+        })
+    });
 
     $('#mdlEditReceive').on('shown.bs.modal', function() {
         $('#selEditProductCode').trigger('change');
