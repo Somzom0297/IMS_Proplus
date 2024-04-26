@@ -59,7 +59,6 @@ $(document).ready(function(){
                     $('#inpDis').val(data[0].mpc_discription);
                     $('#inpBrand').val(data[0].mb_name);
                     $('#inpSize').val(data[0].mib_size);
-                   
                 }
                 if(data[0].isd_doc_number !== undefined){
                     var html = "";
@@ -104,6 +103,7 @@ $(document).ready(function(){
         showIndex();
         showSize();
     })
+    
     $('#btnAddSaveProduct').click(function() {
         var formData = new FormData();
         formData.append('brand',$('#inpAddBrand').val());
