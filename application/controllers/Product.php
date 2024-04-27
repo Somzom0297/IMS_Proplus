@@ -52,6 +52,13 @@ class Product extends CI_Controller {
         $this->render_view('main/view_productdetail');
         
 	}
+	public function mngBrand()
+	{
+		
+		$this->another_js = "<script src='" . base_url() . "assets/js/mngBrand.js'></script>";
+        $this->render_view('main/view_createBrand');
+        
+	}
 	
     public function callApi()
     {

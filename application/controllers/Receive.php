@@ -60,6 +60,14 @@ class Receive extends CI_Controller {
         
 	}
 
+    public function callApiAddBrand()
+    {
+        
+        $result = $this->curPostRequest('Receive/insertBrand', array('data' => serialize($_POST),'session' => serialize($this->session->userdata('userName'))));
+        echo json_encode($result);
+
+    }
+
 	
     public function callApi()
     {

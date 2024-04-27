@@ -152,17 +152,20 @@
                                 </div>
                                 <div class="col-lg-6 mb-3">
                                     <label for="edtMainMenu" class="form-label">Brand</label>
-                                    <input type="text " id="inpAddBrand" class="form-control" placeholder="Enter Brand">
+                                    <select name="selAddBrand" id="selAddBrand" class="form-control">
+                                        <option value="">- Brand -</option>
+                                    </select>
                                 </div>
-                                <div class="col-lg-3">
-                                    <label for="edtMainMenu" class="form-label">Index Number</label>
-                                    <input type="text " id="inpAddIndex" class="form-control">
-                                </div>
+
                                 <div class="col-lg-3">
                                     <label for="edtMainMenu" class="form-label">Size Box</label>
                                     <select name="selAddSize" id="selAddSize" class="form-control">
                                         <option value="">- Size -</option>
                                     </select>
+                                </div>
+                                <div class="col-lg-3">
+                                    <!-- <label for="edtMainMenu" class="form-label">Index Number</label> -->
+                                    <input type="hidden" id="inpAddIndex" class="form-control">
                                 </div>
                                 <div class="col-lg-3">
                                     <label for="edtMainIcon" class="form-label">Product ID</label>

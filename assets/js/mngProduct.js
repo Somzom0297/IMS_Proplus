@@ -102,6 +102,7 @@ $(document).ready(function(){
         showBrand();
         showIndex();
         showSize();
+        
     })
     
     $('#btnAddSaveProduct').click(function() {
@@ -178,25 +179,6 @@ $(document).ready(function(){
     $('#mldAddProduct').on('hidden.bs.modal', function() {
         resetFrom();
     });
-    function showBrand() {
-        $.ajax({
-            url: API_URL + "Receive/getBrandAll",
-            type: 'POST',
-            dataType: 'json',
-        })
-        .done(function(data) {
-        //    alert(data[0].mpc_model)
-        $('#selAddBrand').empty();
-        // Append new options from data received
-        $.each(data, function(index, item) {
-            $('#selAddBrand').append($('<option>', {
-                value: item.mb_id,
-                text: item.mb_name
-            }));
-        });
-
-        })
-    }
 
     function showIndex() {
         $.ajax({
@@ -226,6 +208,26 @@ $(document).ready(function(){
             $('#selAddSize').append($('<option>', {
                 value: item.mib_size,
                 text: item.mib_size
+            }));
+        });
+
+        })
+    }
+    function showBrand() {
+        $.ajax({
+            url: API_URL + "Receive/getBrandAll",
+            type: 'POST',
+            dataType: 'json',
+        })
+        .done(function(data) {
+        //    alert(data[0].mpc_model)
+
+        $('#selAddBrand').empty();
+        // Append new options from data received
+        $.each(data, function(index, item) {
+            $('#selAddBrand').append($('<option>', {
+                value: item.mb_id,
+                text: item.mb_name
             }));
         });
 
