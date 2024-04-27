@@ -56,7 +56,10 @@ $(document).ready(function() {
                         download: 'open',
                         customize: function(doc) {
                             // Customize the PDF document
-                            doc.content[1].table.widths = ['10%', '15%', '20%', '15%', '15%', '10%', '20%']; // Example: Set custom widths for each column
+                            doc.content[1].table.widths = ['16%', '16%', '16%', '16%', '16%', '16%']; // Example: Set custom widths for each column
+                            doc.content[1].table.body.forEach(row => {
+                                row.splice(-1, 1); // Remove the last cell from each row (corresponding to the fifth column)
+                            });
                             // var signatureText = '(___________________________)                             (___________________________)                             (___________________________)\n\n.    Noraphat jirasetthasiri                                         Noraphat jirasetthasiri                                         Noraphat jirasetthasiri \n\n   date_____________________                                  date_____________________                                   date_____________________';
                             // doc.content.push({ text: signatureText, margin: [0, 210, 0, 0] });
                         }

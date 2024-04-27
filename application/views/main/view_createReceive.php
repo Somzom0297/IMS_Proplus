@@ -203,17 +203,22 @@
                                 <label class="col-form-label">
                                     <h4 style="font-weight: 600;"><i class="ti-file" style="padding-right: 7px;"></i>List product</h4>
                                 </label>
+                                
+                            </div>
+                            <div class="col-lg-4 mb-3">
+                            <input type="text" id="searchInput" class="form-control " style="margin:right" placeholder="Search by product ID...">
+                                
                             </div>
                           <table id="tblListproduct" class="table card-table border" style="width:100%">
                             <thead>
                                 <tr>
-                                  <th>No.</th>
-                                  <th>PICTURE</th>
-                                  <th>BRAND</th>
-                                  <th>PRODUCT ID</th>
-                                  <th>MODEL</th>
-                                  <th>DESCRIPTION</th>
-                                  <th>ACTION</th>
+                                  <th class="text-center">No.</th>
+                                  <th class="text-center">PICTURE</th>
+                                  <th class="text-center">BRAND</th>
+                                  <th class="text-center">PRODUCT ID</th>
+                                  <th class="text-center">MODEL</th>
+                                  <th class="text-center">DESCRIPTION</th>
+                                  <th class="text-center">ACTION</th>
                               </tr>
                             </thead>
                             <tbody>

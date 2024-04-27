@@ -121,6 +121,7 @@
                     <button type="button" class="btn-close me-2 mb-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                
                 <form enctype="multipart/form-data">
                     <hr>
                         <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
@@ -197,6 +198,7 @@
                     <button type="button" class="btn-close me-2 mb-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    
                 <table id="tblProductIssueConfirm" class="table card-table border" style="width:100%" >
                     <thead>
                         <tr>

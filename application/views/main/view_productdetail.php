@@ -159,13 +159,13 @@
                                     <input type="text " id="inpAddIndex" class="form-control">
                                 </div>
                                 <div class="col-lg-3">
-                                    <label for="edtMainMenu" class="form-label">Size Box / Location</label>
+                                    <label for="edtMainMenu" class="form-label">Size Box</label>
                                     <select name="selAddSize" id="selAddSize" class="form-control">
                                         <option value="">- Size -</option>
                                     </select>
                                 </div>
                                 <div class="col-lg-3">
-                                    <label for="edtMainIcon" class="form-label">Product Code</label>
+                                    <label for="edtMainIcon" class="form-label">Product ID</label>
                                     <input type="text" id="inpAddProduct" class="form-control" placeholder="Enter Product">
                                 </div>
                                 <div class="col-lg-3 mb-3">
