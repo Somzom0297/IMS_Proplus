@@ -1,7 +1,7 @@
 $(document).ready(function() {
     showYear();
     // var id_doc = $('#inpAddDoc').val();
-
+    $('#yearSelect, #monthSelect').trigger('change');
     // showIssueDetail(id_doc);
 
     $('#inpAddPriceUnit').keyup(function(){
@@ -17,8 +17,8 @@ $(document).ready(function() {
 
     const table = TableProduct();
     // This function clears the content of all modals
-    const table1 = TableReceive();
 
+    const table1 = TableReceive();
     function TableReceive() {
         var year = $('#yearSelect').val();
         var month = $('#monthSelect').val();
@@ -34,7 +34,7 @@ $(document).ready(function() {
         .done(function(data) {
             console.log(data); // Use console.log for better debugging
 
-            var table = $('#tblStockIssue').DataTable({
+            var table1 = $('#tblStockIssue').DataTable({
                 data: data,
                 destroy: true,
                 columns: [
@@ -72,6 +72,7 @@ $(document).ready(function() {
             });
     }
     
+    
     function TableProduct() {
 
         $.ajax({
@@ -98,22 +99,15 @@ $(document).ready(function() {
                         },
                         className:'text-center'
                     },
-                    { data: 'mb_name' },
-                    { data: 'mpc_name' },
-                    { data: 'mpc_model' },
-                    { data: 'mpc_discription' },
-                    { 
-                        data: null, 
-                        render: function(data, type, row) {
-                            // Assuming 'isd_qty' and 'out_qty' are properties of the 'row' object
-                            var qty = row.qty || 0; // Default to 0 if 'isd_qty' is undefined
-                            var out_qty = row.out_qty || 0; // Default to 0 if 'out_qty' is undefined
-                            return '<div class="text-center">' + (qty - out_qty) + '</div>';
-                        }
-                    },
+                    { data: 'mb_name',className:'text-center' },
+                    { data: 'mpc_name',className:'text-center' },
+                    { data: 'mpc_model',className:'text-center' },
+                    { data: 'mpc_discription',className:'text-center' },
+                    { data: 'qtyy',className:'text-center' },
+                    
                     { data: 'mpc_name', render: function(data) {
                         return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlIssueDetail" data-id="' + data + '"><i class="ti-shopping-cart"></i> Issue</a>';
-                    }}
+                    },className:'text-center'}
                 ],
                 scrollX: true
             });
@@ -434,11 +428,6 @@ $(document).ready(function() {
             }
         });
     }
-
-    // $('#mldAddIssue').on('shown.bs.modal', function() {
-    //     selProductCode();
-    //     $('#selAddProductCode').trigger('change');
-    // });
 
     $('#tblProductIssueConfirm').on('click', '.mdlDeleteIssue', function (ev) {
         ev.preventDefault();

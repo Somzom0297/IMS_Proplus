@@ -247,7 +247,7 @@ $(document).ready(function() {
                     text: "tum kan add succefully",
                     icon: "success"
                   });
-                  
+                  $('#inpAddQaulity').val();
                 initializeDataTable();
             },
             error: function(xhr, status, error) {

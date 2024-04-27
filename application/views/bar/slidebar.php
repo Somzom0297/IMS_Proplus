@@ -15,6 +15,7 @@
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
               <span class=""><?php echo $this->session->userdata('firstname'); ?></span>&nbsp;&nbsp;&nbsp;
               <span class=""><?php echo $this->session->userdata('lastname'); ?></span>
+              <input type="hidden" id="inpUserId" value="<?php echo $this->session->userdata('userId'); ?>">
               <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
                   <img src="{base_url}/assets/img/profile.png" alt="" width="35" height="35" class="rounded-circle">
