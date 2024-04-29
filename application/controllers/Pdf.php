@@ -27,24 +27,6 @@ class Pdf extends FPDF {
         $pdf->Cell(40,10,$data['title']);
         $pdf->Output();
     }
-    public function generatePdf() {
-        // Load data from the model
-        $this->load->model('your_model');
-        $data = $this->your_model->get_data(); // Assuming you have a method to get data from the model
-        
-        // Load the FPDF library and create a new instance of Test class
-        require_once APPPATH . '/libraries/fpdf.php';
-        require_once APPPATH . '/libraries/Test.php';
-        $pdf = new Test($data);
-        
-        // Add a page
-        $pdf->AddPage();
-        
-        // Generate content using the data
-        $pdf->generateContent();
-        
-        // Output the PDF
-        $pdf->Output();
-    }
+
     // Additional methods if needed
 }

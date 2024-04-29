@@ -43,8 +43,9 @@
                                     <th class="text-center">PRODUCT ID</th>
                                     <th class="text-center">MODEL</th>
                                     <th class="text-center">DISCRPTION</th>
-                                    <th class="text-center">Total</th>
-                                    <th class="text-center">Action</th>
+                                    <th class="text-center">TOTAL</th>
+                                    <!-- <th class="text-center">CREATE BY</th> -->
+                                    <th class="text-center">ACTION</th>
                                 </tr>
                             <tbody class="table-border-bottom-0 text-center">
 
@@ -103,9 +104,18 @@
                             <div class="col-lg-4">
                                 <label for="edtMainMenu" class="form-label">DISCRIPTION</label>
                                 <input type="text" class="form-control" id="inpDis" aria-describedby="basic-addon3">
+                                <input type="hidden" class="form-control" id="getProduct" aria-describedby="basic-addon3">
                             </div>
                         </div>
-
+                        <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
+                        <div class="col-lg-2">
+                            <!-- <button type="button" class="btn btn-circle btn-success" style="background-color: #15CEA2!important" id="btnAddReceiveDetail"><i class="ti-plus"></i> <b>Add</b></button> -->
+                        </div>
+                        <div class="col-lg-10">
+                            <button type="button" class="btn btn-circle btn-danger float-end" id="btnDownload"><i class="ti-file"></i> PDF</button>
+                            <!-- <button type="button" class="btn btn-circle btn-light float-end me-2" id="btnDownload"><i class="ti-printer"></i> Print</button> -->
+                        </div>
+                    </div>
                         <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                             <div class="table-responsive text-nowrap">
                                 <div class="card-datatable table-responsive pt-0">
@@ -115,6 +125,7 @@
                                                 <th class="text-center">NO.</th>
                                                 <th class="text-center">Document Number</th>
                                                 <th class="text-center">Document Date</th>
+                                                <th class="text-center">Create By</th>
                                                 <th class="text-center">QTY</th>
                                                 <th class="text-center">PRICE</th>
                                             </tr>
@@ -166,7 +177,7 @@
                                 <div class="col-lg-3">
                                     <!-- <label for="edtMainMenu" class="form-label">Index Number</label> -->
                                     <input type="hidden" id="inpAddIndex" class="form-control">
-                                </div>
+                                </div> 
                                 <div class="col-lg-3">
                                     <label for="edtMainIcon" class="form-label">Product ID</label>
                                     <input type="text" id="inpAddProduct" class="form-control" placeholder="Enter Product">

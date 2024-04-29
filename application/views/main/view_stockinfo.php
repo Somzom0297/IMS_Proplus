@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div>
-
+        <button type="button" class="btn btn-circle btn-danger float-end" id="btnDownloadStockInfo"><i class="ti-file"></i> PDF</button><br><br><br>
         <div class="card">
             <div class="card-body">
                 <!-- start page container -->

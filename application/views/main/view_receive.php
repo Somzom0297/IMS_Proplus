@@ -63,6 +63,7 @@
                                     <th class="text-center">INV No.</th>
                                     <th class="text-center">PO No.</th>
                                     <th class="text-center">Total</th>
+                                    <th class="text-center">Create By</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             <tbody class="table-border-bottom-0 text-center">
@@ -217,7 +218,7 @@
                     <div class="form-group row mb-2" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                         <div class="col-lg-12 mb-3">
                             <label class="col-form-label">
-                                <h5 style="font-weight: 600;"><i class="ti-file" style="padding-right: 7px;"></i>Form input location stock</h5>
+                                <h5 style="font-weight: 600;"><i class="ti-file" style="padding-right: 7px;"></i>Form input product</h5>
                             </label>
                         </div>
                         <div class="col-lg-3">
@@ -260,8 +261,8 @@
                             <!-- <button type="button" class="btn btn-circle btn-success" style="background-color: #15CEA2!important" id="btnAddReceiveDetail"><i class="ti-plus"></i> <b>Add</b></button> -->
                         </div>
                         <div class="col-lg-10">
-                            <!-- <button type="button" class="btn btn-circle btn-danger float-end" id="btnDownload"><i class="ti-file"></i> PDF</button>
-                            <button type="button" class="btn btn-circle btn-light float-end me-2" id="btnDownload"><i class="ti-printer"></i> Print</button> -->
+                            <button type="button" class="btn btn-circle btn-danger float-end" id="btnDownload"><i class="ti-file"></i> PDF</button>
+                            <!-- <button type="button" class="btn btn-circle btn-light float-end me-2" id="btnDownload"><i class="ti-printer"></i> Print</button> -->
                         </div>
                     </div>
                     <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">

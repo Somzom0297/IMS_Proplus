@@ -38,6 +38,7 @@ $(document).ready(function(){
     $('#tblProductDetail').on('click', '.mdlProductDetail', function () {
         var product_code = $(this).data('id');
         // var inv = '12401001';
+        $('#getProduct').val(product_code);
         // alert(product_code)
         showReceiveDetail(product_code);
     });
@@ -68,7 +69,7 @@ $(document).ready(function(){
                                 <td>${i+1}</td>
                                 <td>${data[i].isd_doc_number}</td>
                                 <td>${data[i].isd_doc_date}</td>
-     
+                                <td>${"K. " + data[i].sa_firstname + " " + data[i].sa_lastname}</td>
                                 <td>${data[i].isd_qty}</td>
                                 <td>${data[i].isd_price_unit}</td>
                             </tr>`;
@@ -78,11 +79,6 @@ $(document).ready(function(){
                 }
 
                 $('#tblReceiveDetail tbody').html(html);
-
-                // Initialize DataTables after updating the table content
-                // $('#tblReceiveDetail').DataTable({
-                //     scrollX: true,
-                // });
             },
             error: function(xhr, status, error) {
                 console.error(status + ": " + error);
@@ -106,8 +102,9 @@ $(document).ready(function(){
     })
     
     $('#btnAddSaveProduct').click(function() {
+
         var formData = new FormData();
-        formData.append('brand',$('#inpAddBrand').val());
+        formData.append('brand',$('#selAddBrand').val());
         formData.append('product',$('#inpAddProduct').val());
         formData.append('model',$('#inpAddModel').val());
         formData.append('dis',$('#inpAddDis').val());
@@ -233,5 +230,13 @@ $(document).ready(function(){
 
         })
     }
-    
+
+    $('#btnDownload').click(function(){
+        
+        var mpc_id =  $('#getProduct').val();
+        // alert(isi_document)
+        var url = API_URL + "Report/export_pdf_product/" + mpc_id;// Append invNumber as a parameter
+        window.open(url, '_blank');
+    });
+
 });

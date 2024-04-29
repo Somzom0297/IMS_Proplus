@@ -194,7 +194,7 @@
         <div class="modal-dialog modal-xl" style="width:1200px" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3 class="modal-title" style="margin: 10px 0px;font-weight: 600;"><i class="ti-pencil-alt mr-3"></i> Add Product</h3>
+                    <h3 class="modal-title" style="margin: 10px 0px;font-weight: 600;"><i class="ti-pencil-alt mr-3"></i> Confirm Product</h3>
                     <button type="button" class="btn-close me-2 mb-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
