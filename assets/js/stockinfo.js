@@ -32,21 +32,7 @@ $(document).ready(function() {
     // $('#tblStockinfo tbody').html(row)
 $('#tblStockinfo').DataTable({
       // scrollX: true,
-      searching: false,
-      dom: 'Bfrtip', // Buttons for export
-      buttons: [
-        {
-          extend: 'pdfHtml5',
-          text: 'Download PDF',
-          filename: 'stock_info_pdf',
-          download: 'open',
-          customize: function(doc) {
-            // Add signature
-            var signatureText = '(___________________________)                             (___________________________)                             (___________________________)\n\n.    Ratchanun Kundara                                         Pitiphan Jeawpat                                         Woranit Sakunpana \n\n   date_____________________                                  date_____________________                                   date_____________________';
-            doc.content.push({ text: signatureText, margin: [0, 210, 0, 0] });
-          }
-        }
-      ]
+      
     });
   })
   .fail(function(xhr, status, error) {
@@ -55,4 +41,10 @@ $('#tblStockinfo').DataTable({
     // Optionally display error message to the user
     // $('#errorContainer').text('An error occurred: ' + errorMessage);
   });
+
+  $('#btnDownloadStockInfo').click(function(){
+
+    var url = API_URL + "Report/export_pdf_stockInffo";// Append invNumber as a parameter
+    window.open(url, '_blank');
+});
 });

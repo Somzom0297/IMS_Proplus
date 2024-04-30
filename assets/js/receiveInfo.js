@@ -1,13 +1,5 @@
 $(document).ready(function() {
-    $('#btnpdf').on('click', function() {
-        var doc = new jsPDF();
 
-        // Convert the table to a PDF table
-        doc.autoTable({ html: '#tblStockRecive' });
-
-        // Save the PDF
-        doc.save('table.pdf');
-    });
     showYear();
 
     const table = TableReceive();
@@ -35,36 +27,25 @@ $(document).ready(function() {
                 columns: [
                     { data: null, render: function(data, type, row, meta) {
                         return meta.row + meta.settings._iDisplayStart + 1;
-                    }},
+                    }, className: 'text-center' },
                     { data: 'isd_doc_number', className: 'text-center' }, // Centering content of this column
                     { data: 'isd_inv_date', className: 'text-center' }, // Centering content of this column
                     { data: 'isd_inv_no', className: 'text-center' }, // Centering content of this column
                     { data: 'isd_po_number', className: 'text-center' }, // Centering content of this column
                     { data: 'total', className: 'text-center' }, // Centering content of this column
+                    { 
+                        data: null,
+                        render: function(data, type, row) {
+                            return 'K.' +row.sa_firstname + ' ' + row.sa_lastname; // Concatenate first name and last name
+                        },
+                        className: 'text-center'
+                    },
                     { data: 'isd_inv_no', render: function(data) {
                         return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlReceiveDetail" data-id="' + data + '" "><i class="ti-search"></i> Details</a>';
                     }, className: 'text-center' } // Centering content of this column
                 ],
-                dom: 'Bfrtip', // Buttons for export
-                searching: false,
-                buttons: [
-                    {
-                        
-                        extend: 'pdfHtml5',
-                        text: 'Download PDF',
-                        filename: 'stock_info_pdf',
-                        download: 'open',
-                        customize: function(doc) {
-                            // Customize the PDF document
-                            doc.content[1].table.widths = ['16%', '16%', '16%', '16%', '16%', '16%']; // Example: Set custom widths for each column
-                            doc.content[1].table.body.forEach(row => {
-                                row.splice(-1, 1); // Remove the last cell from each row (corresponding to the fifth column)
-                            });
-                            // var signatureText = '(___________________________)                             (___________________________)                             (___________________________)\n\n.    Noraphat jirasetthasiri                                         Noraphat jirasetthasiri                                         Noraphat jirasetthasiri \n\n   date_____________________                                  date_____________________                                   date_____________________';
-                            // doc.content.push({ text: signatureText, margin: [0, 210, 0, 0] });
-                        }
-                    }
-                ]
+
+
             });
         })
         .fail(function(xhr, status, error) {
@@ -429,4 +410,9 @@ $(document).ready(function() {
         $('#selEditProductCode').trigger('change');
     });
 
+    $('#btnDownload').click(function(){
+        var invNumber = $('#invNumber').val();
+        var url = API_URL + "Report/export_pdf/" + invNumber;// Append invNumber as a parameter
+        window.open(url, '_blank');
+    });
   });

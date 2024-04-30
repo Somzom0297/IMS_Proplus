@@ -44,37 +44,24 @@ $(document).ready(function() {
                     { data: 'isi_document',className:'text-center' },
                     { data: 'isi_document_date',className:'text-center' },
                     { data: 'total',className:'text-center' },
+                    { 
+                        data: null,
+                        render: function(data, type, row) {
+                            return 'K.' +row.sa_firstname + ' ' + row.sa_lastname; // Concatenate first name and last name
+                        },
+                        className: 'text-center'
+                    },
                     { data: 'isi_document', render: function(data) {
                         return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlIssueDetails" data-id="' + data + '" ><i class="ti-search"></i> Details</a>';
                     },className:'text-center'}
                 ],
-                dom: 'Bfrtip', // Buttons for export
-                searching: false,
-                buttons: [
-                    {
-                        
-                        extend: 'pdfHtml5',
-                        text: 'Download PDF',
-                        filename: 'stock_info_pdf',
-                        download: 'open',
-                        customize: function(doc) {
-                            // Customize the PDF document
-                            doc.content[1].table.widths = ['25%', '25%', '25%', '25%']; // Example: Set custom widths for each column
-                            doc.content[1].table.body.forEach(row => {
-                                row.splice(-1, 1); // Remove the last cell from each row (corresponding to the fifth column)
-                            });
-                            // var signatureText = '(___________________________)                             (___________________________)                             (___________________________)\n\n.    Noraphat jirasetthasiri                                         Noraphat jirasetthasiri                                         Noraphat jirasetthasiri \n\n   date_____________________                                  date_____________________                                   date_____________________';
-                            // doc.content.push({ text: signatureText, margin: [0, 210, 0, 0] });
-                        }
-                    }
-                ]
+                
             });
             });
     }
     
-    
     function TableProduct() {
-
+  
         $.ajax({
             url: API_URL + "Receive/showProductIssue",
             type: 'POST',
@@ -183,6 +170,7 @@ $(document).ready(function() {
         });
     
     }
+
     $('#btnAddIssue').on('click', function() {
         selProductCode();
     });
@@ -314,6 +302,7 @@ $(document).ready(function() {
         formData.append('qty', $('#inpAddQaulity').val());
         formData.append('Unit', $('#inpAddUnit').val());
         formData.append('price', $('#inpAddPriceUnit').val());
+        formData.append('user_id', $('#inpUserId').val());
 
         var inv = $('#inpAddDoc').val();
         $.ajax({
@@ -323,6 +312,7 @@ $(document).ready(function() {
             processData: false, // Prevent jQuery from automatically processing data
             contentType: false, // Prevent jQuery from automatically setting contentType
             success: function(response) {
+                TableProduct();
                 // Handle success response
                 Swal.fire({
                     title: "Success!",
@@ -330,6 +320,7 @@ $(document).ready(function() {
                     icon: "success"
                   });
                   $('#mldAddIssue').modal('hide');
+                  
                 // showIssueDetail(inv);
             },
             error: function(xhr, status, error) {
@@ -391,7 +382,7 @@ $(document).ready(function() {
         $('#mldConfirmIssue').modal('show');
         showIssueConfirm();
     });
-        function showIssueConfirm(){
+    function showIssueConfirm(){
         var apiUrl = 'http://127.0.0.1/api/Receive/getConfirmProductDetail';
         $.ajax({
             url: apiUrl,
@@ -432,26 +423,43 @@ $(document).ready(function() {
     $('#tblProductIssueConfirm').on('click', '.mdlDeleteIssue', function (ev) {
         ev.preventDefault();
         var id = $(this).data('id');
-        $.ajax({
-            url: API_URL + "Receive/deleteIssueConfirm",
-            type: 'GET',
-            data: {
-                id: id
-            },
-            success: function(response) {
-                // Handle success response
-                Swal.fire({
-                    title: "Success!",
-                    text: "Delete succefully",
-                    icon: "success"
-                  });
-                  showIssueConfirm();
-            },
-            error: function(xhr, status, error) {
-                // Handle error
-                console.error(xhr.responseText);
+    
+        // Show SweetAlert confirmation dialog
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'You won\'t be able to revert this!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // User confirmed deletion, send AJAX request
+                $.ajax({
+                    url: API_URL + "Receive/deleteIssueConfirm",
+                    type: 'GET',
+                    data: {
+                        id: id
+                    },
+                    success: function(response) {
+                        TableProduct();
+                        // Handle success response
+                        Swal.fire({
+                            title: "Success!",
+                            text: "Delete successfully",
+                            icon: "success"
+                        });
+
+                        showIssueConfirm();
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error
+                        console.error(xhr.responseText);
+                    }
+                });
             }
-        })
+        });
     });
 
     $('#mdlEditReceive').on('shown.bs.modal', function() {
@@ -540,4 +548,14 @@ $(document).ready(function() {
 
 
     }
+
+    function reloadTable() {
+        table.ajax.reload(null, false);
+    }
+
+    $('#btnDownload').click(function(){
+        var isi_document = $('#inpAddDocDetail').val();
+        var url = API_URL + "Report/export_pdf_issue/" + isi_document;// Append invNumber as a parameter
+        window.open(url, '_blank');
+    });
   });
