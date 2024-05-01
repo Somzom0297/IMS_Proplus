@@ -415,4 +415,5 @@ $(document).ready(function() {
         var url = API_URL + "Report/export_pdf/" + invNumber;// Append invNumber as a parameter
         window.open(url, '_blank');
     });
+    
   });

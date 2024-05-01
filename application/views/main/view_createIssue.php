@@ -132,7 +132,8 @@
                             </div>
                             <div class="col-lg-6 mb-2">
                                 <label for="edtMainMenu" class="form-label">Product Code</label>
-                                <input type="text " id="selAddProductCode" class="form-control">
+                                <input type="text" id="selAddProductCode" class="form-control">
+                                
 
                             </div>
                             <div class="col-lg-3">
@@ -164,6 +165,7 @@
                             <div class="col-lg-3">
                                 <label for="edtMainIcon" class="form-label">Qty</label>
                                 <input type="text" id="inpAddQaulity" class="form-control" placeholder="Enter Purchase Order">
+
                             </div>
                             <div class="col-lg-3">
                                 <label for="edtMainIcon" class="form-label">Unit</label>
@@ -198,7 +200,8 @@
                     <button type="button" class="btn-close me-2 mb-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    
+                <input type="hidden" id="getAddProductCode" class="form-control">
+                <input type="hidden" id="getAddQaulity" class="form-control" placeholder="Enter Purchase Order">
                 <table id="tblProductIssueConfirm" class="table card-table border" style="width:100%" >
                     <thead>
                         <tr>

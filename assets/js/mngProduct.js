@@ -27,7 +27,7 @@ $(document).ready(function(){
                     { data: 'mpc_name',className:'text-center' },
                     { data: 'mpc_model',className:'text-center' },
                     { data: 'mpc_discription',className:'text-center' },
-                    { data: 'isd_qty',className:'text-center'  },
+                    { data: 'mpc_qty',className:'text-center'  },
                     { data: 'mpc_id', render: function(data) {
                         return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlProductDetail" data-id="' + data + '" data-bs-toggle="modal" data-bs-target="#detailProduct"><i class="ti-search"></i> Details</a>';
                     },className:'text-center'}
@@ -70,7 +70,7 @@ $(document).ready(function(){
                                 <td>${data[i].isd_doc_number}</td>
                                 <td>${data[i].isd_doc_date}</td>
                                 <td>${"K. " + data[i].sa_firstname + " " + data[i].sa_lastname}</td>
-                                <td>${data[i].isd_qty}</td>
+                                <td>${data[i].mpc_qty}</td>
                                 <td>${data[i].isd_price_unit}</td>
                             </tr>`;
                     }
