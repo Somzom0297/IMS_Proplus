@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+
     // initializeDataTable();
     function initializeDataTable() {
         var doc_id = $('#inpAddDoc').val();
@@ -109,7 +111,7 @@ $(document).ready(function() {
     }
 
     function selIndexBox(){
-
+        alert()
         $.ajax({
             url: API_URL + "Receive/getSelIndexBox",
             type: 'POST',
@@ -132,6 +134,7 @@ $(document).ready(function() {
             console.log('Error:', errorMessage);
         });
     }
+
 
     function selBrand(){
         $.ajax({
@@ -176,6 +179,7 @@ $(document).ready(function() {
             type: 'GET',
             dataType: 'json',
             success: function(data) {
+                console.log(data);
                 var html = "";
                 for (var i = 0; i < data.length; i++) {
                     html += `
@@ -232,6 +236,7 @@ $(document).ready(function() {
         formData.append('qty', $('#inpAddQaulity').val());
         formData.append('price', $('#inpAddPriceUnit').val());
         formData.append('discription', $('#inpAddDiscription').val());
+        formData.append('inpUserId', $('#inpUserId').val());
 
         $.ajax({
             url: API_URL + "Receive/insertReceive",
@@ -247,7 +252,7 @@ $(document).ready(function() {
                     text: "tum kan add succefully",
                     icon: "success"
                   });
-                  $('#inpAddQaulity').val();
+                  $('#inpAddQaulity').val('');
                 initializeDataTable();
             },
             error: function(xhr, status, error) {
@@ -263,7 +268,7 @@ $(document).ready(function() {
             text: "Item has been added successfully",
             icon: "success"
         }).then(function() {
-            window.location.href = "http://127.0.0.1/IMS_Proplus/Product/mngProduct";
+            window.location.href = "http://127.0.0.1/IMS_Proplus/Receive/mngReceive";
         });
     });
 

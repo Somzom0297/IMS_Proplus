@@ -158,11 +158,26 @@
                                 <input type="text" id="inpAddInv" class="form-control">
                             </div>
                             <div class="col-lg-3">
+                                <label for="edtMainIcon" class="form-label">Invoice Date</label>
+                                <input type="text" id="inpAddInvDate" class="form-control">
+                            </div>
+                            
+                        </div>
+                    </form>
+                    <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
+                    <div class="col-lg-6">
                                 <label for="edtMainIcon" class="form-label">Customer</label>
                                 <input type="text" id="inpAddCustomer" class="form-control">
                             </div>
-                        </div>
-                    </form>
+                            <div class="col-lg-3">
+                                <label for="edtMainIcon" class="form-label">PO Number</label>
+                                <input type="text" id="inpAddPO" class="form-control">
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="edtMainIcon" class="form-label">PO Date</label>
+                                <input type="text" id="inpAddPODate" class="form-control">
+                            </div>
+                    </div>
                     <div class="form-group row mb-3 mt-3" style="padding: 0px 10px;padding-bottom: 20px;margin: 10px 0px;">
                         <div class="col-lg-2">
                             <!-- <button type="button" class="btn btn-circle btn-success" style="background-color: #15CEA2!important" id="btnAddReceiveDetail"><i class="ti-plus"></i> <b>Add</b></button> -->
@@ -179,9 +194,9 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center">NO.</th>
-                                            <th class="text-center">PIC</th>
+                                            <th class="text-center">PICTURE</th>
                                             <th class="text-center">BRAND</th>
-                                            <th class="text-center">PRODUCT</th>
+                                            <th class="text-center">PRODUCT ID</th>
                                             <th class="text-center">MODEL</th>
                                             <th class="text-center">DESCRIPTION</th>
                                             <th class="text-center">QTY</th>

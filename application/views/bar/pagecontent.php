@@ -21,6 +21,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <!-- <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet"> -->
 <link href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css" rel="stylesheet">
 <link href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 <!-- https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css
 https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css -->
 

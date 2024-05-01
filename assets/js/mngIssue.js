@@ -91,7 +91,6 @@ $(document).ready(function() {
                     { data: 'mpc_model',className:'text-center' },
                     { data: 'mpc_discription',className:'text-center' },
                     { data: 'qtyy',className:'text-center' },
-                    
                     { data: 'mpc_name', render: function(data) {
                         return '<a href="javascript:void(0)" class="btn btn-secondary float-center mdlIssueDetail" data-id="' + data + '"><i class="ti-shopping-cart"></i> Issue</a>';
                     },className:'text-center'}
@@ -140,6 +139,9 @@ $(document).ready(function() {
                     $('#inpAddDocDetail').val(data[0].isi_document);
                     $('#inpAddDocDateDetail').val(data[0].isi_document_date);
                     $('#inpAddInv').val(data[0].isi_invoice);
+                    $('#inpAddInvDate').val(data[0].isi_invoice_date);
+                    $('#inpAddPO').val(data[0].isi_purchase_order);
+                    $('#inpAddPODate').val(data[0].isi_purchase_order_date);
                     $('#inpAddCustomer').val(data[0].isi_customer);
                 }
                 var html = "";
@@ -201,7 +203,7 @@ $(document).ready(function() {
             .done(function(data) {
             //    alert(data[0].mpc_model)
             
-               $('#inpQty').val((data[0].total != null) ? data[0].total : 0)
+               $('#inpQty').val(data[0].qtyy)
                $('#selAddModel').val(data[0].mpc_model)
                $('#inpAddDiscription').val(data[0].mpc_discription)
                $('#inpAddIndex').val(data[0].mib_number)
@@ -391,6 +393,10 @@ $(document).ready(function() {
 
             success: function(data) {
                 // console.log(data);
+                if (data.mpc_name && data.isi_qty) {
+                    $('#getAddProductCode').val(data.mpc_id);
+                    $('#getAddQaulity').val(data.isi_qty);
+                }
                 var html = "";
                 for (var i = 0; i < data.length; i++) {
                     html += `
@@ -471,9 +477,16 @@ $(document).ready(function() {
     });
 
     $('#btnAddSaveIssueConfirm').click(function() {
+       var qty = $('#getAddQaulity').val()
+       var product_name = $('#getAddProductCode').val()
+    //    alert(qty);
         $.ajax({
             url: API_URL + "Receive/insertIssueConfirm",
             type: 'GET',
+            data: {
+                qty: qty,
+                product_name: product_name
+            },
             contentType: false,
             processData: false,
             success: function(response) {
@@ -545,8 +558,6 @@ $(document).ready(function() {
         $('#inpAddQaulity').val('');
         $('#inpAddPriceUnit').val('');
         $('#inpAddTotal').val('');
-
-
     }
 
     function reloadTable() {
