@@ -54,7 +54,7 @@
                                 <div class="col-md-5 col-sm-10 col-5 mt-3">
                                     <div class="row ">
                                         <div class="col-lg-3 p-t-20">
-                                            <span>Sub Menu</span><span class="red-text">*</span>
+                                            <span>Main Menu</span><span class="red-text">*</span>
                                         </div>
                                         <div class="col-lg">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
@@ -69,7 +69,7 @@
                                 <div class="col-md-5 col-sm-2 col-5">
                                     <div class="row ">
                                         <div class="col-lg-5 p-t-20">
-                                            <span>Sub Menu controller</span><span class="red-text">*</span>
+                                            <span>Sub Menu</span><span class="red-text">*</span>
                                         </div>
                                         <div class="col-lg">
                                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
