@@ -10,17 +10,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Proplus</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-
-<!-- <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet"> -->
-<link href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">    
+ <link href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" rel="stylesheet">     
+	<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">     
+	<link rel="stylesheet" href="{base_url}src/assets/css/styles.min.css">     
+	<link href="{base_url}assets/css/themify-icons/themify-icons.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 <!-- https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css
 https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css -->
@@ -191,42 +186,28 @@ https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css -->
 	</div>
 	
 	<!-- bootstrap -->
-	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{base_url}src/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="{base_url}src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{base_url}src/assets/js/sidebarmenu.js"></script>
+    <script src="{base_url}src/assets/js/app.min.js"></script>
+    <script src="{base_url}src/assets/libs/simplebar/dist/simplebar.js"></script>
+    <script src="{base_url}src/assets/js/dashboard.js"></script>
+    <script src="{base_url}src/assets/js/login.js"></script>
+    <script src="{base_url}src/assets/js/logout.js"></script>
+    <script src="{base_url}assets/js/submanu.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Select2 JS -->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-<!-- Additional Libraries/Plugins -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
-<script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"></script>
-<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.dataTables.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
-<script src="{base_url}src/assets/libs/simplebar/dist/simplebar.js"></script>
-<!-- https://code.jquery.com/jquery-3.7.1.js
-https://cdn.datatables.net/2.0.5/js/dataTables.js
-https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js
-https://cdn.datatables.net/buttons/3.0.2/js/buttons.dataTables.js
-https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js
-https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js
-https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js -->
-<!-- Your Custom Scripts -->
-<script src="{base_url}assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="{base_url}assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-<script src="{base_url}assets/plugins/sparkline/jquery.sparkline.js"></script>
-<script src="{base_url}assets/js/pages/sparkline/sparkline-data.js"></script>
-<script src="{base_url}src/assets/js/sidebarmenu.js"></script>
-<script src="{base_url}src/assets/js/app.min.js"></script>
-<script src="{base_url}src/assets/js/dashboard.js"></script>
-<script src="{base_url}src/assets/js/login.js"></script>
-<script src="{base_url}src/assets/js/logout.js"></script>
-<script src="{base_url}assets/js/submanu.js"></script>
+<!-- Bootstrap JavaScript -->
+<script src="<?php echo base_url() ?>/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url() ?>/assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script src="<?php echo base_url() ?>/assets/plugins/sparkline/jquery.sparkline.js"></script>
+<script src="<?php echo base_url() ?>/assets/js/pages/sparkline/sparkline-data.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> -->
 
 <!-- <script src="{base_url}assets/js/mngAccount.js"></script> -->
 	

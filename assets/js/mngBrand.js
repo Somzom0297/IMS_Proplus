@@ -31,7 +31,8 @@ $(document).ready(function(){
                         data: 'mb_status_flg', 
                         render: function(data, type, row) {
                             var [btnClass, btnText, status] = data !== '0' ? ['btn-success', 'Enable' ,'0'] : ['btn-danger', 'Disable', '1'];
-                            return '<a href="javascript:void(0)" class="btn float-center btn-edit-brand ' + btnClass + '" id="btnStatusBrand" data-status="' + status + '" data-id="' + row.mb_id + '">'+ btnText +'</a>';
+                            
+                            return '<button class="btn rounded-3 fw-semibold btn-edit-brand ' + btnClass + '" id="btnStatusBrand" data-status="' + status + '" data-id="' + row.mb_id + '">'+ btnText +'</button>';
                         },
                         className:'text-center'
                     },

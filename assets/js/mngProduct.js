@@ -70,7 +70,7 @@ $(document).ready(function(){
                                 <td>${data[i].isd_doc_number}</td>
                                 <td>${data[i].isd_doc_date}</td>
                                 <td>${"K. " + data[i].sa_firstname + " " + data[i].sa_lastname}</td>
-                                <td>${data[i].total_qty}</td>
+                                <td>${data[i].isd_qty}</td>
                                 <td>${data[i].isd_price_unit}</td>
                             </tr>`;
                     }

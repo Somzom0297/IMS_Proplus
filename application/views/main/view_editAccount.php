@@ -5,7 +5,7 @@
     <!-- Account -->
     <div class="card-body d-flex justify-content-center">
       <div class="d-flex align-items-start align-items-sm-center gap-4">
-        <img src="{base_url}src/assets/images/profile/PF_ad.jpg" alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
+        <img src="{base_url}/assets/img/profile.png" alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar" />
       </div>
     </div>
     <div class="text-center  mb-4">

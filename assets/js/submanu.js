@@ -209,7 +209,7 @@ $(document).ready(function () {
           '<span class="d-flex">' +
           '<i class="' + subMenus.icon + '"></i>' +
           '</span>' +
-          '<span class="menu-inner py-1">' + mainMenuName + '</span>' +
+          '<span class="menu-inner py-1 fw-semibold">' + mainMenuName + '</span>' +
           '</a>' +
           '<ul aria-expanded="false" class="collapse first-level">';
           
@@ -218,7 +218,7 @@ $(document).ready(function () {
           mainMenuHtml += '<li class="sideBar_menu">' +
             '<a href="' + base_url(subMenu.controller) +'" class="sidebar-link">' +
             '<div class="round-16 d-flex align-items-center justify-content-center"></div>' + 
-            '<i class="ti-arrow-circle-right"></i>' +
+            '<i class="ti-hand-point-right"></i>' +
             '<span class="hide-menu">' + subMenu.name + '</span>' +
             '</a>' +
             '</li>';

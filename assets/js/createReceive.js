@@ -111,7 +111,7 @@ $(document).ready(function() {
     }
 
     function selIndexBox(){
-        alert()
+        // alert()
         $.ajax({
             url: API_URL + "Receive/getSelIndexBox",
             type: 'POST',

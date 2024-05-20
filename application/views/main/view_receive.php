@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div>
-        <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-5">
+        <div class="mb-5">
             <div class="card-body pb-0 pt-3">
                 <div class="row align-items-center">
                     <div class="col-9">
@@ -9,8 +9,6 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a class="text-muted text-decoration-none" href="<?php echo base_url('Dashboard/dashboard'); ?>">Home</a>
-                                </li>
-                                <li class=" breadcrumb-item" aria-current="page"> Goods Receive 
                                 </li>
                             </ol>
                         </nav>

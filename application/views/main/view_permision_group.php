@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <!--  Row 1 -->
     <div>
-        <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-5">
+        <div class="mb-5">
             <div class="card-body px-5 py-3">
                 <div class="row align-items-center">
                     <div class="col-9">
@@ -10,8 +10,6 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a class="text-muted text-decoration-none" href="<?php echo base_url('Dashboard/dashboard'); ?>">Home</a>
-                                </li>
-                                <li class=" breadcrumb-item" aria-current="page">Permision Group
                                 </li>
                             </ol>
                         </nav>
@@ -34,7 +32,7 @@
 
                     <div class="card-body">
                         <div class="row py-2 mt-2">
-                            <span class="fs-5 fw-bold text-primary-emphasis mb-5">Permission Group</span>
+                            <span class="fs-5 fw-bold  mb-5">Permission Group</span>
                             <div class="col-md-6 col-sm-10 col-5">
                                 <div class="row ">
                                     <div class="col-lg-3 p-t-20 mb-4">
@@ -48,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="col-md col-sm-2 col-2 p-t-20">
-                                <button type="button" class="btn btn-circle btn-primary" id="btnSaveAdd"><i class="fa fa-plus"></i> Add Permision Group</button>
+                                <button type="button" class="btn btn-circle btn-success" id="btnSaveAdd"><i class="fa fa-plus"></i> Add Permision Group</button>
                             </div>
                             <div class="col justify-content-start ms-1">
                                 <div id="errMegadd" style="color: red; display: none;">Please enter in English only.</div>

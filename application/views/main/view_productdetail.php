@@ -1,5 +1,5 @@
     <div class="container-fluid">
-        <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-5">
+        <div class="mb-5">
             <div class="card-body pb-0 pt-3">
                 <div class="row align-items-center">
                     <div class="col-9">
@@ -8,8 +8,6 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a class="text-muted text-decoration-none" href="<?php echo base_url('Dashboard/dashboard'); ?>">Home</a>
-                                </li>
-                                <li class=" breadcrumb-item" aria-current="page"> Goods Receive
                                 </li>
                             </ol>
                         </nav>
@@ -26,7 +24,7 @@
             </div>
 
             <div class="col-lg-9">
-                <button type="button" class="btn btn-primary mb-3" style="float:right" id="btnAddProduct"><i class="ti-plus"></i> Add Product</b></button>
+                <button type="button" class="btn btn-success mb-3" style="float:right" id="btnAddProduct"><i class="ti-plus"></i> Add Product</b></button>
             </div>
         </div>
 
@@ -61,7 +59,7 @@
             <div class="modal-dialog modal-xl" style="width:1200px" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title" style="padding: 0px 10px;margin: 10px 0px;font-weight: 600;"><i class="ti-pencil-alt mr-3"></i> Receive Details</h3>
+                        <h3 class="modal-title" style="padding: 0px 10px;margin: 10px 0px;font-weight: 600;"><i class="ti-pencil-alt mr-3"></i> Product Details</h3>
                         <button type="button" class="btn-close me-2 mb-3" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">

@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <!--  Row 1 -->
     <div>
-        <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-5">
+        <div class="card bg-info-subtle  shadow-none position-relative overflow-hidden mb-5">
             <div class="card-body pb-0 pt-3">
                 <div class="row align-items-center">
                     <div class="col-9">

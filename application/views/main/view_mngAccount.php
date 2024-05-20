@@ -24,17 +24,16 @@
 
 	<!--  Row 1 -->
 	<div>
-		<div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-5">
+		<div class=" mb-5">
 			<div class="card-body px-5 py-3">
 				<div class="row align-items-center">
 					<div class="col-9">
-						<h4 class="fw-semibold mb-8">Manage Account</h4>
+						<h4 class="fw-semibold mb-8">Account</h4>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item">
 									<a class="text-muted text-decoration-none" href="<?php echo base_url('Dashboard/dashboard'); ?>">Home</a>
 								</li>
-								<li class=" breadcrumb-item" aria-current="page">Manage Account
 								</li>
 							</ol>
 						</nav>
@@ -56,10 +55,10 @@
 				<div class="card">
 					<div class="card-body">
 						<div class="mb-5">
-							<h4 class="fs-5 fw-bold text-primary-emphasis ">Account</h4>
+							<h4 class="fs-5 fw-bold  ">Account</h4>
 						</div>
 						<div class="d-flex justify-content-end mt-2 pr-2">
-							<button type="button" class="btn btn-circle btn-primary" id="callmodelAdd" data-bs-toggle="modal" data-bs-target="#mdlAdd"><i class="fa fa-plus"></i>Add Account </button>
+							<button type="button" class="btn btn-circle btn-success" id="callmodelAdd" data-bs-toggle="modal" data-bs-target="#mdlAdd"><i class="fa fa-plus"></i>Add Account </button>
 						</div>
 						<hr>
 						<div class="table-responsive text-nowrap">

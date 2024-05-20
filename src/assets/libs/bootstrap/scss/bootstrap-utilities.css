@@ -1948,11 +1948,11 @@
   background-color: var(--bs-secondary-bg-subtle) !important;
 }
 
-.bg-success-subtle {
+.bg-info-subtle  {
   background-color: var(--bs-success-bg-subtle) !important;
 }
 
-.bg-info-subtle {
+.bg-info-subtle  {
   background-color: var(--bs-info-bg-subtle) !important;
 }
 

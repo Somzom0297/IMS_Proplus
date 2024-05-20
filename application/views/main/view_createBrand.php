@@ -1,5 +1,5 @@
 <div class="container-fluid">
-        <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-5">
+        <div class="mb-5">
             <div class="card-body pb-0 pt-3">
                 <div class="row align-items-center">
                     <div class="col-9">
@@ -8,8 +8,6 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a class="text-muted text-decoration-none" href="<?php echo base_url('Dashboard/dashboard'); ?>">Home</a>
-                                </li>
-                                <li class=" breadcrumb-item" aria-current="page"> Master Brand
                                 </li>
                             </ol>
                         </nav>
@@ -26,7 +24,7 @@
             </div>
 
             <div class="col-lg-9">
-                <button type="button" class="btn btn-primary mb-3" style="float:right" id="btnAddBrand"><i class="ti-plus"></i> Add Brand</b></button>
+                <button type="button" class="btn btn-success mb-3" style="float:right" id="btnAddBrand"><i class="ti-plus"></i> Add Brand</b></button>
             </div>
         </div>
 

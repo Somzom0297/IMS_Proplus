@@ -1,17 +1,15 @@
 <div class="container-fluid">
     <!--  Row 1 -->
     <div>
-        <div class="card bg-info-subtle shadow-none position-relative overflow-hidden mb-5">
+        <div class="mb-5">
             <div class="card-body px-5 py-3">
                 <div class="row align-items-center">
                     <div class="col-9">
-                        <h4 class="fw-semibold mb-8">Manage Sub Menu</h4>
+                        <h4 class="fw-semibold mb-8">Sub Menu</h4>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
                                     <a class="text-muted text-decoration-none" href="<?php echo base_url('Dashboard/dashboard'); ?>">Home</a>
-                                </li>
-                                <li class=" breadcrumb-item" aria-current="page">Manage Sub Menu
                                 </li>
                             </ol>
                         </nav>
@@ -39,7 +37,7 @@
                             </select>
                         </div>
                         <div class="col">
-                            <button type="button" class="btn btn-circle btn-primary" id="btnSerchMain">Search</button>
+                            <button type="button" class="btn btn-circle btn-success" id="btnSerchMain">Search</button>
                         </div>
                     </div>
                 </div>
@@ -52,7 +50,7 @@
                     <div class="col-md-12">
                         <div class="card container">
                             <div class="row py-2 mt-2">
-                                <span class="fs-5 fw-bold text-primary-emphasis mb-4">Register Sub Menu</span>
+                                <span class="fs-5 fw-bold  mb-4">Register Sub Menu</span>
                                 <div class="col-md-5 col-sm-10 col-5">
                                     <div class="row ">
                                         <div class="col-lg-3 p-t-20">
@@ -80,7 +78,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md col-sm-2 col-2 p-t-20">
-                                    <button type="button" class="btn btn-circle btn-primary" id="btnSaveAdd">Add</button>
+                                    <button type="button" class="btn btn-circle btn-success" id="btnSaveAdd">Add</button>
                                 </div>
                                 <div class="col-12 col-sm-12 justify-content-start">
                                     <div id="errMegadd" style="color: red; display: none;">Please enter in English only.</div>

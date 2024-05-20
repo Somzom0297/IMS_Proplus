@@ -54,6 +54,8 @@
   max-width: 100%; /* Not required for horizontal scroll to trigger */
   max-height: 100%; /* Needed for vertical scroll to trigger */
   scrollbar-width: none;
+  background: linear-gradient(to bottom, #ffffff, #d6f0eb, #b3e5db, #14DEB5);
+  /* background-image: url('https://propluscorp.co.th/wp-content/uploads/2021/09/background-Wave-Pro.svg'); */
   -ms-overflow-style: none;
 }
 
